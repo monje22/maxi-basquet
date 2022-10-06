@@ -1,0 +1,30 @@
+body{
+    background-color: #252525;
+}
+.titulo{
+    text-align: center;
+    
+}
+.form{
+    position: center;
+    background-color: #ffff;
+    border-radius: 8px;
+    padding: 4%;
+    padding-top: 30px;
+    margin: 30%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.btn{
+    font-weight: 500;
+    border-width: 2px;
+}
+.submit-btn{
+    text-align: center;
+}
+.form-label{
+    font-weight: 450;
+}
+.link{
+    text-align: center;
+}
