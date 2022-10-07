@@ -7,63 +7,85 @@
     <title>Inscripcion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel='stylesheet' href='../css/formulario_inscripcion.css'>
+    <link rel="shortcut icon" href="../img/icono.png">
 </head>
 <body>
-    <div class="form">
+    <div class="formulario">
         <h2 class="titulo">Inscripcion</h2>
-        <form>
-            <div class="mb-3">
-                <label  class="form-label">Nombre Delegado</label>
-                <input type="text" class="form-control"  >
+        <form id="form">
+            <div class="mb-3" id="nombre" >
+                <label  class="form-label">Nombre Completo Delegado</label>
+                <input type="text" id="nombDelegado" class="form-control" placeholder="jose..." required >
+                <p class="input-error">Nombre invalido</p>
               </div>
             <div class="mb-3">
                 <label  class="form-label">Nombre Equipo</label>
-                <input type="text" class="form-control"  >
+                <input type="text" class="form-control" placeholder="equipo"  required>
               </div>
-            <div class="mb-3">
+            <div class="mb-3" id="correo">
                 <label class="form-label">Correo Delegado</label>
-                <input type="email" class="form-control"  >
+                <input type="email" class="form-control" id="mail" placeholder="usuario@ejemplo.com"  required>
+                <p class="input-error">Correo invalido</p>
               </div>
-            <div class="mb-3">
+            <div class="mb-3" id="contraseña1">
                 <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" >
-                <span id="passwordHelpInline" class="form-text">
-                    Contraseña mayor a 4 caracteres.
+                <input type="password" id="password" class="form-control" required>
+                <span  class="form-text" aria-required="true">
+                    Contraseña debe ser de 6 o mas caracteres.
                 </span>
+                <p class="input-error">contrasela invalida</p>
               </div>
-            <div class="mb-3">
+            <div class="mb-3" id="contraseña2">
                 <label  class="form-label">Confirmar Contraseña</label>
-                <input type="password" class="form-control" >
+                <input type="password" id="password2" class="form-control" required>
+                <p class="input-error">contraseñas no coinciden</p>
               </div>
-            <div class="mb-3">
-                <label  class="form-label">Teléfono Delegado</label>
-                <input type="text" class="form-control"  >
+            <div class=" mb-3">
+                <div class=" input-group" >
+                  <select class="prefijo form-select" required>
+                    <option selected>prefijo...</option>
+                    <option value="1">+591</option><!--bolivia-->
+                    <option value="2">+54</option><!--argentina-->
+                    <option value="3">+52</option><!--mexico-->
+                    <option value="4">+56</option><!--chile-->
+                    <option value="5">+55</option><!--brazil-->
+                    <option value="6">+57</option><!--colombia-->
+                    <option value="7">+593</option><!--ecuador-->
+                    <option value="8">+51</option><!--peru-->
+                    <option value="9">+598</option><!--uruguay-->
+                    <option value="10">+58</option><!--venezuela-->
+                  </select>
+                  <input type="phone" class="form-control" id="validationDefault01" required >
+                </div>
+                
               </div>
             <div class="input-group mb-3">
                 <label  class="input-group-text">Categoria</label>
-                <select class="form-select">
-                  <option>+40</option>
-                  <option>+45</option>
-                  <option>+50</option>
-                  <option>+55</option>
-                  <option>+60</option>
+                <select class="form-select" required>
+                  <option selected>Seleccione Categoria...</option>
+                  <option value="1">+40</option>
+                  <option value="2">+45</option>
+                  <option value="3">+50</option>
+                  <option value="4">+55</option>
+                  <option value="5">+60</option>
                 </select>
               </div>
             <br>
             <div class="mb-3">
                 <h6>Comprobante de pago</h6>
                 <br>
-                <button type="button" class="btn btn-outline-primary">Subir Imagen</button>    
+                <input type="file" class="file form-control">
               </div>
             <br>
             <div class="submit-btn">
                 <button type="submit" class="btn btn-danger">enviar</button>
             </div>
             <br>
-            <button class="btn  btn-link link">ya tienes cuenta? Pulsa aqui.</button>
+            <button class="login_opt  btn-link link">ya tienes cuenta? Pulsa aqui.</button>
           </form>
     </div>
         
     
 </body>
+    <script src="../js/formulario_inscripcion.js"></script>
 </html>

@@ -5,7 +5,7 @@ body{
     text-align: center;
     
 }
-.form{
+.formulario{
     position: center;
     background-color: #ffff;
     border-radius: 8px;
@@ -15,6 +15,12 @@ body{
     margin-top: 10%;
     margin-bottom: 10%;
 }
+.login_opt{
+    text-align: center;
+    border-width: 0;
+    background-color: #ffff;
+    align-items: center;
+}
 .btn{
     font-weight: 500;
     border-width: 2px;
@@ -23,8 +29,23 @@ body{
     text-align: center;
 }
 .form-label{
-    font-weight: 450;
+    font-weight: 500;
 }
 .link{
     text-align: center;
 }
+.prefijo{
+    padding-right: 20px;
+    max-width: 100px; 
+    box-sizing: 100px;
+}
+.input-error{
+    color: red;
+    font-size: 13px;                            
+    display: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .input-error-activo{
+    display: block;
+  }
