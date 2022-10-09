@@ -10,7 +10,7 @@
 /* FONTS */
 .roboto{
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	letter-spacing: 0.085em;
 }
 .robotoCon{
@@ -67,7 +67,7 @@
 .boxlog{
 	background-color: #fff ;
 	color: black;
-	font-size: 24px;
+	/* font-size: 24px; */
 	display: flex;
 	flex-direction: column;
 	padding: 50px;
@@ -84,8 +84,9 @@
 	margin-bottom: 20px;
 }
 .tit{
-	width: 60vw;
+	width: 35vw;
 	max-width: 800px;
+	
 }
 .contra{
 	text-align: right;
@@ -103,7 +104,7 @@
 	border-radius: 10px;
 	padding: 10px;
 	color: #fff;
-	font-size: 24px;
+	font-size: 20px;
 	
 }
 .btn-ini3{
@@ -111,7 +112,7 @@
 	justify-content: end;
 
 	color: #2B2B2B;
-	font-size: 24px;
+	font-size: 16px;
 	
 }
 .btn-ini1{
@@ -206,4 +207,151 @@
 }
 .logoF{
 	margin-top: 10px;
+}
+.logoF{
+	display: none;
+}
+/* PRUEBA */
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 60px;
+	background-color: #FE0032;
+}
+ .cont-centreado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 800px;
+    width: 50vw;
+    
+} 
+.cont-cabecera{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    min-height:60px ;
+    padding-bottom: 15px;
+
+	font-family: 'Oswald', sans-serif;
+	font-weight: 500;
+	letter-spacing: 0.09em;
+	line-height: 83px;
+} 
+.cont-cabecera p{
+    font-size: 56px;
+    color: #fff;
+}
+
+.cont-texto{
+    justify-content: left;
+    width: 100%;
+    padding-bottom: 20px;
+    font-size: 20px;
+ }
+.cont-texto p{
+    color: #fff;
+    padding-bottom: 10px;
+    
+}
+.cont-texto a{
+    text-decoration: none;
+    color: #fff;
+}
+.cont-formulario{
+    
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    min-height: 400px;
+    flex-direction: column;
+    max-width: 800px;
+    width: 50vw;
+    box-sizing: border-box;
+    border-radius: 10px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.085em;
+}
+.cont-formulario label{
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+.cont-formulario input{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid;
+    height: 30px;
+    margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.085em;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.cont-formulario button{
+    justify-content: center;
+    background-color: black;
+    color: #fff;
+    height: 40px;
+    min-width: 150px;
+    width: 350px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 650;
+}
+.cont-formulario p{
+    padding-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+	.h{
+		display: none
+	}
+	.parent{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.item{
+		border-bottom:none;
+		padding-bottom: 20px;	
+	}
+	.parent1{
+		display: flex;
+		flex-direction: column;
+	}
+	.logoF{
+		display: none;
+	}
+	.logoF1{
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.ic{
+		padding: 0;
+	}
 }
