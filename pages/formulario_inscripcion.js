@@ -10,9 +10,8 @@ const expresiones ={
     password:/^.{6,16}$/
 
 };
-
-form.addEventListener("submit",e=>{
-	e.preventDefault()
+function verificarExpreciones(e){
+	console.log("ola");
 	let nombre=false,email=false,passw=false, passw2=false;
 	//nombreDelegado
 	if(expresiones.nombreDelegado.test(nameD.value)){
@@ -52,7 +51,13 @@ form.addEventListener("submit",e=>{
 	if(nombre && email && passw && passw2 == true){
 		console.log("submit")
 	}
-})
+};
+
+form.addEventListener("submit",e=>{
+	e.preventDefault()
+	verificarExpreciones(e);
+}
+);
 
 
 
