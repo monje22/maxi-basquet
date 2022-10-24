@@ -31,6 +31,7 @@ auth.onAuthStateChanged((user) => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         var uid = user.uid;
         console.log(user)
+        window.location.href = "./home2.html"
             // ...
     } else {
         // User is signed out
