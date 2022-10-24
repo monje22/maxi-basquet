@@ -6,7 +6,7 @@ const Ci_img = document.getElementById("File02");
 const img_perfil= document.getElementById("File01");
 
 const expresiones ={
-    nombre:/^[a-zA-Z]{2,70}$/,
+    nombre:/^[a-zA-Z ñ Ñ]{2,70}$/,
     usuario:/^[a-zA-z_-]{4,16}$/,
     email:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
     password:/^.{6,16}$/,
@@ -89,6 +89,8 @@ Ci_img.addEventListener("change",()=>{
     if(Ci_img.files.length == 1){
         document.getElementById('error-Cedula').classList.remove('input-error-activo');
         document.getElementById('error-Cedula').classList.add('input-error');
+        document.getElementById('File02').classList.remove('is-invalid');
+        document.getElementById('File02').classList.add('is-valid');
         campos['Cedula'] = true;
     }else{
         document.getElementById('error-Cedula').classList.add('input-error-activo');
@@ -100,7 +102,7 @@ Ci_img.addEventListener("change",()=>{
 //BOTON SUBMIT
 form.addEventListener("submit",e=>{
     e.preventDefault();
-    if(campos.Nombre && campos.Altura && campos.Edad && campos.Nacionalidad && campos.Peso && campos.perfil && campos.Ci){
+    if(campos.Nombre && campos.Altura && campos.Edad && campos.Nacionalidad && campos.Peso && campos.perfil && campos.Cedula){
         console.log("subir");
     }
 });

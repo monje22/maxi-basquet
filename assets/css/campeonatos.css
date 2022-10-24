@@ -1,0 +1,45 @@
+body{
+    background-color: #fe0032;
+}
+.card{
+    max-width: 500px;
+    max-height: 500px;
+    margin: 15px;
+}
+.general{
+    margin: 10%;
+}
+.Descripcion{
+    background-color: #ffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    color: #252525;
+}
+.titulo{
+    margin: 4%;
+}
+.btn-incripcion{
+    margin-top: 5px;
+    background-color: #252525;
+    color: #ffff;
+    border-radius: 6px;
+    border-width: 2px;
+    margin-bottom: 8px;
+    width: 200px;
+}
+#boton{
+    text-align: right;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    
+}
+.panel{
+    align-items: center;
+    margin:15px
+}
+#titulo-camp{
+    color: #ffff;
+}
