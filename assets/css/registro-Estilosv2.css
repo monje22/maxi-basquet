@@ -1,0 +1,378 @@
+*{
+   margin: 0;
+   padding: 0;
+   font-family: 'Oswald', sans-serif;
+
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-color: #FE0032 !important;
+}
+ /* comienzo del header*/
+header{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FE0032;
+
+}
+.Logo-nombre{
+    display: flex;
+    align-items: center;
+    
+}
+.Logo-nombre img{
+    height: 25px;
+    margin-left: 50px;
+}
+.Menu-header{
+    align-items: center;
+    max-width: 700px;
+    width: 60vw ;
+    height: 100%;
+    justify-content: center;
+}
+.Menu{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-right: 20px;
+}
+.Menu > li{ 
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    
+    
+}
+.Menu > li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 16px;
+    
+}
+/* fin del header_____________________________________*/
+
+/* comienzo del formulario____________________________*/
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    /*min-width: 100vw;
+    min-height: 100vh;--------Esta parte del codigo no funciona pero dejalo asi :) */
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+.cont-centreado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 800px;
+    width: 45vw;
+    
+}
+.cont-cabecera{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    min-height:60px ;
+    padding-bottom: 15px;
+}
+.cont-cabecera p{
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cont-texto{
+    justify-content: left;
+    width: 100%;
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+.cont-texto p{
+    color: #fff;
+    padding-bottom: 10px;
+    
+}
+.cont-texto a{
+    text-decoration: none;
+    color: #fff;
+}
+.cont-formulario{
+    
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    min-height: 600px;
+    flex-direction: column;
+    max-width: 800px;
+    width: 45vw;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+#titulo{
+    font-size: 24px;
+    font-weight: bold;
+}
+          /*----------ESTILOS DEL FORMULARIO EXPERTIENTO----------*/
+ 
+        .titulo{
+            text-align: center;
+        }
+        .form{
+            background-color: #ffff;
+            border-radius: 8px;
+            padding: 4%;
+            box-sizing: border-box;
+            border: none;
+            justify-content: center;
+        }
+        .submit-btn{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+        .btn{
+            text-align: center;
+            align-items: center;
+            
+        }
+        #File011{
+            display: none;
+        }
+        .archivo{
+            border-radius: 8px;
+            background-color: #FE0032;
+            color: #fff;
+            font-weight: 600;
+            border-width: 2px;
+            padding-left: 6px;
+            padding-right: 6px;
+            width: 170px;
+            height: 40px;
+        }
+        .img_perfil1{
+            text-align: center!important;
+            align-items: center;
+            max-height: 200px;
+            height: auto;
+            border-radius: 50%;
+        }
+        #File01{
+            display: none;
+        }
+        #foto_perfil{
+            text-align: center;
+        }
+        #btn-perfil{
+            text-align: center;
+        }
+        #btn-seleccionarimg{
+            text-align: center;
+        }
+        .cont-formulario input{
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 2px solid;
+            height: 30px;
+            border-radius: 0%;
+            background-color: #fff;
+        }
+        .form-control{
+            font-size: 14px;
+            background-color: #fff;
+            margin-top: 10px;
+        }
+        .cont-formulario label{
+            font-size: 14px;
+            font-weight: 300;
+        }
+        .cont-formulario p{
+            font-size: 14px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 300;
+        }
+        #error-Pesof, #error-Alturaf{
+            background-color: #fff;
+            border: none;
+        }
+        .input-error{
+            color: red;
+            display: none;
+            font-weight: 500;
+        }
+        .input-error-activo{
+            display: block;
+        }
+        .añadir{
+            color: #fff;
+            background-color: #252525;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 650;
+            border: none;
+            padding: 0;
+            height: 40px;
+            min-width: 150px;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .añadir button:hover{
+            color: #fff;
+        }
+
+        .boton{
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .cont-formulario #boton-final{
+            justify-content: center;
+            background-color: black;
+            color: #fff;
+            height: 40px;
+            min-width: 150px;
+            width: 250px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 650;
+        }
+        .form-select{
+            font-size: 14px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        #col2{
+            justify-content: right;
+            padding-right: 0;
+            padding-left: 8px;
+        }
+        #col1{
+            justify-content: right;
+            padding-right: 8px;
+            padding-left: 0;
+        }
+        .foto_perfil{
+            padding-bottom: 40px;
+        }
+        .px-4{
+            margin-bottom: 16px;
+        }
+        .table{
+            margin-top: 20px;
+        }
+        .table th,td{
+            font-size: 14px;
+            font-weight: 300;
+        }
+        .mb-3{
+            margin-top: 10px;
+        }
+        .boton-añadir{
+            display: flex;
+            justify-content: right;
+            
+        }
+        .boton-añadir button{
+            background-color: #FE0032;
+            color: #fff;
+            padding-left: 9px;
+            padding-right: 9px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+/* fin del formulario____________________________*/
+
+
+/* modal____________________________*/
+.img_perfil{
+    text-align: center!important;
+    align-items: center;
+    max-height: 100px;
+    height: auto;
+    border-radius: 50%;
+
+}
+.aux{
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+}
+#contmodal::backdrop{
+    background-color: rgba(0, 0, 0, .60);
+}
+/* modal____________________________*/
+
+/* comienzo del footer____________________________*/
+footer{
+    background-color: #252525;
+
+}
+.menu-footer{
+    display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(0.5, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	padding: 0px 50px;
+	background-color: #2B2B2B;
+	color: #fff;
+	padding-top: 40px;
+	padding-bottom: 0px;
+}
+.menu-footer a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.menu-footer div{
+    border-bottom: #fff 2px solid ;
+    padding-bottom: 20px;
+}
+/* este css es del texto y los logos de las redes sociales de la pagina____________________________*/
+.texto-footer{
+    display: flex;
+    padding-left:50px;
+    padding-right: 50px;
+    padding-top: 15px;
+    flex-direction: row;
+}
+.texto-footer p{
+    color: #fff;
+    font-size: 9px;
+    text-align: left;
+    padding-right: 30px;
+}
+.texto-footer img{
+    flex-direction: row;
+    height: 30px;
+    padding-left: 15px;
+}
+/* este css es del logo que se muestra al final del footer____________________________*/
+.logo-footer{
+    padding-left: 50px;
+    height: 30px;
+    padding-bottom: 50px;
+}
