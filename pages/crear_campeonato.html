@@ -44,7 +44,7 @@
                     <br>
                     <input type="file" class="form-control" id="File_logo" accept="image/jpeg,image/png,image/jpg" >                    
                     <div class="centrar">
-                        <span class="msg-error">Ingrese Logo</span>
+                        <span class="msg-error" id="error-logo">Ingrese Logo</span>
                         <br>
                         <br>
                         <button type="button" class="btn-subir-img" id="btn-logo">Subir Imagen</button>
@@ -54,7 +54,7 @@
                 <div class="" id="Nombre_campeonato">
                     <h4>Nombre Campeonato</h4>
                     <input type="text" class="form-control text-area" id="Nombre">
-                    <span class="msg-error">Ingrese Logo</span>
+                    <p class="msg-error" id="error-Nombre">Ingrese Logo</p>
                     <br>
                 </div>
                 <br>
@@ -62,7 +62,7 @@
                     <div class="row align-item-start">
                         <div class="input-group mb-3 col">
                             <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
-                            <select class="form-select is-valid" id="inputGroupSelect01">
+                            <select class="form-select " id="inputGroupSelect01">
                               <option selected>Elegir...</option>
                               <option value="1">SUB 30</option>
                               <option value="2">SUB 35</option>
@@ -89,14 +89,14 @@
                 </div>
                     <div>
                         <h4>Invitacion</h4>
-                        <input type="text" class="form-control text-inv">
-                        <span class="msg-error">Ingrese Texto valido</span>
+                        <input type="text" class="form-control text-inv" id="Invitacion">
+                        <p class="msg-error" id="error-Invitacion">Ingrese Texto valido</p>
                     </div>
                     <br>
                     <div>
                         <h4>Nombre organizador</h4>
-                        <input type="text" class="form-control text-area">
-                        <span class="msg-error">Ingrese Nombre valido</span>
+                        <input type="text" class="form-control text-area" id="NombreO">
+                        <span class="msg-error" id="error-NombreO">Ingrese Nombre valido</span>
                     </div>
                     <br>
                     <div class="container">
@@ -104,25 +104,38 @@
                             <div class="col">
                                 <h4>Fecha Inicio:</h4>
                                 <br>
-                                <input class="date" type="date" id="Fecha_ini">
+                                <input class="date" type="date" id="Fecha_ini" min="2022-11-05" >
                                 <br>
-                                <span class="msg-error">Ingrese Fecha Valida</span>
+                                <span class="msg-error " id="error-FechaInicio">Ingrese Fecha Valida</span>
                             </div>                            
                             <div class="col">
                                 <h4>Fecha Fin:</h4>
                                 <br>                                
-                                <input class="date" type="date" id="Fecha_fin">
+                                <input class="date" type="date" id="Fecha_fin" >
                                 <br>
-                                <span class="msg-error">Ingrese Fecha Valida</span>
+                                <span class="msg-error" id="error-FechaFin">Ingrese Fecha Valida</span>
                                 <br>
                             </div>
                         </div> 
                         <br>
-                        <h4>Fecha Limite inscripcion:</h4>
-                        <br>
-                        <input class="date" type="date" id="Fecha_limite">
-                        <br>
-                        <span class="msg-error">Ingrese Fecha Valida</span>
+                        <div class="row align-item-start">
+                            <div class="col">
+                                <h4>Fecha Inicio inscripcion:</h4>
+                                <br>
+                                <input class="date" type="date" id="Fecha_Inicio_inscription" >
+                                <br>
+                                <span class="msg-error" id="error-fechaInscripcion">Ingrese Fecha Valida</span>
+                            </div>
+                            <div class="col">
+                                <h4>Fecha Limite inscripcion:</h4>
+                                <br>
+                                <input class="date" type="date" id="Fecha_limite_incription" >
+                                <br>
+                                <span class="msg-error" id="error-fechaLimiteInsc">Ingrese Fecha Valida</span>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
                     <br>
                 <div class="container">
@@ -130,18 +143,18 @@
                         <div class="col">
                             <h4>Costo Preinscripcion</h4>
                             <div class="input-group costo">
-                                <input type="number" step="0.01" class="form-control is-valid">
+                                <input type="number" step="0.01" class="form-control" id="CostoPre">
                                 <label class="input-group-text">$</label>                                                                
                             </div>
-                            <span class="msg-error">Ingrese Precio valido</span>
+                            <span class="msg-error" id="error-CostoPre">Ingrese Precio valido</span>
                         </div>
                         <div class="col">
                             <h4>Costo inscripcion</h4>
                             <div class="input-group costo">
-                                <input type="number" step="0.01" class="form-control">
+                                <input type="number" step="0.01" class="form-control" id="Costo">
                                 <label class="input-group-text">$</label>
                             </div>
-                            <span class="msg-error">Ingrese Precio valido</span>
+                            <span class="msg-error" id="error-Costo">Ingrese Precio valido</span>
                         </div>
                     </div>
 
@@ -160,7 +173,7 @@
                         <span class="msg-error">Ingrese QR</span>
                         <br>
                         <br>
-                        <button class="btn-subir-img" id="QR_btn">Subir Imagen</button>                        
+                        <button type="button" class="btn-subir-img" id="QR_btn">Subir Imagen</button>                        
                     </div>
                     
                 </div>
