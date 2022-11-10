@@ -1,0 +1,58 @@
+body{
+    /* background-color: #2B2B2B; */
+    background-color: grey;
+}
+h5{
+    color: white;
+}
+.events{
+    display: flex;
+    border-right: 2px;
+    border-bottom: 2px;
+    border-color: antiquewhite;
+    margin: auto;
+
+}
+#main{
+    background-color: beige;
+    margin: 5%;
+}
+.date{
+    color: white;
+    display: flex;
+   
+    height: 40;
+    width: 110;
+    max-width: 110;
+    max-height: 40;
+}
+.evento{
+    margin: 4%;
+    /* display: flex; */
+    /* max-width: auto; */
+    max-height: 100px;
+    align-items: center;
+}
+.evento-container{
+    display: flex;
+    max-height: 100px;
+    text-align: center;
+    align-items: flex-start;
+    align-self: center;
+}
+.hora-juego{
+    display: flex;
+    padding-right: 5%;
+}
+.team{
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    padding: 4%;
+}
+.titulo{
+    max-height: 40px;
+}
