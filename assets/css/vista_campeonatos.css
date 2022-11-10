@@ -1,0 +1,66 @@
+body{
+    background-color: #252525;
+}
+.contenedor{
+    background-color: #ECECEC;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top: 3%;
+    padding: 5%;
+    padding-top: 5%;
+    border-radius: 20px;
+}
+.seeker{
+    align-items: center;
+    text-align: center;
+    max-width: 80%;
+    padding-left: 10%;
+}
+.logo_evento{
+    display: block;
+    width: 150px;
+    height: 150px;
+
+}
+.titulo{
+    color: #ECECEC;
+    padding-left: 16%;
+    margin-top: 3%;
+}
+.tarjeta{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.btn-editar{
+    text-align: center;
+    margin-bottom: 3%;
+}
+.btn-edit{
+    background-color: #FE0032;
+    border-radius: 10px;
+    font-weight: 600;
+    border-width: 2px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.btn-edit:hover{
+    transition: .5s;
+    background-color: #b4afaf;
+    border-radius: 10px;
+    box-shadow: #7c7b7b;
+}
+.btn-crearcamp{
+    background-color: #FE0032;
+    margin-top: 10%;
+    color:#ECECEC;
+    /* border-color: #ECECEC; */
+    font-weight: 500;
+    border-width: 2px;
+}
+.nav{
+    align-items: center;
+    text-align: center;
+}
+.active{
+    background-color: #FE0032;
+}
