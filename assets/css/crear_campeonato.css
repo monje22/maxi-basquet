@@ -54,7 +54,7 @@ footer{
     padding-top: 4px;
     padding-bottom: 4px;
 }
-#QR{
+.QR{
     width: 200px;
     height: 200px;
 }
@@ -71,7 +71,7 @@ footer{
 #File_logo{
     display: none;
 }
-#QR-file{
+.QR-file{
     display:none ;
 }
 .costo{

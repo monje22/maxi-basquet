@@ -54,16 +54,16 @@
                 <div class="" id="Nombre_campeonato">
                     <h4>Nombre Campeonato</h4>
                     <input type="text" class="form-control text-area" id="Nombre">
-                    <p class="msg-error" id="error-Nombre">Ingrese Logo</p>
+                    <p class="msg-error" id="error-Nombre">Ingrese Nombre valido</p>
                     <br>
                 </div>
                 <br>
                 <div class="container">
                     <div class="row align-item-start">
                         <div class="input-group mb-3 col">
-                            <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
+                            <label class="input-group-text" for="inputGroupSelect02">Categoria</label>
                             <select class="form-select " id="inputGroupSelect01">
-                              <option selected>Elegir...</option>
+                              <option selected value="0">Elegir...</option>
                               <option value="1">SUB 30</option>
                               <option value="2">SUB 35</option>
                               <option value="3">SUB 40</option>
@@ -75,9 +75,9 @@
                           
     
                           <div class="input-group mb-3 col">
-                            <label class="input-group-text" for="inputGroupSelect01">Rama</label>
-                            <select class="form-select" id="inputGroupSelect01">
-                              <option selected>Elegir...</option>
+                            <label class="input-group-text" for="inputGroupSelect02">Rama</label>
+                            <select class="form-select" id="inputGroupSelect02">
+                              <option selected value="0">Elegir...</option>
                               <option value="1">Hombres</option>
                               <option value="2">Mujeres</option>
                               <option value="3">Mixto</option>
@@ -162,19 +162,49 @@
                 <br>
                 <div>
                     <h4>Imagen QR para deposito:</h4>
-                    <div class="centrar">
-                        <div class="imagen">
-                            <img src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png " id="QR">
-                        </div>
-                    </div>                
                     <br>
-                    <input type="file" class="form-control" id="QR-file" accept="image/jpeg,image/png, image/jpg" >
-                    <div class="centrar">
-                        <span class="msg-error">Ingrese QR</span>
-                        <br>
-                        <br>
-                        <button type="button" class="btn-subir-img" id="QR_btn">Subir Imagen</button>                        
+                    <div class="container">
+                        <div class="row align-item-start">
+                            <div class="col">
+                                <div class="centrar">
+                                    <div>
+                                        <h5>Ingrese qr de Pre-inscripcion:</h5>
+                                    </div>
+                                    <div class="imagen">
+                                        <img src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png " class="QR" id="qr1">
+                                    </div>
+                                </div>                
+                                <br>
+                                <input type="file" class="form-control QR-file" id="QR-file1" accept="image/jpeg,image/png, image/jpg" >
+                                <div class="centrar">
+                                    <span class="msg-error" id="error-qr1">Ingrese imagen QR</span>
+                                    <br>
+                                    <br>
+                                    <button type="button" class="btn-subir-img" id="QR_btn1">Subir Imagen</button>                        
+                                </div>
+                            </div>
+                            <div class="col">        
+                                <div class="centrar">
+                                    <div>
+                                        <h5>Ingrese qr de inscripcion:</h5>
+                                    </div>
+                                    <div class="imagen">
+                                        <img src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png " class="QR" id="qr2">
+                                    </div>
+                                </div>                
+                                <br>
+                                <input type="file" class="form-control QR-file" id="QR-file2" accept="image/jpeg,image/png, image/jpg" >
+                                <div class="centrar">
+                                    <span class="msg-error" id="error-qr2">Ingrese imagen QR</span>
+                                    <br>
+                                    <br>
+                                    <button type="button" class="btn-subir-img" id="QR_btn2">Subir Imagen</button>                        
+                                </div>
+                            </div>
+                            
+                        </div>                        
                     </div>
+                    
                     
                 </div>
                 <br>

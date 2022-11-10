@@ -3,7 +3,10 @@ formulario = document.querySelectorAll('#formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const form = document.getElementById("formulario");
 const Logo_campeonato = document.getElementById("File_logo");
-const QR = document.getElementById("QR-file");
+const QR1 = document.getElementById("QR-file1");
+const QR2 = document.getElementById("QR-file2");
+let dropdown1=document.getElementById("inputGroupSelect01");
+let dropdown2=document.getElementById("inputGroupSelect02")
 //INPUTS_DATES
 const fechaInicio = document.getElementById("Fecha_ini");
 const fechaFin = document.getElementById("Fecha_fin");
@@ -22,7 +25,9 @@ const campos={
     FechaLimiteInsc:false,
     CostoPre:false,
     Costo:false,
-    ImagenQr:false
+    ImagenQr1:false,
+    ImagenQr2:false,
+    Logo:false
 };
 
 const expresiones ={
@@ -118,7 +123,6 @@ fechaInscripcion.addEventListener("change", ()=>{
 fechaLimiteInsc.addEventListener("change", ()=>{
     errorDesactivo('fechaLimiteInsc');
 });
-    
 
 form.addEventListener("submit",e=>{
     e.preventDefault();
@@ -186,18 +190,87 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     });
 });
-//QR
+
+Logo_campeonato.addEventListener("change",()=>{
+    if(Logo_campeonato.files.length == 1){
+        document.getElementById('error-logo').classList.remove('msg-error-activo');
+        document.getElementById('error-logo').classList.add('msg-error');
+        campos['Logo'] = true;
+    }else{
+        document.getElementById('error-logo').classList.add('msg-error-activo');
+        logo.src="../assets/img/logo-placeholder.png";
+        campos['Logo']=false;
+    }    
+});
+
+//QR1
 document.addEventListener("DOMContentLoaded", ()=>{
     
-    const btn_QR = document.getElementById("QR_btn");
-    btn_QR.addEventListener("click",()=>{
-        QR.click();
+    const btn_QR1 = document.getElementById("QR_btn1");
+    btn_QR1.addEventListener("click",()=>{
+        QR1.click();
     });
-    QR.addEventListener("change",()=>{
-        for(let i=0;i<QR.files.length;i++){
-            const img_url = URL.createObjectURL(QR.files[i]);
-            const qr= document.getElementById("QR");
-            qr.src= img_url;
+    QR1.addEventListener("change",()=>{
+        for(let i=0;i<QR1.files.length;i++){
+            const img_url = URL.createObjectURL(QR1.files[i]);
+            const qr= document.getElementById("QR1");
+            qr1.src= img_url;
         }
     });
+});
+
+QR1.addEventListener("change",()=>{
+    if(QR1.files.length == 1){
+        document.getElementById('error-qr1').classList.remove('msg-error-activo');
+        document.getElementById('error-qr1').classList.add('msg-error');
+        campos['ImagenQr1'] = true;
+    }else{
+        document.getElementById('error-qr1').classList.add('msg-error-activo');
+        qr1.src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png";
+        campos['ImagenQr1']=false;
+    }    
+});
+
+//QR2
+document.addEventListener("DOMContentLoaded", ()=>{
+    
+    const btn_QR2 = document.getElementById("QR_btn2");
+    btn_QR2.addEventListener("click",()=>{
+        QR2.click();
+    });
+    QR2.addEventListener("change",()=>{
+        for(let i=0;i<QR2.files.length;i++){
+            const img_url = URL.createObjectURL(QR2.files[i]);
+            const qr= document.getElementById("QR2");
+            qr2.src= img_url;
+        }
+    });
+});
+
+QR2.addEventListener("change",()=>{
+    if(QR2.files.length == 1){
+        document.getElementById('error-qr2').classList.remove('msg-error-activo');
+        document.getElementById('error-qr2').classList.add('msg-error');
+        campos['ImagenQr2'] = true;
+    }else{
+        document.getElementById('error-qr2').classList.add('msg-error-activo');
+        qr2.src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png";
+        campos['ImagenQr2']=false;
+    }    
+});
+//DROPDOWNS
+//categoria
+dropdown1.addEventListener('change',()=>{
+    if(dropdown1.value ==1){
+        document.getElementById("inputGroupSelect01").classList.add('is-valid');
+    }else{
+        document.getElementById("inputGroupSelect01").classList.add('is-invalid');
+    }
+});
+dropdown2.addEventListener('change',()=>{
+    if(dropdown2.value ==1){
+        document.getElementById("inputGroupSelect02").classList.add('is-valid');
+    }else{
+        document.getElementById("inputGroupSelect02").classList.add('is-invalid');
+    }
 });
