@@ -94,7 +94,7 @@ function registrarUser() {
 function loginUser() {
     let correo = document.getElementById("1").value;;
     let contraseña = document.getElementById("2").value;;
-    auth.signInWithEmailAndPassword(email, password)
+    auth.signInWithEmailAndPassword(correo, contraseña)
         .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
