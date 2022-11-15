@@ -1,0 +1,188 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    font-size: 16px;
+    background-color: #252525;
+}
+
+
+/* -- MENU -- */
+header {
+    width: 100%;
+}
+
+.horizontal li{
+    list-style: none;
+}
+
+.header--content {
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 81em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 10px;
+    list-style: none;
+}
+
+.header--content .logo img{
+    width: 7.5em;
+}
+
+.header--content nav {
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+}
+
+.header--content nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+}
+.header--content li a:hover {
+    color: blue;
+    transition: all .3s;
+}
+.header--content > li{
+    position: relative;
+    display: inline-block;
+}
+
+.desplegable{
+    position:fixed;
+    background-color: #252525;
+    width: 120%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+.desplegable li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+  
+}
+.header--content li:hover .desplegable{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+/* -- SLIDER -- */
+.contenedor-info{
+    font-size: 1rem;
+    width: 100%;
+    padding: 0 0.6em;
+    max-width: 81em;
+    margin-top: 4.37em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 14.25em;
+}
+
+.contenedor-info .jugadores--vector{
+    display:block;
+    margin:auto;
+    top: 14.25em;
+    right: 20em;
+}
+
+.contenedor-info .slider article .titulo{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 9.4em;
+    color: white;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.contenedor-info .acctions{
+    max-width: 42.5em;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3.1em;
+}
+/* -- Footer -- */
+footer {
+    font-size: 1rem;
+    background-color: #fe0032;
+    width: 100%;
+    clear: both;
+}
+
+.footer--content {
+    padding: 3.125em 0 5em 0;
+    max-width: 81em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer--content nav {
+    display: flex;
+    max-width: 50em;
+    justify-content: space-between;
+    padding: 0.6em 0 1.87em 0.3em;
+}
+
+.footer--content nav a {
+    font-size: 1em;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.footer--info {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25em 0 0.87em 0;
+    color: white;
+    border-top: solid 0.06em white;
+}
+
+.footer--info article p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em;
+}
+
+.footer--info .social{
+    display: flex;
+}
+
+.footer--info .social .social-icon{
+    display: inline-block;
+    margin-left: 1.56em;
+}
+
+.footer--content .icon img{
+    width: 5.12em;
+}
+
+
+@media only screen and (max-width: 1592px){
+    .contenedor-info {
+        font-size: 0.8rem;
+    }
+
+    .header--content {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
