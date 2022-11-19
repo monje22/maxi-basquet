@@ -13,11 +13,12 @@ const firebaseConfig = {
 /**
  * @constant app Conexion a la API de Firebase
  * @constant auth Base de datos encargada unicamente de los usuarios (correo y contraseña)
- * @var db Base de datos que almacena cualquier tipo de informacion(texto) en colecciones
+ * @let db Base de datos que almacena cualquier tipo de informacion(texto) en colecciones
  */
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-var db = firebase.firestore();
+let db = firebase.firestore();
+const storageRef = firebase.storage().ref();
 
 
 /**
@@ -108,6 +109,119 @@ function loginUser() {
             alert(msg(errorCode))
         });
 
+}
+
+function crearCamp() {
+    let logo = document.getElementById("File_logo").files[0];
+    let nomCamp = document.getElementById("Nombre").value;
+    let catA = document.getElementById("inputGroupSelect01");
+    let catB = catA.options[catA.selectedIndex].text;
+    let ramaA = document.getElementById("inputGroupSelect02");
+    let ramaB = ramaA.options[ramaA.selectedIndex].text;
+    let invt = document.getElementById("Invitacion").value;
+    let nomOrg = document.getElementById("NombreO").value;
+    let fechaIni = document.getElementById("Fecha_ini").value;
+    let fechaFin = document.getElementById("Fecha_fin").value;
+    let fechaIniIns = document.getElementById("Fecha_Inicio_inscription").value;
+    let fechaLimIns = document.getElementById("Fecha_limite_incription").value;
+    let costoPre = document.getElementById("CostoPre").value;
+    let costoIns = document.getElementById("Costo").value;
+    let depo = document.getElementById("QR-file").files[0];
+
+    const initialData = {
+        Logo: "",
+        NomCamp: nomCamp,
+        Categoria: catB,
+        Rama: ramaB,
+        Invitacion: invt,
+        NombOrg: nomOrg,
+        FechaInicio: fechaIni,
+        FechaFinal: fechaFin,
+        FechaIniInsc: fechaIniIns,
+        FechaLimIns: fechaLimIns,
+        CostoPreIns: costoPre,
+        CostoIns: costoIns,
+        Deposito: ""
+    };
+    //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
+    db.collection('Campeonatos').doc(catB).collection(ramaB).doc(nomCamp).set(initialData)
+        .then(() => {
+            console.log("Guardado Exitoso");
+        })
+        .catch((error) => {
+            console.error("Error : ", error);
+        });
+
+    let uploadTask1 = storageRef.child("Logo Equipos" + '/' + logo.name).put(logo);
+    let uploadTask2 = storageRef.child("Depositos" + '/' + depo.name).put(depo);
+    uploadTask1.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        (snapshot) => {},
+        (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+                case 'storage/unknown':
+                    // Unknown error occurred, inspect error.serverResponse
+                    break;
+            }
+        },
+        () => {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask1.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                db.collection('Campeonatos').doc(catB).collection(ramaB).doc(nomCamp).update({
+                        Logo: downloadURL
+                    })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            });
+        }
+    );
+    uploadTask2.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        (snapshot) => {},
+        (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+                case 'storage/unknown':
+                    // Unknown error occurred, inspect error.serverResponse
+                    break;
+            }
+        },
+        () => {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask2.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                db.collection('Campeonatos').doc(catB).collection(ramaB).doc(nomCamp).update({
+                        Deposito: downloadURL
+                    })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            });
+        }
+    );
 }
 
 
