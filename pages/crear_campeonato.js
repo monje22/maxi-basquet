@@ -12,6 +12,7 @@ const fechaInicio = document.getElementById("Fecha_ini");
 const fechaFin = document.getElementById("Fecha_fin");
 const fechaInscripcion = document.getElementById("Fecha_Inicio_inscription");
 const fechaLimiteInsc = document.getElementById("Fecha_limite_incription");
+const fechaLimitePreinsc=document.getElementById("Fecha_limite_Preinscripcion");
 
 const campos={
     Nombre : false ,
@@ -23,6 +24,7 @@ const campos={
     FechaFin:false,
     FechaInscripcion:false,
     FechaLimiteInsc:false,
+    FechaLimitePreinsc:false,
     CostoPre:false,
     Costo:false,
     ImagenQr1:false,
@@ -123,7 +125,9 @@ fechaInscripcion.addEventListener("change", ()=>{
 fechaLimiteInsc.addEventListener("change", ()=>{
     errorDesactivo('fechaLimiteInsc');
 });
-
+fechaLimitePreinsc.addEventListener("change", ()=>{
+    errorDesactivo('fechaLimitePreinsc');
+});
 form.addEventListener("submit",e=>{
     e.preventDefault();
     //verificacion dates vacios
@@ -153,10 +157,14 @@ form.addEventListener("submit",e=>{
     }else{
         errorActivo('fechaLimiteInsc');
     }
+//fecha limite preinscripcion
+    if(fechaLimitePreinsc.value.length > 0){
+                
+    }else{
+        errorActivo('fechaLimitePreinsc');
+    }
 
-
-
-    if(campos.Categoria && campos.Costo && campos.CostoPre && campos.FechaFin && campos.FechaInicio && campos.FechaInscripcion && campos.FechaLimiteInsc && campos.ImagenQr && campos.Invitacion && campos.Nombre && campos.NombreO){
+    if(campos.Categoria && campos.Costo && campos.CostoPre && campos.FechaFin && campos.FechaInicio && campos.FechaInscripcion && campos.FechaLimiteInsc && campos.FechaLimitePreinsc && campos.ImagenQr && campos.Invitacion && campos.Nombre && campos.NombreO){
         console.log("subir");
     }
 });
@@ -173,6 +181,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("Fecha_limite_incription").setAttribute('min',Fecha()) ;
+});
+document.addEventListener("DOMContentLoaded",()=>{
+    document.getElementById("Fecha_limite_Preinscripcion").setAttribute('min',Fecha()) ;
 });
 //previsualizaciones de imagenes
 //Logo
