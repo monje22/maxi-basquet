@@ -1,0 +1,63 @@
+body{
+    background-color: #252525;
+}
+.contenedor{
+    background-color: #ffff;
+    border-radius: 10px;
+    margin: 20px;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+}
+.titulo{
+    color: #ffff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.logo_evento{
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+.campeonatos{
+    margin-right: 10px;
+    margin-left: 15px;
+}
+.tarjeta{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.tarjeta:hover{
+    background-color: #dad7d7;
+    border-radius: 15px
+}
+.titulo2{
+    color: black;
+    margin-bottom: 30px;
+    padding-top: 15px;
+}
+.detalle{
+    margin-top: 20px;
+    text-align: center;
+}
+label{
+    margin-left: 30px;
+}
+.contenedorT{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+th{
+    color: #252525;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.logoLista{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
