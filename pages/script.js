@@ -8,6 +8,9 @@ const firebaseConfig = {
     measurementId: "G-GVRPKCYGBB"
 };
 
+Swal.fire({
+    title:"bien"
+})
 
 
 /**
@@ -31,7 +34,6 @@ auth.onAuthStateChanged((user) => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         var uid = user.uid;
         console.log(user)
-        window.location.href = "./home2.html"
             // ...
     } else {
         // User is signed out
@@ -95,7 +97,7 @@ function registrarUser() {
 function loginUser() {
     let correo = document.getElementById("1").value;;
     let contraseña = document.getElementById("2").value;;
-    auth.signInWithEmailAndPassword(email, password)
+    auth.signInWithEmailAndPassword(correo, contraseña)
         .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
@@ -140,3 +142,161 @@ function msg(errorCode) {
     }
     return msg;
 }
+
+let docRef = db.collection("Campeonatos").doc("Campeonato UwU");
+const box = document.getElementById("bs");
+
+docRef.get().then((doc) => {
+    if (doc.exists) {
+        // console.log("Document data:", doc.data());
+        console.log(doc.data())
+        let cp=doc.data();
+        let a = new Date();
+        let año = a.getFullYear();
+        let mes = a.getMonth()+1;
+        let dia = a.getDate();
+        let fechaHoy = ""+año+mes+dia;
+        // console.log(fechaHoy)
+        // console.log(cp.FechaInicio)
+        quitarCaracter(cp.FechaPreInsc)
+        quitarCaracter2(cp.FechaLimIns)
+        console.log(" es la fecha pre "+fechaPre)
+        console.log(" es la fecha incio " + fechaIni)
+        console.log(Math.floor(fechaHoy))
+        console.log(Math.floor(fechaPre))
+        console.log(Math.floor(fechaIni))
+        console.log(cp.FechaInicio)
+        if (Math.floor(fechaHoy)>=Math.floor(fechaPre) && Math.floor(fechaHoy)<=Math.floor(fechaIni) ) {
+            //Pre inscripcion
+            box.innerHTML= `<h1 class="th"> <b>${cp.titulo}</b></h1>
+            <p class="t ta sub"><b>Invitacion</b> </p>
+            <p class="ta">${cp.Invitacion}</p>
+            <div class="sq2">
+                <div class="div1"> 
+                    <p class="ta sub"> <b>Rama</b></p>
+                    <p class="ta">${cp.Rama}</p>
+                </div>
+                <div class="div2"> 
+                    <p class="ta sub"><b>Categoria</b></p>
+                    <p class="ta">${cp.Categoria}</p>
+                </div>
+                <div class="div3"> 
+                    <p class="ta sub"><b>Equipo</b></p>
+                    <p class="ta">ASD</p>
+                </div>
+                <div class="div4"> 
+                    <p class="ta sub"><b>Costo</b></p>
+                    <p class="ta">${cp.CostoPreIns} Bs Costo Preinscripcion</p>
+                </div>
+                </div>
+            <p class="ta">Escanee el codigo QR para realizar  el pago de inscripcion, una vez realizado el pago debe subir una imagen del comprobante, cuando termine de subir el comprobante, pulse el boton de inscribirse, una vez verificado el pago podra visualizar el campeonato en su perfil de equipo.</p>
+            <img src="${cp.DepositoPre}" alt="">
+            <div class="bn">
+            
+            <button id="btnC" class="contenedor-btn-file bordeado">
+            <i class="fas fa-file"></i>
+            Subir comprobante
+            <label for="btn-file"></label>
+            <input type="file" id="btn-file">
+            </button>
+        </div>
+            
+            <a class="btn-ini espacio robotoCon" > INSCRIBIRSE</a>`; 
+        } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
+            box.innerHTML= `<h1 class="th"> <b>${cp.titulo}</b></h1>
+            <p class="t ta sub"><b>Invitacion</b> </p>
+            <p class="ta">${cp.Invitacion}</p>
+            <div class="sq2">
+                <div class="div1"> 
+                    <p class="ta sub"> <b>Rama</b></p>
+                    <p class="ta">${cp.Rama}</p>
+                </div>
+                <div class="div2"> 
+                    <p class="ta sub"><b>Categoria</b></p>
+                    <p class="ta">${cp.Categoria}</p>
+                </div>
+                <div class="div3"> 
+                    <p class="ta sub"><b>Equipo</b></p>
+                    <p class="ta">ASD</p>
+                </div>
+                <div class="div4"> 
+                    <p class="ta sub"><b>Costo</b></p>
+                    <p class="ta">${cp.CostoIns}Bs Consto Inscripcion</p>
+                </div>
+                </div>
+            <p class="ta">Escanee el codigo QR para realizar  el pago de inscripcion, una vez realizado el pago debe subir una imagen del comprobante, cuando termine de subir el comprobante, pulse el boton de inscribirse, una vez verificado el pago podra visualizar el campeonato en su perfil de equipo.</p>
+            <img src="${cp.DepositoIns}" alt="">
+            
+
+            <div class="bn">    
+                <button id="btnC" class="contenedor-btn-file bordeado">
+                <i class="fas fa-file"></i>
+                Subir comprobante
+                <label for="btn-file"></label>
+                <input type="file" id="btn-file">
+                </button>
+            </div>
+
+            
+            <a class="btn-ini espacio robotoCon" > INSCRIBIRSE</a>`;
+        }
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+
+let fechaPre = "";
+let fechaIni = "";
+let quitarCaracter = (fecha) => {
+    let i = 0;
+    let sw=0;
+    let e = "-"
+    fechaPre="";
+    while (i < fecha.length) {
+        if(fecha[i] == e && sw ==0){
+            sw=1;
+        } else {
+            fechaPre = fechaPre + fecha[i];
+            sw = 0;
+        }
+        i=i+1;
+    }
+}
+
+let quitarCaracter2 = (fecha) => {
+    let i = 0;
+    let sw=0;
+    let e = "-"
+    fechaIni="";
+    while (i < fecha.length) {
+        if(fecha[i] == e && sw ==0){
+            sw=1;
+        } else {
+            fechaIni = fechaIni + fecha[i];
+            sw = 0;
+        }
+        i=i+1;
+    }
+}
+
+let reversa = (texto) =>{
+    let reversedStr = '';
+
+    for (let i = texto.length - 1; i >= 0; i--) {
+  reversedStr += texto[i];
+}
+    aux = reversedStr;
+}
+
+const paramURL = window.location.search;
+console.log(paramURL);
+
+const parametrosURL = new URLSearchParams(paramURL);
+console.log(typeof(parametrosURL));
+
+// const codigoCam = parametrosURL.get('id');
+
+
