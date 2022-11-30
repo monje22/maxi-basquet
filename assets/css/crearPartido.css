@@ -52,7 +52,12 @@
 .categoria {
     max-width: 400px;
 }
-
+.categoria-txt{
+    font-size: larger;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
 .date {
     margin-left: 5%;
     border-radius: 8px;
