@@ -153,7 +153,18 @@ docRef.get().then((doc) => {
         let a = new Date();
         let año = a.getFullYear();
         let mes = a.getMonth()+1;
-        let dia = a.getDate();
+        let dia = "";
+        if (a.getDate() < 10) {
+            dia = "0"+a.getDate();
+        }
+        if (a.getMonth()+1 < 10) {
+            mes = "0"+a.getMonth();
+        }
+        console.log(a)
+        console.log(dia)
+        console.log(mes)
+        console.log(año)
+
         let fechaHoy = ""+año+mes+dia;
         // console.log(fechaHoy)
         // console.log(cp.FechaInicio)
@@ -161,12 +172,15 @@ docRef.get().then((doc) => {
         quitarCaracter2(cp.FechaLimIns)
         console.log(" es la fecha pre "+fechaPre)
         console.log(" es la fecha incio " + fechaIni)
+        console.log("es la fecha hoy "+ fechaHoy)
         console.log(Math.floor(fechaHoy))
         console.log(Math.floor(fechaPre))
         console.log(Math.floor(fechaIni))
         console.log(cp.FechaInicio)
+        console.log("hsata qui todo bien")
         if (Math.floor(fechaHoy)>=Math.floor(fechaPre) && Math.floor(fechaHoy)<=Math.floor(fechaIni) ) {
             //Pre inscripcion
+            console.log("entro en pre")
             box.innerHTML= `<h1 class="th"> <b>${cp.titulo}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
             <p class="ta">${cp.Invitacion}</p>
@@ -203,6 +217,7 @@ docRef.get().then((doc) => {
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`; 
         } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
+            console.log("entro en ins")
             box.innerHTML= `<h1 class="th"> <b>${cp.titulo}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
             <p class="ta">${cp.Invitacion}</p>
@@ -239,6 +254,9 @@ docRef.get().then((doc) => {
 
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()"> INSCRIBIRSE</a>`;
+        } else {
+            console.log("no entro en nada")
+            box.innerHTML= `<h1 class="th"> <b>NO ESTA HABILITADO</b></h1>`;
         }
     } else {
         // doc.data() will be undefined in this case
