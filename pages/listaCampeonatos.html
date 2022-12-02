@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/registro-Estilosv2.css">
+    <link rel="stylesheet" href="../assets/css/listaCampeonatos.css">
     <title>One Registro</title>
     <!-- Nombre de la pagina y su logo -->
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
@@ -32,7 +32,7 @@
     <div class="contenedor">
         <div class="cont-centreado">
             <div class="cont-cabecera">
-                <p>CREAR UN USUARIO</p>
+                <p>CAMPEONATOS</p>
              </div>
              <div class="cont-texto">
                 <p>Tu cuenta te da acceso a ver los 
@@ -40,25 +40,26 @@
                  <!-- cambiar el link a la pagina de login -->
                 <a href="Partidos.html">¿Ya tienes una cuenta? Accede</a>
              </div>
-             <div class="cont-formulario">
-                 <label for="correoElectronico">Correo electrónico</label>
-                 <input type="text" id="1" placeholder="Ingrese su correo" required>
-                 <label for="contraseña">Contraseña</label>
-                 <input type="password" id="2" placeholder="Ingrese su contraseña" required autocomplete="off">
-                 <label for="nombre">Nombre</label>
-                 <input type="text" id="3" placeholder="Ingrese su nombre" required>
-                 <label for="Apellido">Apellido paterno/materno</label>
-                 <input type="text" id="1" placeholder="Ingrese su Apellido" required>
-                 <label for="start">Fecha de nacimiento:</label>
-                 <input class="fecha" type="date" id="4" name="Fecha de nacimiento"
-                        value="2018-07-22"
-                         min="1965-01-01" max="2004-12-31">
+             <div class="pb" id="aux1">
+                 <!--
+                    <div class="cont-formulario" id="formu1">
 
-                    <div class="boton">
-                             <button title="Ingresar" onclick="acceso()" name="Ingresar">CREAR USUARIO</button>
-                    </div>
-                <p>Al crear un usuario acepta los términos, acepta que su información personal se recopile, almacene y procese en la web.</p>
+                        <div class="imagenLogo">
+                               <img src="/assets/img/perfil_placeholder.jpg" alt="" id="logocampeonato">
+                        </div>
+                        <div class="contenido">
+                            <p id="titulo">Campeonato relámpago Sub30</p>
+                            <p id="informacion">Este campeonato se llevara acabo el mes de julio y todos estan lorem lorem lorem lorem loremn  lorem lorem lorem lorem lorem lorem invitados a inscribirse y asi mismo poder entrar para poder participar activamente del mismo</p>
+                            <p id="estado">Estado: Pre-Inscripcion</p>
+                            <div class="boton">
+                                     <button title="Ingresar" onclick="acceso()" name="Ingresar">INSCRIBIRSE</button>
+                            </div>
+                        </div>
+                        
+                   </div> 
+                -->
              </div>
+            
         </div>
         
     </div>
@@ -91,4 +92,7 @@
          <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer" >
     </footer>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="listaCampeontos.js"></script>
 </html>
