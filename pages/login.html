@@ -53,11 +53,15 @@
                 <p>INICIAR SESION</p>
             </div>
 
-            <div class="cont-formulario">
+            <div class="cont-formulario" id="form_login">
                 <label for="correoElectronico">Correo electrónico</label>
                 <input type="text" id="1" placeholder="Ingrese su correo" required>
+                <p class="msg-error" id="error-Email">Ingrese correo valido</p>
+                <br>
                 <label for="contraseña">Contraseña</label>
                 <input type="password" id="2" placeholder="Ingrese su contraseña" required autocomplete="off">
+                <p class="msg-error" id="error-Password">Ingrese Contraseña valida de 6-16 caracteres</p>
+                <br>
                 <a class="btn-ini3 espacio roboto" href="index.html"> Olvidaste tu contraseña?</a>
                 <a class="btn-ini espacio robotoCon" onclick="loginUser()" href="index.html"> INICIAR SESION</a>
                 <a class="btn-ini1 espacio roboto" href="index.html"> No tienes una cuenta?</a>
@@ -107,6 +111,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="login.js"></script>
 <script src="script.js"></script>
 
 </html>

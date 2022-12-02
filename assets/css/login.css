@@ -355,3 +355,12 @@
 		padding: 0;
 	}
 }
+.msg-error{
+    font-weight: 700;
+    color: #fe0032;
+    display: none;
+    padding-top: 5px;
+}
+.msg-error-activo{
+    display: block;
+}
