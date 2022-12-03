@@ -142,11 +142,30 @@ function msg(errorCode) {
     return msg;
 }
 
-let docRef = db.collection("Campeonatos").doc("Campeonato UwU");
+const paramURL = window.location.search;
+console.log(paramURL);
+
+const parametrosURL = new URLSearchParams(paramURL);
+console.log(typeof(parametrosURL));
+
+for (let valoresURL of parametrosURL){
+    console.log(valoresURL)
+}
+
+let idCamp = parametrosURL.get('id')
+console.log(idCamp)
+
+
+
+
+
+let docRef = db.collection("Campeonatos").doc(idCamp);
 const box = document.getElementById("bs");
 
 docRef.get().then((doc) => {
     if (doc.exists) {
+
+        
         // console.log("Document data:", doc.data());
         console.log(doc.data())
         let cp=doc.data();
@@ -181,7 +200,7 @@ docRef.get().then((doc) => {
         if (Math.floor(fechaHoy)>=Math.floor(fechaPre) && Math.floor(fechaHoy)<=Math.floor(fechaIni) ) {
             //Pre inscripcion
             console.log("entro en pre")
-            box.innerHTML= `<h1 class="th"> <b>${cp.titulo}</b></h1>
+            box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
             <p class="ta">${cp.Invitacion}</p>
             <div class="sq2">
@@ -218,7 +237,7 @@ docRef.get().then((doc) => {
             <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`; 
         } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
             console.log("entro en ins")
-            box.innerHTML= `<h1 class="th"> <b>${cp.titulo}</b></h1>
+            box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
             <p class="ta">${cp.Invitacion}</p>
             <div class="sq2">
@@ -300,6 +319,22 @@ let quitarCaracter2 = (fecha) => {
     }
 }
 
+let quitarCaracter3 = (fecha) => {
+    let i = 0;
+    let sw=0;
+    let e = "'"
+    nomCamp="";
+    while (i < fecha.length) {
+        if(fecha[i] == e && sw ==0){
+            sw=1;
+        } else {
+            nomCamp = nomCamp + fecha[i];
+            sw = 0;
+        }
+        i=i+1;
+    }
+}
+
 let reversa = (texto) =>{
     let reversedStr = '';
 
@@ -309,11 +344,6 @@ let reversa = (texto) =>{
     aux = reversedStr;
 }
 
-const paramURL = window.location.search;
-console.log(paramURL);
-
-const parametrosURL = new URLSearchParams(paramURL);
-console.log(typeof(parametrosURL));
 
 
 
@@ -375,9 +405,10 @@ function subirImagen(imagenASubir) {
             // Upload completed successfully, now we can get the download URL
             uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {               
                     urlimagen=downloadURL;
-                    db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").add({
+                    db.collection("Campeonatos").doc(idCamp).collection("EquiposInscritos").add({
                         recibo: urlimagen,
                         idEquipo: "CA",
+                        aceptado: false
                         
                     })
                     .then(() => {

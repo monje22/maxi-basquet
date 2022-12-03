@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/registro-Estilosv2.css">
+    <link rel="stylesheet" href="../assets/css/Registro-equipo.css">
+    <link rel="stylesheet" href="../assets/css/headersinDelegado.css">
+
+    <script src="https://kit.fontawesome.com/7b7689ebcb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
     <title>One Registro</title>
     <!-- Nombre de la pagina y su logo -->
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
@@ -13,109 +25,108 @@
 
 <body>
     <!-- comienzo header -->
-    <Header >
-     <div class="Logo-nombre">
-        <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
-     </div>
-     <!-- Menu del Header -->
-     <nav class="Menu-header">
-          <ul class="Menu">
-            <!-- Modificar links!!! -->
-               <li><a href="Partidos.html">PARTIDOS</a></li>
-               <li><a href="Partidos.html">EQUIPOS</a></li>
-               <li><a href="Partidos.html">HOME</a></li>
-               <li><a href="Partidos.html">INICIAR SESION</a></li>
-          </ul>
-     </nav>
+    <Header>
+        <div class="Logo-nombre">
+            <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
+        </div>
+        <!-- Menu del Header -->
+        <nav class="Menu-header">
+            <ul class="Menu">
+                <!-- Modificar links!!! -->
+                <li><a href="Partidos.html">PARTIDOS</a></li>
+                <li><a href="Partidos.html">EQUIPOS</a></li>
+                <li><a href="Partidos.html">HOME</a></li>
+                
+                <div class="desplegable">
+                    <button class="desplebutton"> 
+                      <a href="#l" id="prueba" 
+                      class="get-started-btn"> Delegado 
+                      
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </a> 
+                  </button>
+                  
+                    <!-- <i class="material-icons">expand_more </i>  -->
+                    <div class="options">
+                      
+                      <a href="./registrar-equipo.html" id="logout">Crear Equipo</a>
+                      <a href="#" id="logout">Cerrar Sesion</a>
+                  </div>
+                  </div>
+            </ul>
+        </nav>
     </Header>
 
     <!-- comienzo Formulario de registro -->
     <div class="contenedor">
         <div class="cont-centreado">
-            <div class="cont-cabecera">
+            <div class="cont-cabecera" id="cabe1">
                 <p>CREAR UN EQUIPO</p>
              </div>
              <div class="cont-texto">
-                <p>Tener un equipo te permite inscibirte y participar en diferentes tornes y campeonatos y asi mismo poder
-                    y asi mismo tener un perfil de representante
-                </p>
+                <p>Necesitas un equipo para poder registrarte en torneos </p>
                  <!-- cambiar el link a la pagina de login -->
-                <!--<a href="Partidos.html">¿Ya tienes una cuenta? Accede</a>-->
+                
              </div>
-             <div class="cont-formulario" id="formulariov1">
-                <div class=" mb-3 foto_perfil">
-                    <label class="form-label">FOTO DE PERFIL</label>
-                    <br>
-                      <div  id="foto_perfil">
-                        <img src="/assets/img/perfil_placeholder.jpg" alt="" class="img_perfil1" id="perfil1">
-                      </div>                
-                      <br>
-                      <input type="file" class="form-control" id="File011" accept="image/jpeg,image/png, image/jpg" >
-                      <div id="btn-seleccionarimg">
-                        <button class="btn archivo" type="button" id="btn-perfil1">Subir imagen</button>
-                        <p class="input-error" id="error-Perfil">Inserte imagen</p>
-                      </div>
-                      
-                  </div>
-                  
-                  <div class="mb-3" id="nombre">
-                      <label  class="form-label">NOMBRE DEL EQUIPO</label>
-                      <input type="text" class="form-control " id="Nombre"  required>
-                      <p class="input-error" id="error-Nombre">Nombre invalido</p>
-                  </div>
-                  <div class="mb-3">
-                      <label  class="form-label">CELULAR DEL DELEGADO</label>
-                      <input type="text" class="form-control"  id="Celular" required>
-                      <p class="input-error" id="error-Nacionalidad">Ingrese Nacionalidad del jugador</p>
-                    </div>
-                    <div class="container px-4">
-                        <div class="row gx-5">
-                          <div class="col" id="col1">
-                            <p>CATEGORIA:</p>
-                            <select class="form-select" aria-label="Default select example" id="cajaCategoria">
-                                <option selected="selected">Pre Maxi (18 +)</option>
-                                <option>Maxi (30 +)</option>
-                                <option>Senior (40 +)</option>
-                                <option>Super senior (50 +)</option>
-                                <option>Oro (50 +)</option>
-                              </select>
-                          </div>
-                          <div class="col" id="col2">
-                            <p>RAMA:</p>
-                                <select class="form-select" aria-label="Default select example" id="cajaRama">
-                                    <option selected>Masculino</option>
-                                    <option>Femenino</option>
-                                  </select>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    <div class=" mb-3">
-                        <label class="form-label">CEDULA DE IDENTIDAD</label>
-                        <input type="file" class="form-control" id="File022" accept="image/jpeg,image/png, image/jpg" required>
-                        <p class="input-error" id="error-Cedula">Ingrese imagen de su documento de identidad</p>
-                    </div>
-                    <p id="ahuevo">AÑADIR JUGADOR</p>
-                    <div class="boton-añadir" >
-                        <button type="button" class="btn" id="boton-chiquito">Añadir</button>
-                    </div>
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Edad</th>
-                          </tr>
-                        </thead>
-                        <tbody id="datosTablita">
-                      
-                        </tbody>
-                      </table>
+             <div class="cont-formulario-equi">
+                <label for="correoElectronico-Equipo">Correo electrónico</label>
+                <input type="text" id="correo-equipo" placeholder="Ingrese su correo" required>
+                <label for="nombre-equipo">Nombre del Equipo</label>
+                <input type="text" id="Nombre-E" placeholder="Ingrese el nombre del equipo" required>
+                <p>Seleccione categoria</p>
+                    <select class="combo-box">
+                        <option selected="selected">Pre Maxi (30 a 37 años)</option>
+                        <option>Maxi (38 a 47 años)</option>
+                        <option>Senior (48 años adelante)</option>
+                        <option>Oro (55 años adelante)</option>
+                    </select>
+                    <form class="subir-imagen" method="post" enctype="multipart/form-data" target="_blank">
+                        <p>
+                          Logo de tu equipo:
+                        </p>
+                        <input type="file" id="logo-equipo" value="upload" accept="image/png, .jpeg, .jpg, image/gif" onchange="revisarArchivo(this)">
+                    </form>
                     <div class="boton">
-                             <button title="Ingresar" id="boton-final" onclick="subirDatosEquipo()" name="Ingresar">CREAR USUARIO</button>
+                        <button title="registrar-equi" onclick="subirImagen()" name="registrar-equipo">REGISTRAR EQUIPO</button>
                     </div>
-                <!--<p>Al crear un usuario acepta los términos, acepta que su información personal se recopile, almacene y procese en la web.</p> -->
+             </div>
+             <div class="segunda-cabecera" id="cabe2">
+                <p>AGREGA JUGADORES A TU EQUIPO</p>
+             </div>
+             <div class="cont-formulario" id="aux2">
+                <div class="nombre">
+                    <label for="nombres">Nombres y Apellidos</label>
+                    <input type="text" id="1" placeholder="Nombres" required>
+                    <input type="text" id="2" placeholder="Apellidos completos" required >
+                </div>
+                <div class="datos">
+                    <div>
+                        <label for="Ci">Numero de CI</label>
+                        <input type="text" id="3" placeholder="Numero de CI" required>
+                    </div>
+                    <div>
+                        <label for="telefono">Nº de Celular</label>
+                        <input type="text" id="4" placeholder="Numero de celular" required>
+                    </div>
+                   
+                </div>
+                <div class="datos-2">
+                    <label for="start">Fecha de nacimiento:</label>
+                    <input class="fecha" type="date" id="5" name="Fecha de nacimiento"
+                        value="2018-07-22"
+                         min="1965-01-01" max="2004-12-31">
+                </div>
+                <button class="icon-btn add-btn" id="botonfeo" onclick="añadirhtml()">
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Añadir</div>
+                </button>
+                    <div class="boton" >
+                             <button title="registrar" class="sd"  id="botongrande" name="registrar">CREAR USUARIO</button>
+                    </div>
+                <p>Al crear un usuario acepta los términos, acepta que su información personal se recopile, almacene y procese en la web.</p>
              </div>
         </div>
+        
     </div>
     <footer>
          <!-- Menu del footer que le acceso a otras paginas o informacion de la pagina -->
@@ -145,84 +156,9 @@
         </div>
          <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer" >
     </footer>
-
-
- <!-- comienzo modal -->
-
- <dialog class="aux" id="contmodal">
-
-  <div class="form" id="formulario">
-    <h2 class="titulo">Agregar Jugador</h2>
-    <form id="tumama">
-        <div class=" mb-3 foto_perfil">
-          <label class="form-label">FOTO PERFIL</label>
-          <br>
-            <div  id="foto_perfil">
-              <img src="/assets/img/perfil_placeholder.jpg" alt="" class="img_perfil" id="perfil">
-            </div>                
-            <br>
-            <input type="file" class="form-control" id="File01" accept="image/jpeg,image/png, image/jpg" >
-            <div id="btn-seleccionarimg">
-              <button class="btn archivo" type="button" id="btn-perfil">Subir imagen</button>
-              <p class="input-error" id="error-Perfil">Inserte imagen</p>
-            </div>
-            
-        </div>
-        
-        <div class="mb-3" id="nombre">
-            <label  class="form-label">NOMBRE DEL JUGADOR</label>
-            <input type="text" class="form-control" id="Nombref"  required>
-            <p class="input-error" id="error-Nombref">Nombre invalido</p>
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">NACIONALIDAD</label>
-            <input type="text" class="form-control"  id="Nacionalidadf" required>
-            <p class="input-error" id="error-Nacionalidadf">Ingrese Nacionalidad del jugador</p>
-          </div>
-        <div class="mb-3">
-          <label for="startDate">FECHA DE NACIMIENTO</label>
-          <input id="startDate" class="form-control" type="date" value="2000-01-01"/>
-            <p class="input-error" id="error-Edadf">Edad invalida</p>
-          </div>
-        
-        <div class="mb-3">
-            <label  class="form-label">PESO</label>
-            <div class="input-group mb-3">
-                <input type="number" class="form-control" id="Pesof" required>
-                <span class="input-group-text" id="error-Pesof">Kg.</span>
-            </div>
-            <p class="input-error" id="error-Peso">Peso Invalido</p>
-          </div>
-        <div class="mb-3">
-            <label  class="form-label">ALTURA</label>
-            <div class="input-group">
-                <input type="number" class="form-control" id="Alturaf"  required>
-                <span class="input-group-text" id="error-Alturaf">cm.</span>
-            </div>
-            <p class="input-error" id="error-Altura">Altura invalido</p>
-          </div>
-        <div class=" mb-3">
-            <label class="form-label">CEDULA DE IDENTIDAD</label>
-            <input type="file" class="form-control" id="File02" accept="image/jpeg,image/png, image/jpg" required>
-            <p class="input-error" id="error-Cedulaf">Ingrese imagen de su documento de identidad</p>
-        </div>
-        <br>
-        <div class="submit-btn">
-            <button type="submit" class="btn añadir" id="btn-añadir" onclick="capturar()">Añadir jugador</button>
-        </div>
-        
-      </form>
-      
- </div>
-
- </dialog>
- 
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-    <script src="/pages/registro-equipo.js"></script>
-    <script src="/pages/formulario_jugador.js"></script>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="Reg-equipo.js"></script>
 </html>
