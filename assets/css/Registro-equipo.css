@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Oswald', sans-serif;
+    
  
  }
  body{
@@ -10,62 +10,13 @@
      background-color: #FE0032;
  }
   /* comienzo del header*/
- header{
-     display: flex;
-     width: 100%;
-     height: 50px;
-     align-items: center;
-     justify-content: space-between;
-     position: fixed;z-index: 1;
-     top: 0;
-     left: 0;
-     background-color: #FE0032;
  
- }
- .Logo-nombre{
-     display: flex;
-     align-items: center;
-     
- }
- .Logo-nombre img{
-     height: 25px;
-     margin-left: 50px;
- }
- .Menu-header{
-     align-items: center;
-     max-width: 700px;
-     width: 60vw ;
-     height: 100%;
-     justify-content: center;
- }
- .Menu{
-     display: flex;
-     justify-content: right;
-     align-items: center;
-     height: 100%;
-     width: 100%;
-     margin-right: 20px;
- }
- .Menu > li{ 
-     justify-content: center;
-     list-style: none;
-     display: flex;
-     height: 100%;
-     align-items: center;
-     
-     
- }
- .Menu > li a{
-     color: #fff;
-     text-decoration: none;
-     padding-top: 16px;
-     padding-bottom: 16px;
-     padding-left: 7px;
-     padding-right: 7px;
- }
  /* fin del header_____________________________________*/
 
  /* comienzo del primer formulario ____________________________*/
+.cd{
+    background-color: aqua;
+}
 
  .cont-formulario-equi{
     padding: 40px;
@@ -79,6 +30,11 @@
      box-sizing: border-box;
      border-radius: 10px;
      margin-bottom: 60px;
+     
+
+    font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.09em;
  }
  .cont-formulario-equi label{
     font-size: 16px;
@@ -126,6 +82,8 @@
      height: 100%;
      padding-top: 80px;
      padding-bottom: 60px;
+
+     
  }
  .cont-centreado{
      display: flex;
@@ -134,10 +92,19 @@
      flex-direction: column;
      max-width: 800px;
      width: 50vw;
+
+     font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.09em;
+	
      
  }
  .segunda-cabecera{
     margin-bottom: 40px;
+    font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.09em;
+	
  }
  #cabe1 , #cabe2{
      display: flex;
@@ -180,6 +147,10 @@
      width: 50vw;
      box-sizing: border-box;
      border-radius: 10px;
+
+     font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.09em;
  }
  .nombre label{
     display: block;
@@ -210,6 +181,7 @@
      display: flex;
      justify-content: center;
      padding-top: 20px;
+    
  }
  .cont-formulario #botongrande{
      justify-content: center;
@@ -221,7 +193,11 @@
      border-radius: 10px;
      cursor: pointer;
      font-size: 18px;
-     font-weight: 650;
+     
+
+     font-family: 'Roboto', sans-serif;
+     font-weight: 400;
+     letter-spacing: 0.09em;
  }
  .cont-formulario p{
      padding-top: 20px;

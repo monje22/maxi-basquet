@@ -77,5 +77,5 @@ const categRef = db.collection("Partidos");
 //---------------------------METODO QUE ENVIA DATOS EN LA URL A OTRA PAGINA-------------------------
 function acceso(auxId){
     //aqui tiene que ir la pagina del fabricho no te olvides cambiarlo
-     location.href=`verificarInscripcion.html?id='${idCampeonatos[auxId.id]}'`;
+     location.href=`campeonatos.html?id=${idCampeonatos[auxId.id]}`;
 }

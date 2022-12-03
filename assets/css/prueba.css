@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Oswald', sans-serif;
+    
  
  }
  body{
@@ -10,18 +10,7 @@
      background-color: #FE0032;
  }
   /* comienzo del header*/
- header{
-     display: flex;
-     width: 100%;
-     height: 50px;
-     align-items: center;
-     justify-content: space-between;
-     position: fixed;z-index: 1;
-     top: 0;
-     left: 0;
-     background-color: #FE0032;
  
- }
  .Logo-nombre{
      display: flex;
      align-items: center;
@@ -98,7 +87,10 @@
  .cont-cabecera p{
      font-size: 40px;
      color: #fff;
-     font-weight: bold;
+     
+     font-family: 'Oswald', sans-serif;
+     font-weight: 500;
+     letter-spacing: 0.09em;
  }
  
  .cont-texto{
@@ -106,6 +98,10 @@
      width: 100%;
      padding-bottom: 20px;
      font-size: 16px;
+
+     font-family: 'Oswald', sans-serif;
+     font-weight: 400;
+     letter-spacing: 0.09em;
  }
  .cont-texto p{
      color: #fff;
@@ -129,6 +125,10 @@
      box-sizing: border-box;
      border-radius: 10px;
      margin-bottom: 50px;
+
+     font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.09em;
  }
  .cont-formulario #titulo{
     font-size: 26px;
@@ -164,6 +164,10 @@
     cursor: pointer;
     font-size: 18px;
     font-weight: 650;
+
+    font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.09em;
 }
 .imagenLogo{
     display: flex;
@@ -175,6 +179,12 @@
 }
 #logocampeonato{
    width: 100%;
+}
+
+#titulo{
+    font-family: 'Oswald', sans-serif;
+     font-weight: 400;
+     letter-spacing: 0.09em;
 }
  /* fin del formulario____________________________*/
  
