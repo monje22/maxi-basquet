@@ -127,74 +127,59 @@ header {
 }
 
 
-/* -- Footer -- */
-footer {
-    font-size: 1rem;
+/* comienzo del footer____________________________*/
+footer{
     background-color: #252525;
-    width: 100%;
-    clear: both;
-}
 
-.footer--content {
-    padding: 3.125em 0 5em 0;
-    max-width: 81em;
-    margin-left: auto;
-    margin-right: auto;
 }
-
-.footer--content nav {
-    display: flex;
-    max-width: 50em;
-    justify-content: space-between;
-    padding: 0.6em 0 1.87em 0.3em;
+.menu-footer{
+    display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(0.5, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	padding: 0px 50px;
+	background-color: #2B2B2B;
+	color: #fff;
+	padding-top: 40px;
+	padding-bottom: 0px;
 }
-
-.footer--content nav a {
-    font-size: 1em;
-    display: inline-block;
+.menu-footer a{
     text-decoration: none;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
 }
-
-.footer--info {
+.menu-footer div{
+    border-bottom: #fff 2px solid ;
+    padding-bottom: 20px;
+}
+/* este css es del texto y los logos de las redes sociales de la pagina____________________________*/
+.texto-footer{
     display: flex;
+    padding-left:50px;
+    padding-right: 50px;
+    padding-top: 15px;
+    flex-direction: row;
     justify-content: space-between;
-    padding: 1.25em 0 0.87em 0;
-    color: white;
-    border-top: solid 0.06em white;
 }
-
-.footer--info article p {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9em;
+.texto-footer p{
+    color: #fff;
+    font-size: 15px;
+    text-align: left;
+    padding-right: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
-
-.footer--info .social{
-    display: flex;
+.texto-footer img{
+    flex-direction: row;
+    height: 30px;
+    padding-left: 15px;
+    
 }
-
-.footer--info .social .social-icon{
-    display: inline-block;
-    margin-left: 1.56em;
-}
-
-.footer--content .icon img{
-    width: 5.12em;
-}
-
-
-@media only screen and (max-width: 1592px){
-    .contenedor-info {
-        font-size: 0.8rem;
-    }
-
-    .header--content {
-        font-size: 0.8rem;
-    }
-
-    footer {
-        font-size: 0.8rem;
-    }
+/* este css es del logo que se muestra al final del footer____________________________*/
+.logo-footer{
+    padding-left: 50px;
+    /* height: 50px; */
+    padding-bottom: 40px;
+    margin-top: 40px;
 }

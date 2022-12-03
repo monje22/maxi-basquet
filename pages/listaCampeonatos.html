@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/listaCampeonatos.css">
+    <link rel="stylesheet" href="../assets/css/headerconDelegado.css">
     <title>One Registro</title>
     <!-- Nombre de la pagina y su logo -->
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
@@ -13,19 +14,36 @@
 <body>
     <!-- comienzo header -->
     <Header >
-     <div class="Logo-nombre">
-        <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
-     </div>
-     <!-- Menu del Header -->
-     <nav class="Menu-header">
-          <ul class="Menu">
-            <!-- Modificar links!!! -->
-               <li><a href="Partidos.html">PARTIDOS</a></li>
-               <li><a href="Partidos.html">EQUIPOS</a></li>
-               <li><a href="Partidos.html">HOME</a></li>
-               <li><a href="Partidos.html">INICIAR SESION</a></li>
-          </ul>
-     </nav>
+        <div class="Logo-nombre">
+            <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
+        </div>
+        <!-- Menu del Header -->
+        <nav class="Menu-header">
+            <ul class="Menu">
+                <!-- Modificar links!!! -->
+                <li><a href="./Vista_campeonatos.html">CAMPEONATOS</a></li>
+                <li><a href="Partidos.html">PARTIDOS</a></li>
+                <li><a href="HomeAdministrador.html">HOME</a></li>
+                
+                <div class="desplegable">
+                    <button class="desplebutton"> 
+                      <a href="#l" id="prueba" 
+                      class="get-started-btn"> Administrador 
+                      
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </a> 
+                  </button>
+                  
+                    <!-- <i class="material-icons">expand_more </i>  -->
+                    <div class="options">
+                      
+                        <a href="listaCampeonatos.html" >Confirmar Inscripcion</a>
+                        <a href="comfirmarEquipo.html" >Confirmar Equipos</a>
+                        <a href="#" id="logout">Cerrar Sesion</a>
+                  </div>
+                  </div>
+            </ul>
+        </nav>
     </Header>
 
     <!-- comienzo Formulario de registro -->

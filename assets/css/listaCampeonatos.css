@@ -10,58 +10,7 @@
      background-color: #252525;
  }
   /* comienzo del header*/
- header{
-     display: flex;
-     width: 100%;
-     height: 50px;
-     align-items: center;
-     justify-content: space-between;
-     position: fixed;z-index: 1;
-     top: 0;
-     left: 0;
-     background-color: #252525;
  
- }
- .Logo-nombre{
-     display: flex;
-     align-items: center;
-     
- }
- .Logo-nombre img{
-     height: 25px;
-     margin-left: 50px;
- }
- .Menu-header{
-     align-items: center;
-     max-width: 700px;
-     width: 60vw ;
-     height: 100%;
-     justify-content: center;
- }
- .Menu{
-     display: flex;
-     justify-content: right;
-     align-items: center;
-     height: 100%;
-     width: 100%;
-     margin-right: 20px;
- }
- .Menu > li{ 
-     justify-content: center;
-     list-style: none;
-     display: flex;
-     width: auto;
-     height: 100%;
-     align-items: center;
-     
-     
- }
- .Menu > li a{
-     color: #fff;
-     text-decoration: none;
-     padding: 16px;
-     
- }
  /* fin del header_____________________________________*/
  
  /* comienzo del formulario____________________________*/
