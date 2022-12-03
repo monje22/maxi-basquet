@@ -8,46 +8,6 @@ body{
     background-color: #252525;
 }
 
-
-/* -- MENU -- */
-
-
-
-
-/* -- SLIDER -- */
-.contenedor-info{
-    font-size: 1rem;
-    width: 100%;
-    padding: 0 0.6em;
-    max-width: 81em;
-    margin-top: 4.37em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 14.25em;
-}
-
-.contenedor-info .jugadores--vector{
-    display:block;
-    margin:auto;
-    top: 14.25em;
-    right: 20em;
-}
-
-.contenedor-info .slider article .titulo{
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    font-size: 9.4em;
-    color: white;
-    letter-spacing: 0.1em;
-    text-align: center;
-}
-
-.contenedor-info .acctions{
-    max-width: 42.5em;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3.1em;
-}
 /* -- Footer -- */
 footer {
     font-size: 1rem;

@@ -1,8 +1,10 @@
 *{
    margin: 0;
    padding: 0;
-   font-family: 'Oswald', sans-serif;
-
+   /* font-family: 'Oswald', sans-serif; */
+   
+  
+   
 }
 body{
     height: 100%;
@@ -71,7 +73,7 @@ header{
     justify-content: center;
     margin: 0;
     padding: 0;
-    min-width: 100vw;
+    
     min-height: 100vh;
     width: 100%;
     height: 100%;
@@ -99,6 +101,10 @@ header{
     font-size: 40px;
     color: #fff;
     font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    
 }
 
 .cont-texto{
@@ -106,15 +112,24 @@ header{
     width: 100%;
     padding-bottom: 20px;
     font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+
 }
 .cont-texto p{
     color: #fff;
     padding-bottom: 10px;
-    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.085em;
 }
 .cont-texto a{
     text-decoration: none;
     color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.085em;
 }
 .cont-formulario{
     
@@ -128,6 +143,10 @@ header{
     width: 50vw;
     box-sizing: border-box;
     border-radius: 10px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.085em;
 }
 .cont-formulario label{
     font-size: 16px;
@@ -148,10 +167,11 @@ header{
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    
 }
 .cont-formulario button{
     justify-content: center;
-    background-color: black;
+    background-color: #2B2B2B;
     color: #fff;
     height: 40px;
     min-width: 150px;
@@ -159,7 +179,11 @@ header{
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
-    font-weight: 650;
+    
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.085em;
 }
 .cont-formulario p{
     padding-top: 20px;
@@ -201,21 +225,26 @@ footer{
     padding-right: 50px;
     padding-top: 15px;
     flex-direction: row;
+    justify-content: space-between;
 }
 .texto-footer p{
     color: #fff;
-    font-size: 9px;
+    font-size: 15px;
     text-align: left;
     padding-right: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 .texto-footer img{
     flex-direction: row;
     height: 30px;
     padding-left: 15px;
+    
 }
 /* este css es del logo que se muestra al final del footer____________________________*/
 .logo-footer{
     padding-left: 50px;
     height: 30px;
     padding-bottom: 50px;
+    margin-top: 40px;
 }

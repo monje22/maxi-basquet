@@ -4,36 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://kit.fontawesome.com/7b7689ebcb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../assets/css/general.css">
-    <link rel="stylesheet" href="../assets/css/HomeDelegado.css">
-
+    <link rel="stylesheet" href="../assets/css/HomeSinSesion.css">
+    <link rel="stylesheet" href="../assets/css/headersinDelegado.css">
     <title>Inicio</title>
     <!-- Nombre de la pagina y su logo -->
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
 </head>
 <body>
+    <Header>
+        <div class="Logo-nombre">
+            <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
+        </div>
+        <!-- Menu del Header -->
+        <nav class="Menu-header">
+            <ul class="Menu">
+                <!-- Modificar links!!! -->
+                <li><a href="Partidos.html">PARTIDOS</a></li>
+                <li><a href="Partidos.html">EQUIPOS</a></li>
+                <li><a href="Partidos.html">HOME</a></li>
+                
+                <div class="desplegable">
+                    <button class="desplebutton"> 
+                      <a href="#l" id="prueba" 
+                      class="get-started-btn"> Delegado 
+                      
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </a> 
+                  </button>
+                  
+                    <!-- <i class="material-icons">expand_more </i>  -->
+                    <div class="options">
+                      
+                      <a href="./registrar-equipo.html" id="logout">Crear Equipo</a>
+                      <a href="#" id="logout">Cerrar Sesion</a>
+                  </div>
+                  </div>
+            </ul>
+        </nav>
+    </Header>
 
-    <header>
+    <!-- <header>
         <section class="header--content">
             <div class="logo">
-                <img src="../assets/img/logo.png" />
+                <img src="assets/img/logo.png" />
             </div>
 
-            <nav class="horizontal">
+            <nav>
                 <li><a href="">CAMPEONATOS</a></li>
                 <li><a href="">PARTIDOS</a></li>
-                <li><a href="">PERFIL</a>
-                    <ul class="desplegable">
-                        <li><a href="">DELEGADO</a>
-                        <li><a href="">EQUIPO</a>
-                        <li><a href="">CERRAR SESION</a>
-                    </ul>
-                </li>
-                
+                <li><a href="pages/login.html">INICIAR</a></li>
+                <li><a href="pages/Registro.html">REGISTRARSE</a></li>
             </nav>
         </section>
-    </header>
+    </header> -->
 
 
     <section class="contenedor-info">
@@ -42,7 +67,6 @@
             <article>
                 <h2 class="titulo">BALONCESTO</h2>
                 <h2 class="sub-titulo">COMPETICION</h2>
-    
                             
             </article>
 
@@ -80,4 +104,11 @@
     </footer>
     
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="script.js"></script>
+
 </html>

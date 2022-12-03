@@ -1,0 +1,88 @@
+body{
+    background-color: #252525;
+}
+footer{
+    background-color: #fe0032;
+}
+.formulario{
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 5%;
+    margin: 40px;
+    margin-top: 10px;
+    /* text-align: center; */
+    border-radius: 10px;
+};
+.imagen{
+    text-align: center;
+
+}
+
+.titulo{
+    text-align: center;
+
+}
+.date{
+    border-radius: 8px;
+    background-color: rgb(224, 217, 217);
+}
+.general{
+    background-color: #ffff;
+    border-radius: 20px;
+    margin: 300px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+#logo{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.btn-subir-img{
+    border-radius: 8px;
+    background-color: green;
+    text-align: center;
+    color: #ffff;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.btn-crear{
+    border-radius: 8px;
+    background-color: #252525;
+    color: #ffff;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.QR{
+    width: 200px;
+    height: 200px;
+}
+.centrar{
+    text-align: center;
+}
+.text-area{
+    max-width: 500px;
+
+}
+.text-inv{
+    height: 100px;
+}
+#File_logo{
+    display: none;
+}
+.QR-file{
+    display:none ;
+}
+.costo{
+    width: 200px;
+}
+.msg-error{
+    font-weight: 700;
+    color: #fe0032;
+    display: none;
+    padding-top: 5px;
+}
+.msg-error-activo{
+    display: block;
+}

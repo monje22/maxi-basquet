@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/headersinDelegado.css">
     <title>Login</title>
     <!-- Nombre de la pagina y su logo -->
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
@@ -24,29 +25,30 @@
 
 <body>
 
-    <header class="parent2">
+    <!-- <header class="parent2">
         <div class="div7 itemH logo"><img src="../assets/img/ONE logo.png" alt="" srcset=""> </div>
         <div class="div8 itemH h"> </div>
         <div class="div9 itemH h"><a class="ah" href="http://">HOME</a> </div>
         <div class="div10 itemH h"><a class="ah" href="http://">HOME</a></div>
         <div class="div11 itemH h"><a class="ah" href="http://">HOME</a> </div>
         <div class="div12 itemH h"><a class="ah" href="http://">HOME</a> </div>
-    </header>
-    </div>
-    <!-- <div class="box">
-        <div class="tit">
-            <p class="title">INICIAR SESION</p>
-            <div class="boxlog">
-                <p class="espacio roboto">Correo</p>
-                <input class="type espacio" type="text" name="" id="">
-                <p class="espacio roboto">Contraseña</p>
-                <input class="type espacio" type="text" name="" id="">
-                <a class="btn-ini3 espacio roboto" href="http://"> Olvidaste tu contraseña?</a>
-                <a class="btn-ini espacio robotoCon" href="http://"> INICIAR SESION</a>
-                <a class="btn-ini1 espacio roboto" href="http://"> No tienes una cuenta?</a>
-            </div>
+    </header> -->
+    <Header>
+        <div class="Logo-nombre">
+            <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
         </div>
-    </div> -->
+        <!-- Menu del Header -->
+        <nav class="Menu-header">
+            <ul class="Menu">
+                <!-- Modificar links!!! -->
+                <li><a href="Partidos.html">PARTIDOS</a></li>
+                <li><a href="../index.html">HOME</a></li>
+                
+                
+            </ul>
+        </nav>
+    </Header>
+   
     <div class="contenedor">
         <div class="cont-centreado">
             <div class="cont-cabecera">
@@ -55,12 +57,12 @@
 
             <div class="cont-formulario">
                 <label for="correoElectronico">Correo electrónico</label>
-                <input type="text" id="1" placeholder="Ingrese su correo" required>
+                <input type="text" id="1"  required>
                 <label for="contraseña">Contraseña</label>
-                <input type="password" id="2" placeholder="Ingrese su contraseña" required autocomplete="off">
+                <input type="password" id="2"  required autocomplete="off">
                 <a class="btn-ini3 espacio roboto" href="index.html"> Olvidaste tu contraseña?</a>
-                <a class="btn-ini espacio robotoCon" onclick="loginUser()" href="index.html"> INICIAR SESION</a>
-                <a class="btn-ini1 espacio roboto" href="index.html"> No tienes una cuenta?</a>
+                <a class="btn-ini espacio robotoCon" onclick="loginUser()" > INICIAR SESION</a>
+                <a class="btn-ini1 espacio roboto" href="Registro.html"> No tienes una cuenta?</a>
             </div>
         </div>
 

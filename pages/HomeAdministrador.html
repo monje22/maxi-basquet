@@ -7,33 +7,46 @@
 
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/HomeAdministrador.css">
+    <link rel="stylesheet" href="../assets/css/headerconDelegado.css">
 
+    <script src="https://kit.fontawesome.com/7b7689ebcb.js" crossorigin="anonymous"></script>
     <title>Inicio</title>
     <!-- Nombre de la pagina y su logo -->
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
 </head>
 <body>
-
-    <header>
-        <section class="header--content">
-            <div class="logo">
-                <img src="../assets/img/logo.png" />
-            </div>
-
-            <nav class="horizontal">
-                <li><a href="">CAMPEONATOS</a></li>
-                <li><a href="">PARTIDOS</a></li>
-                <li><a href="">SOLICITUDES</a>
-                    <ul class="desplegable">
-                        <li><a href="">CONFIRMAR INSCRIPCION</a>
-                        <li><a href="">CERRAR SESION</a>
-                    </ul>
-                </li>
+    <Header>
+        <div class="Logo-nombre">
+            <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
+        </div>
+        <!-- Menu del Header -->
+        <nav class="Menu-header">
+            <ul class="Menu">
+                <!-- Modificar links!!! -->
+                <li><a href="./Vista_campeonatos.html">CAMPEONATOS</a></li>
+                <li><a href="Partidos.html">PARTIDOS</a></li>
+                <li><a href="Partidos.html">HOME</a></li>
                 
-            </nav>
-        </section>
-    </header>
-
+                <div class="desplegable">
+                    <button class="desplebutton"> 
+                      <a href="#l" id="prueba" 
+                      class="get-started-btn"> Administrador 
+                      
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </a> 
+                  </button>
+                  
+                    <!-- <i class="material-icons">expand_more </i>  -->
+                    <div class="options">
+                      
+                      <a href="./registrar-equipo.html" >Confirmar Inscripcion</a>
+                      <a href="./comfirmarEquipo.html" >Confirmar Equipos</a>
+                      <a href="#" id="logout">Cerrar Sesion</a>
+                  </div>
+                  </div>
+            </ul>
+        </nav>
+    </Header>
 
     <section class="contenedor-info">
 
