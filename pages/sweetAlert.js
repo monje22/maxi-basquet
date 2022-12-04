@@ -155,8 +155,12 @@ for (let valoresURL of parametrosURL){
 let idCamp = parametrosURL.get('id')
 console.log(idCamp)
 
+let loader = document.getElementById("preloader");
+
+setTimeout(() => {loader.style.display = "none"}, 2000);
 
 
+  
 
 
 let docRef = db.collection("Campeonatos").doc(idCamp);
