@@ -52,7 +52,7 @@ function registrarUser() {
     let apellido = document.getElementById("4").value;;
     let fechaN = document.querySelector('input[type="date"]');
     let nomcomp = nombre + " " + apellido;
-    let cedula = document.getElementById('5');
+    let cedula = document.getElementById('5').value;
     /*Funcion propia de Firebase que realiza el registro de usuarios
     Esta funcion unicamente acepta 2 parametros: correo y contraseña
     */
