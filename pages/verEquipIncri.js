@@ -59,5 +59,5 @@ var contador=0;
 
 
 function acceso(datosBoton){
-    location.href=`verificarInscripcion.html?id='${idEquiposcade[datosBoton.id-1]}'`;
+    location.href=`verificarInscripcion.html?id='${idEquiposcade[datosBoton.id]}'`;
 }

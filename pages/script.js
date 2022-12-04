@@ -51,7 +51,7 @@ function registrarUser() {
     let apellido = document.getElementById("4").value;;
     let fechaN = document.querySelector('input[type="date"]');
     let nomcomp = nombre + " " + apellido;
-    let cedula=document.getElementById('5');
+    let cedula=document.getElementById('5').value;
     /*Funcion propia de Firebase que realiza el registro de usuarios
     Esta funcion unicamente acepta 2 parametros: correo y contraseña
     */
@@ -76,7 +76,7 @@ function registrarUser() {
                 //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
                 db.collection('userData').doc('user').collection(uid).doc('datos iniciales').set(initialData);
                 
-                window.location.href="./HomeDelegado"
+                window.location.href="./HomeDelegado.html"
             
             }).catch((error) => {
                 // Ocurrio un error al registrar los datos del usuario
