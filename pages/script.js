@@ -18,6 +18,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 var db = firebase.firestore();
+const storageRef = firebase.storage().ref();
 
 
 /**
@@ -51,7 +52,7 @@ function registrarUser() {
     let apellido = document.getElementById("4").value;;
     let fechaN = document.querySelector('input[type="date"]');
     let nomcomp = nombre + " " + apellido;
-    let cedula=document.getElementById('5');
+    let cedula = document.getElementById('5');
     /*Funcion propia de Firebase que realiza el registro de usuarios
     Esta funcion unicamente acepta 2 parametros: correo y contraseña
     */
@@ -71,13 +72,13 @@ function registrarUser() {
                 const initialData = {
                     Nombre: nomcomp,
                     fechaNac: fechaN.value,
-                    ci:cedula
+                    ci: cedula
                 };
                 //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
                 db.collection('userData').doc('user').collection(uid).doc('datos iniciales').set(initialData);
-                
-                window.location.href="./HomeDelegado"
-            
+
+                window.location.href = "./HomeDelegado"
+
             }).catch((error) => {
                 // Ocurrio un error al registrar los datos del usuario
                 var errorCode = error.code;
@@ -108,12 +109,12 @@ function loginUser() {
             console.log(user)
             let correo = user.email;
             let bandera = correo.search(/@one.com/i);
-            if ( bandera < 0) {
-                window.location.href="HomeDelegado.html"
+            if (bandera < 0) {
+                window.location.href = "HomeDelegado.html"
             } else {
-                window.location.href="HomeAdministrador.html"
+                window.location.href = "HomeAdministrador.html"
             }
-                // ...
+            // ...
         })
         .catch((error) => {
             // Ocurrio un error al inicar sesion
@@ -122,6 +123,157 @@ function loginUser() {
             alert(msg(errorCode))
         });
 
+}
+
+function crearCamp() {
+    let logo = document.getElementById("File_logo").files[0];
+    let nomCamp = document.getElementById("Nombre").value;
+    let catA = document.getElementById("inputGroupSelect01");
+    let catB = catA.options[catA.selectedIndex].text;
+    let ramaA = document.getElementById("inputGroupSelect02");
+    let ramaB = ramaA.options[ramaA.selectedIndex].text;
+    let invt = document.getElementById("Invitacion").value;
+    let nomOrg = document.getElementById("NombreO").value;
+    let fechaIni = document.getElementById("Fecha_ini").value;
+    let fechaFin = document.getElementById("Fecha_fin").value;
+    let fechaIniIns = document.getElementById("Fecha_Inicio_inscription").value;
+    let fechaLimIns = document.getElementById("Fecha_limite_incription").value;
+    let costoPre = document.getElementById("CostoPre").value;
+    let costoIns = document.getElementById("Costo").value;
+    let depoPreIns = document.getElementById("QR-file1").files[0];
+    let depoIns = document.getElementById("QR-file2").files[0];
+
+    const initialData = {
+        Logo: "",
+        NomCamp: nomCamp,
+        Categoria: catB,
+        Rama: ramaB,
+        Invitacion: invt,
+        NombOrg: nomOrg,
+        FechaInicio: fechaIni,
+        FechaFinal: fechaFin,
+        FechaIniInsc: fechaIniIns,
+        FechaLimIns: fechaLimIns,
+        CostoPreIns: costoPre,
+        CostoIns: costoIns,
+        DepositoPre: "",
+        DepositoIns: ""
+    };
+    //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
+    db.collection('Campeonatos').doc(nomCamp).set(initialData)
+        .then(() => {
+            console.log("Guardado Exitoso");
+        })
+        .catch((error) => {
+            console.error("Error : ", error);
+        });
+
+    let uploadTask1 = storageRef.child("Logo Equipos" + '/' + logo.name).put(logo);
+    let uploadTask2 = storageRef.child("Depositos" + '/' + depoPreIns.name).put(depoPreIns);
+    let uploadTask3 = storageRef.child("Depositos" + '/' + depoIns.name).put(depoIns);
+    uploadTask1.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        (snapshot) => {},
+        (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+                case 'storage/unknown':
+                    // Unknown error occurred, inspect error.serverResponse
+                    break;
+            }
+        },
+        () => {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask1.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                db.collection('Campeonatos').doc(nomCamp).update({
+                        Logo: downloadURL
+                    })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            });
+        }
+    );
+    uploadTask2.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        (snapshot) => {},
+        (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+                case 'storage/unknown':
+                    // Unknown error occurred, inspect error.serverResponse
+                    break;
+            }
+        },
+        () => {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask2.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                db.collection('Campeonatos').doc(nomCamp).update({
+                        DepositoPre: downloadURL
+                    })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            });
+        }
+    );
+
+    uploadTask3.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        (snapshot) => {},
+        (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+                case 'storage/unknown':
+                    // Unknown error occurred, inspect error.serverResponse
+                    break;
+            }
+        },
+        () => {
+            // Upload completed successfully, now we can get the download URL
+            uploadTask3.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                db.collection('Campeonatos').doc(nomCamp).update({
+                        DepositoIns: downloadURL
+                    })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            });
+        }
+    );
 }
 
 
