@@ -63,6 +63,7 @@ function subirDatosEquipo(){
       console.log("Comprobante imagen :"+urlimagen+'Otra imagen '+urlimagen2);
 
    llenarDatosJugadores(basedatos,nombreEqui);
+   window.location.href="HomeDelegado.html";
 }
 
 //------------------FUNCION QUE SUBE UNA IMAGE A LA BASE DE DATOS----------------- 

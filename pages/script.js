@@ -238,6 +238,7 @@ function crearCamp() {
                     });
             });
         }
+        
     );
 
     uploadTask3.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
@@ -274,6 +275,7 @@ function crearCamp() {
             });
         }
     );
+    window.location.href="Vista_campeonatos.html";
 }
 
 

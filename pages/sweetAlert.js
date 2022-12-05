@@ -157,7 +157,7 @@ console.log(idCamp)
 
 let loader = document.getElementById("preloader");
 
-setTimeout(() => {loader.style.display = "none"}, 2000);
+// setTimeout(() => {loader.style.display = "none"}, 2000);
 
 
   
@@ -374,6 +374,7 @@ function ventana () {
           let ft = document.getElementById("btn-file").files[0];
           console.log(ft)
           subirImagen(ft)
+          window.location.href="./campeonatosDelegado.html";
         }
       })
 }
