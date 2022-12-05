@@ -3,6 +3,9 @@ body{
     font-family: sans-serif;
     font-weight: bold;
 }
+.contenido{
+    margin-top: 80px;
+}
 .contenedor{
     margin-top: 3%;
     margin-left: 8%;

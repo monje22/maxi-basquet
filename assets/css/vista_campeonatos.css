@@ -1,5 +1,10 @@
 body{
+    margin-top: 40px;
     background-color: #252525;
+}
+.container{
+    margin-top: 40px;
+    max-width: 1000px;
 }
 .contenedor{
     background-color: #ECECEC;
@@ -68,4 +73,8 @@ body{
 .detalle{
     margin-top: 10px;
     margin-bottom: 5px;
+}
+.crearCamp{
+    margin-left: 12px;
+    margin-right: 12px;
 }
