@@ -26,7 +26,7 @@ const storageRef = firebase.storage().ref();
  * o redirecciona al login
  * @param user El objeto usuario de la sesion activa
  */
-auth.onAuthStateChanged((user) => {
+auth.onAuthStateChanged((user) =>   {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -42,58 +42,6 @@ auth.onAuthStateChanged((user) => {
 });
 
 
-/**
- * Funcion que realiza el registro de los usuarios en la BD
- */
-function registrarUser() {
-    let correo = document.getElementById("1").value;;
-    let contraseña = document.getElementById("2").value;;
-    let nombre = document.getElementById("3").value;
-    let apellido = document.getElementById("4").value;;
-    let fechaN = document.querySelector('input[type="date"]');
-    let nomcomp = nombre + " " + apellido;
-    let cedula=document.getElementById('5').value;
-    /*Funcion propia de Firebase que realiza el registro de usuarios
-    Esta funcion unicamente acepta 2 parametros: correo y contraseña
-    */
-    auth.createUserWithEmailAndPassword(correo, contraseña)
-        .then((userCredential) => {
-            // Inicio de sesion automatico
-            const user = userCredential.user;
-            let uid = user.uid;
-            // (Firebase) Llamada a la funcion updateProfile para añadir el nombre completo a la cuenta
-            user.updateProfile({
-                displayName: nomcomp,
-                photoURL: null
-            }).then(() => {
-                // Actualizacion exitosa
-                console.log(user.displayName)
-                    // Creacion de una constante que almacenara el nombre y la fecha de nacimiento
-                const initialData = {
-                    Nombre: nomcomp,
-                    fechaNac: fechaN.value,
-                    ci: cedula
-                };
-                //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
-                db.collection('userData').doc('user').collection(uid).doc('datos iniciales').set(initialData);
-                
-                window.location.href="./HomeDelegado.html"
-            
-            }).catch((error) => {
-                // Ocurrio un error al registrar los datos del usuario
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(msg(errorCode))
-
-            });
-        })
-        .catch((error) => {
-            // Ocurrio un error al registrar al usuario
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            alert(msg(errorCode))
-        });
-}
 
 
 /**
