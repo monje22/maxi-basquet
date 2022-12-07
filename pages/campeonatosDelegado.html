@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
-    
+
     <script src="https://kit.fontawesome.com/7b7689ebcb.js" crossorigin="anonymous"></script>
     <title>One Registro</title>
     <!-- Nombre de la pagina y su logo -->
@@ -29,7 +30,7 @@
     <Header>
         <div class="Logo-nombre">
             <a href="/pages/HomeDelegado.html">
-                <img src="../assets/img/Logo_Blanco.png" alt=""  class="logoPagina">
+                <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
             </a>
         </div>
         <!-- Menu del Header -->
@@ -39,7 +40,7 @@
                 <li><a href="campeonatosDelegado.html">CAMPEONATOS</a></li>
                 <li><a href="./calendario.html">PARTIDOS</a></li>
                 <!-- <li><a href="HomeDelegado.html">HOME</a></li> -->
-                
+
                 <div class="desplegable">
                     <button class="desplebutton"> 
                       <a href="#l" id="prueba" 
@@ -48,14 +49,14 @@
                       <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </a> 
                   </button>
-                  
+
                     <!-- <i class="material-icons">expand_more </i>  -->
                     <div class="options">
-                      
-                      <a href="./registro-equipo.html" id="logout">Crear Equipo</a>
-                      <a href="#" id="logout">Cerrar Sesion</a>
-                  </div>
-                  </div>
+
+                        <a href="./registro-equipo.html" id="logout">Crear Equipo</a>
+                        <a href="#" id="logout" onclick="logout()">Cerrar Sesion</a>
+                    </div>
+                </div>
             </ul>
         </nav>
     </Header>
@@ -65,15 +66,15 @@
         <div class="cont-centreado">
             <div class="cont-cabecera">
                 <p>CAMPEONATOS</p>
-             </div>
-             <div class="cont-texto">
+            </div>
+            <div class="cont-texto">
                 <!-- <p>Tu cuenta te da acceso a ver los  -->
-                 <!-- campeonatos disponibles e inscribirte</p> -->
-                 <!-- cambiar el link a la pagina de login -->
+                <!-- campeonatos disponibles e inscribirte</p> -->
+                <!-- cambiar el link a la pagina de login -->
                 <!-- <a href="Partidos.html">¿Ya tienes una cuenta? Accede</a> -->
-             </div>
-             <div class="pb" id="aux1">
-                 <!--
+            </div>
+            <div class="pb" id="aux1">
+                <!--
                     <div class="cont-formulario" id="formu1">
 
                         <div class="imagenLogo">
@@ -90,31 +91,34 @@
                         
                    </div> 
                 -->
-             </div>
-            
+            </div>
+
         </div>
-        
+
     </div>
     <footer>
         <!-- Menu del footer que le acceso a otras paginas o informacion de la pagina -->
         <div class="menu-footer">
-            <div class="div1 item"><a class="ah" href="Partidos.html"></a> </div>
-            <div class="div2 item"><a class="ah" href="Partidos.html"></a> </div>
-            <div class="div3 item"><a class="ah" href="Partidos.html"></a> </div>
-            <div class="div4 item"><a class="ah" href="Partidos.html"></a> </div>
+            <div class="div1 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div2 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div3 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div4 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
             <div class="div5 item"> </div>
             <div class="div6 item"> </div>
         </div>
         <!-- el texto de y los logos de las redes sociales -->
         <div class="texto-footer">
             <p>
-                © 2022 Doc Duck SRL todos los derechos reservados. <br/>
-
-Política de privacidad l Condiciones de uso l Accesibilidad y subtítulos<br/>
-
-No vender mi información personal Atención al cliente Administrar cookies.<br/>
-
-Si tiene dificultades para acceder a cualquier contenido de este sitio web, envie un correo a DockDuck@gmail.com
+                © 2022 Doc Duck SRL todos los derechos reservados. <br/> Política de privacidad l Condiciones de uso l Accesibilidad y subtítulos<br/> No vender mi información personal Atención al cliente Administrar cookies.<br/> Si tiene dificultades
+                para acceder a cualquier contenido de este sitio web, envie un correo a DockDuck@gmail.com
             </p>
             <!-- Rellenar links de las redes sociales de la pagina -->
             <span>
@@ -129,6 +133,11 @@ Si tiene dificultades para acceder a cualquier contenido de este sitio web, envi
     </footer>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 <script src="jsPrueba.js"></script>
+<script src="script.js"></script>
+
 </html>

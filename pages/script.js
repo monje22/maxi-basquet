@@ -26,7 +26,7 @@ const storageRef = firebase.storage().ref();
  * o redirecciona al login
  * @param user El objeto usuario de la sesion activa
  */
-auth.onAuthStateChanged((user) =>   {
+auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -41,8 +41,14 @@ auth.onAuthStateChanged((user) =>   {
     }
 });
 
-
-
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
 
 /**
  * Funcion que realiza el inicio de sesion de los usuarios
@@ -186,7 +192,7 @@ function crearCamp() {
                     });
             });
         }
-        
+
     );
 
     uploadTask3.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
@@ -223,7 +229,7 @@ function crearCamp() {
             });
         }
     );
-    window.location.href="Vista_campeonatos.html";
+    window.location.href = "Vista_campeonatos.html";
 }
 
 

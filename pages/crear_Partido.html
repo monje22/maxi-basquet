@@ -19,7 +19,7 @@
     <header>
         <div class="Logo-nombre">
             <a href="/pages/HomeAdministrador.html">
-                <img src="../assets/img/Logo_Blanco.png" alt=""  class="logoPagina">
+                <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
             </a>
         </div>
         <!-- Menu del Header -->
@@ -29,7 +29,7 @@
                 <li><a href="./Vista_campeonatos.html">CAMPEONATOS</a></li>
                 <li><a href="./calendarioAdmin.html">PARTIDOS</a></li>
                 <!-- <li><a href="./HomeAdministrador.html">HOME</a></li> -->
-                
+
                 <div class="desplegable">
                     <button class="desplebutton"> 
                       <a href="#l" id="prueba" 
@@ -38,15 +38,15 @@
                       <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </a> 
                   </button>
-                  
+
                     <!-- <i class="material-icons">expand_more </i>  -->
                     <div class="options">
-                      
-                      <a href="./listaCampeonatos.html" >Confirmar Inscripcion</a>
-                      <a href="./comfirmarEquipo.html" >Confirmar Equipos</a>
-                      <a href="#" id="logout">Cerrar Sesion</a>
-                  </div>
-                  </div>
+
+                        <a href="./listaCampeonatos.html">Confirmar Inscripcion</a>
+                        <a href="./comfirmarEquipo.html">Confirmar Equipos</a>
+                        <a href="#" id="logout" onclick="logout()">Cerrar Sesion</a>
+                    </div>
+                </div>
             </ul>
         </nav>
     </header>
@@ -155,36 +155,39 @@
 
     <footer>
         <!-- Menu del footer que le acceso a otras paginas o informacion de la pagina -->
-     <div class="menu-footer">
-         <div class="div1 item"><a class="ah" href="Partidos.html"></a> </div>
-         <div class="div2 item"><a class="ah" href="Partidos.html"></a> </div>
-         <div class="div3 item"><a class="ah" href="Partidos.html"></a> </div>
-         <div class="div4 item"><a class="ah" href="Partidos.html"></a> </div>
-         <div class="div5 item"> </div>
-         <div class="div6 item"> </div>
-     </div>
-     <!-- el texto de y los logos de las redes sociales -->
-     <div class="texto-footer">
-         <p>
-             © 2022 Doc Duck SRL todos los derechos reservados. <br/>
-
-Política de privacidad l Condiciones de uso l Accesibilidad y subtítulos<br/>
-
-No vender mi información personal Atención al cliente Administrar cookies.<br/>
-
-Si tiene dificultades para acceder a cualquier contenido de este sitio web, envie un correo a DockDuck@gmail.com
-         </p>
-         <!-- Rellenar links de las redes sociales de la pagina -->
-         <span>
+        <div class="menu-footer">
+            <div class="div1 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div2 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div3 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div4 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div5 item"> </div>
+            <div class="div6 item"> </div>
+        </div>
+        <!-- el texto de y los logos de las redes sociales -->
+        <div class="texto-footer">
+            <p>
+                © 2022 Doc Duck SRL todos los derechos reservados. <br/> Política de privacidad l Condiciones de uso l Accesibilidad y subtítulos<br/> No vender mi información personal Atención al cliente Administrar cookies.<br/> Si tiene dificultades
+                para acceder a cualquier contenido de este sitio web, envie un correo a DockDuck@gmail.com
+            </p>
+            <!-- Rellenar links de las redes sociales de la pagina -->
+            <span>
              
              <a href="https://www.facebook.com/DocDuckSRL/"><img src="../assets/img/VectorLogo-facebook.png" alt=""></a>
              <a href=""><img src="../assets/img/logo-twitter.png" alt=""> </a>
              <a href=""><img src="../assets/img/logo-intagram.png" alt=""> </a>
          </span>
 
-     </div>
-     <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer">
- </footer>
+        </div>
+        <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer">
+    </footer>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
@@ -193,6 +196,7 @@ Si tiene dificultades para acceder a cualquier contenido de este sitio web, envi
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="/pages/crear_partido.js"></script>
     <script src="/pages/crearPartBD.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
