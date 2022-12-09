@@ -10,8 +10,56 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
 var storageRef = firebase.storage().ref();
 const basedatos=[];
+var usuarioId="";
+var tieneEquipo=false;
+
+
+
+//-----------------RECUOERAR ID USUARIO--------------   
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        usuarioId = user.uid;
+        console.log("si esta logueado")
+        console.log(user)
+        console.log(usuarioId);
+            // ...
+    } else {
+        // User is signed out
+        // ...
+        window.location.href="../index.html";
+        console.log("no esta logueado")
+    }
+});
+
+//-----------------VALIDAR QUE EL USUARIO NO TENGA UN EQUIPO YA CREADO-------------
+
+function validatarEquipo(){
+    db.collection("Equipos").doc().then((querySelector)=>{
+        querySnapshot.forEach((doc) => {
+            if(doc.data().idDelegado==usuarioId){
+                 tieneEquipo=true;
+            }
+        });
+    })
+}
+
+//-----------------CERRAR SESION-----------------
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
+
 
 //-----------------PREVISUALIZAR EL LOGO DEL EQUIPO--------------------
 
@@ -45,25 +93,32 @@ function subirDatosEquipo(){
     //console.log(nombreEqui,numeroCel,categoriaE,ramaE,carnet,logo);
     //---------Aqui se llama a la funcion subur imagen para obtener el URL de la imagen-------
       
+      
+    if(tieneEquipo==false){
 
+        db.collection("Equipos").doc(nombreEqui).set({
+            categoria:categoriaE,
+            celularDele:numeroCel,
+            fotoCarnet:"",
+            logo:"",
+            nombreEquipo:nombreEqui,
+            rama:ramaE,
+            idDelegado:usuarioId,
+            verificado:false
+          });
+        
+          subirImagen(carnet,2,nombreEqui,"fotoCarnet","");
+          subirImagen(logo,1,nombreEqui,"logo","");
+          console.log("Comprobante imagen :"+urlimagen+'Otra imagen '+urlimagen2);
     
-    //------AUN FALTA ID USUARIO -----      
-    db.collection("Equipos").doc(nombreEqui).set({
-        categoria:categoriaE,
-        celularDele:numeroCel,
-        fotoCarnet:"",
-        logo:"",
-        nombreEquipo:nombreEqui,
-        rama:ramaE,
-        verificado:false
-      });
-    
-      subirImagen(carnet,2,nombreEqui,"fotoCarnet","");
-      subirImagen(logo,1,nombreEqui,"logo","");
-      console.log("Comprobante imagen :"+urlimagen+'Otra imagen '+urlimagen2);
+       llenarDatosJugadores(basedatos,nombreEqui);
+       window.location.href="HomeDelegado.html";
 
-   llenarDatosJugadores(basedatos,nombreEqui);
-   window.location.href="HomeDelegado.html";
+    }else{
+        window.alert("Ya tienes un equipo creado");
+        window.location.href="HomeDelegado.html";
+    }
+    
 }
 
 //------------------FUNCION QUE SUBE UNA IMAGE A LA BASE DE DATOS----------------- 

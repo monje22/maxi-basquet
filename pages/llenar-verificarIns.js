@@ -10,19 +10,50 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
+
+
+//-----------------RECUOERAR ID USUARIO--------------   
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        console.log("si esta logueado")
+        console.log(user)
+            // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("no esta logueado")
+        window.location.href="../index.html";
+        
+    }
+});
+
+//-----------------CERRAR SESION-----------------
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
+
 
 const contenidoInicial=document.querySelectorAll('#cont-1');
 const imagenResivo=document.getElementById('logo');
 
 //-------------AQUI SE OPTIENE EL URL DE LA PAGINA PARA DECIFRAR EL ID USUARIO---------------
-var idUrl=window.location.search.substring(1).slice(6,-3);
+const valores = window.location.search;
+const urlParams = new URLSearchParams(valores);
+var idUrl=urlParams.get('id');
+var idVerdadero=urlParams.get('idEquipo');
+var idCampe=urlParams.get('idCampeonato');
 
-function leerDatos(){
-var urlPagina=window.location.search.substring(1);
-urlPagina=urlPagina.slice(6,-3);
-console.log(urlPagina);
-idUrl=urlPagina;
-}
+
 
 db.collection("Equipos").doc(idUrl).get().then((doc) => {
 
@@ -38,11 +69,12 @@ db.collection("Equipos").doc(idUrl).get().then((doc) => {
     //---------LLENAR DATOS DEL DELEGADO----------
     var datosdele=document.getElementById("nombre1");
     var telefDele=document.getElementById("telefono1");
+    var datosCi=document.getElementById("datCi");
     console.log(datosdele,telefDele);
     db.collection("userData").doc("user").collection(doc.data().idDelegado).doc("datos iniciales").get().then((doc2)=>{
        datosdele.innerText=doc2.data().Nombre;
        telefDele.innerText="Telefono: "+doc.data().celularDele;
-
+       datosCi.innerText="Ci: "+doc.data().ci;
     });
 
     db.collection("Equipos").doc(idUrl).collection("Jugadores").get().then((querySnapshot) => {
@@ -68,14 +100,30 @@ db.collection("Equipos").doc(idUrl).get().then((doc) => {
 
 }); 
 
-//----------------METODO QUE HABRE EL MODAL---------------
+//-------------METODO QUE RECHAZA AL EQUIPO INSCRITO------------
+function leerDatos(){
+    db.collection("Campeonatos").doc(idCampe).collection("EquiposInscritos").doc(idVerdadero).update({
+        aceptado:true
+    });
+    cerarModal();
+}
+
+//----------------METODO QUE HABRE LOS MODALS---------------
 var modalito=document.querySelector('#contmodal');
+var modalito2=document.querySelector('#contmodal2')
+
+function abrirModal2(){
+    modalito2.showModal();
+}
+
+
 
 function abrirModal(){
  modalito.showModal();
 }
 function cerarModal(){
     modalito.close();
+    modalito2.close();
     
 }
 function redireccionar1(){

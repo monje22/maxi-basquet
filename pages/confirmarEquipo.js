@@ -59,5 +59,5 @@ db.collection("Equipos").get().then((querySnapshot)=>{
 function acceso(datosBoton){
 
     //location.href=`verificarInscripcion.html?id='${idEquiposcade[datosBoton.id-1]}'`;-------ESTE ES EL ORIGINAL
-    location.href=`detallesConfrimarEqui.html?id='${idEquipos}'`;
+    location.href=`detallesConfrimarEqui.html?id=${idEquiposcade[datosBoton.id]}`;
 }

@@ -96,13 +96,13 @@
                     </div>
                     <p id="titulo-texto">Delegado</p>
                     <div class="datosDelegado" id="datDelegado">
-                        <p class="texto-normal">Nombres:</p>
+                        <p class="texto-normal">Nombre:</p>
                         <p class="texto-subrayado" id="nombre1"></p>
-                        <p class="texto-normal">Apellidos:</p>
-                        <p class="texto-subrayado">Rosas Paredes</p>
+                        <!-- <p class="texto-normal">Apellidos:</p>
+                        <p class="texto-subrayado">Rosas Paredes</p> -->
                         <div class="cat-ram">
                             <p class="texto-subrayado" id="telefono1">Telefono: 63979612</p>
-                            <p class="texto-subrayado">Ci: 8621228</p>
+                            <p class="texto-subrayado" id="datCi">Ci: 8621228</p>
                         </div>
                     </div>
                     <p id="titulo-texto">Credenciales</p>
@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="botones-if">
-                        <button title="Rechazar" name="rechazar" onclick="leerDatos()">Recharzar</button>
+                        <button title="Rechazar" name="rechazar" onclick="abrirModal2()">Rechazar</button>
                         <button title="Aceptar" name="aceptar" id="boton-rojo" onclick="abrirModal()">Aceptar</button>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum eligendi sit ipsam temporibus doloremque minus eum rerum suscipit unde magni labore ab mollitia non voluptatum debitis, velit eius sequi!</p>
             </div>
             <div class="bot-Dialog">
-                <button title="Rechazar" name="rechazar">No</button>
+                <button title="Rechazar" name="rechazar" onclick="cerarModal()">No</button>
                 <button title="Aceptar" name="aceptar" id="botonRojoDialog" onclick="redireccionar1()">Si</button>
             </div>
         </div>
@@ -154,6 +154,28 @@
     </dialog>
 
     <!--Fin del modal-->
+
+    <!--Cominezo del segundo modal-->
+
+    <dialog class="dialogo" id="contmodal2">
+        <div class="dialog-tit">
+            <button type="button" class="btn-close" aria-label="Close" onclick="cerarModal()"></button>
+        </div>
+        <div class="cont-dialog">
+            <div class="text-Dialog">
+                <p>¿Estas seguro que deseas RECHAZAR la inscripcion de este equipo en el campeonato a realizarse?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum eligendi sit ipsam temporibus doloremque minus eum rerum suscipit unde magni labore ab mollitia non voluptatum debitis, velit eius sequi!</p>
+            </div>
+            <div class="bot-Dialog">
+                <!-- <button title="Rechazar" name="rechazar" onclick="cerarModal()">No</button> -->
+                <button title="Aceptar" name="aceptar" id="botonRojoDialog" onclick="leerDatos()">Si</button>
+            </div>
+        </div>
+
+    </dialog>
+
+    <!--Fin del segundo modal-->
+
     <footer>
         <!-- Menu del footer que le acceso a otras paginas o informacion de la pagina -->
         <div class="menu-footer">
@@ -196,6 +218,6 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 <script src="llenar-verificarIns.js"></script>
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
 
 </html>

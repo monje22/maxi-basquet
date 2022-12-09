@@ -10,6 +10,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
 /*
 db.collection("Patidos").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -21,6 +22,34 @@ db.collection("Patidos").get().then((querySnapshot) => {
 */
 const idCampeonatos=[];//esta variable contiene un arreglo con los ids de los campeonatos mostrados en la pagina
 
+//-----------------RECUOERAR ID USUARIO--------------   
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        console.log("si esta logueado")
+        console.log(user)
+            // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("no esta logueado")
+        window.location.href="../index.html";
+        
+    }
+});
+
+//-----------------CERRAR SESION-----------------
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
 
 db.collection("Campeonatos").get().then((querySnapshot) => {
     var contador=0;
@@ -55,5 +84,5 @@ db.collection("Campeonatos").get().then((querySnapshot) => {
 function acceso(auxId){
     //aqui tiene que ir la pagina del fabricho no te olvides cambiarlo
     console.log(auxId.id);
-     location.href=`verEquiposInscritos.html?id='${idCampeonatos[auxId.id]}'`;
+     location.href=`verEquiposInscritos.html?id=${idCampeonatos[auxId.id]}`;
 }

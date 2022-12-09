@@ -11,10 +11,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 //-----------------RECUPERAR ID DEL CAMPEONATO SELECCIONADO----------------
-var idEquipos="BwIx0ILfC0AL2KVQdpcX";
-var idUsuario=""
-var urlPagina=window.location.search.substring(1).slice(6,-3);
-urlPagina=urlPagina.replace("%20"," ");
+
+const valores = window.location.search;
+const urlParams = new URLSearchParams(valores);
+var urlPagina=urlParams.get('id');
 console.log(urlPagina);
 
 
@@ -93,11 +93,14 @@ function cerarModal(){
     modalito.close();
     
 }
-function redireccionar1(){
-    db.collection("Equipos").doc(urlPagina).update({
+ async function redireccionar1(){
+    await db.collection("Equipos").doc(urlPagina).update({
         verificado:true
+    }).catch((error) => {
+        console.error("Error al eliminar el documento: ", error);
     });
-    window.history.back();
+
+     window.history.back();
 }
 function leerDatos(){
 modalito2.showModal();
@@ -107,11 +110,13 @@ function cerarModal2(){
     
 }
 
-function eliminarEquipo(){
+async function eliminarEquipo(){
     var text=document.getElementById('floatingTextarea2').value;
-    db.collection("userData").doc("user").collection(idEquipoDE).doc("notificaciones").add({
-        informe:text,
+    await db.collection("userData").doc("user").collection(idEquipoDE).doc("notificaciones").set({
+        informe:"Su Equipo no fue aprobado por los siguentes motivos:"+text,
         fecha:new Date()
+    }).catch((error) => {
+        console.error("Error al eliminar el documento: ", error);
     });
     /*
     db.collection("Equipos").doc(urlPagina).delete().then(() => {
