@@ -169,6 +169,63 @@ form.addEventListener("submit",e=>{
     }
 });
 
+//activar fechas
+
+fechaInicio.addEventListener('change',()=>{
+    if(fechaInicio.value ==''){
+        fechaFin.setAttribute('disabled','')
+    }else{
+        fechaFin.removeAttribute('disabled')
+    }
+    
+})
+fechaFin.addEventListener('change',()=>{
+    if(fechaInicio.value >= fechaFin.value){
+        errorActivo('FechaFin');
+        fechaInscripcion.setAttribute('disabled','')
+    }else{
+        if(fechaInicio.value ==''){
+            fechaInscripcion.setAttribute('disabled','')
+        }else{
+            fechaInscripcion.removeAttribute('disabled')
+        }
+    }
+})
+fechaInscripcion.addEventListener('change',()=>{
+    if(fechaInscripcion.value >= fechaInicio.value && fechaInscripcion.value <= fechaFin.value){
+        if(fechaInscripcion.value ==''){
+            fechaLimiteInsc.setAttribute('disabled','')
+        }else{
+            fechaLimiteInsc.removeAttribute('disabled')
+        }
+    }else{
+        errorActivo('fechaInscripcion');
+        fechaLimiteInsc.setAttribute('disabled','')
+    }
+    
+        
+})
+fechaLimiteInsc.addEventListener('change',()=>{
+    if(fechaLimiteInsc.value >= fechaInicio.value && fechaLimiteInsc.value < fechaFin.value){
+        if(fechaInscripcion.value ==''){
+            fechaLimitePreinsc.setAttribute('disabled','')
+        }else{
+            fechaLimitePreinsc.removeAttribute('disabled')
+        }
+    }else{
+        errorActivo('fechaLimiteInsc');
+        fechaLimitePreinsc.setAttribute('disabled','')
+    }
+})
+fechaLimitePreinsc.addEventListener('change',()=>{
+    if(fechaLimitePreinsc.value >= fechaInicio.value && fechaLimitePreinsc.value < fechaFin.value && fechaLimitePreinsc.value < fechaLimiteInsc.value && fechaLimitePreinsc.value !=''){
+
+    }else{
+        errorActivo('fechaLimitePreinsc')
+    }
+})
+
+
 //Configuracion de input date
 document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("Fecha_ini").setAttribute('min',Fecha()) ;
