@@ -159,7 +159,34 @@ let loader = document.getElementById("preloader");
 
 // setTimeout(() => {loader.style.display = "none"}, 2000);
 
+let usuarioId="";
 
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        usuarioId = user.uid;
+        console.log("si esta logueado")
+        console.log(user)
+        console.log(usuarioId);
+            // ...
+    } else {
+        // User is signed out
+        // ...
+        window.location.href="../index.html";
+        console.log("no esta logueado")
+    }
+});
+
+let varEquipo="";
+
+db.collection("Equipos").get().then((querySnapshot)=>{
+    querySnapshot.forEach(element => {
+        if (usuarioId == element.data().idDelegado) {
+            varEquipo = element.data().nombreEquipo;
+        }
+    });
+})
   
 
 
@@ -218,7 +245,7 @@ docRef.get().then((doc) => {
                 </div>
                 <div class="div3"> 
                     <p class="ta sub"><b>Equipo</b></p>
-                    <p class="ta">ASD</p>
+                    <p class="ta">${varEquipo}</p>
                 </div>
                 <div class="div4"> 
                     <p class="ta sub"><b>Costo</b></p>
@@ -251,11 +278,15 @@ docRef.get().then((doc) => {
                 </div>
                 <div class="div2"> 
                     <p class="ta sub"><b>Categoria</b></p>
-                    <p class="ta">${cp.Categoria}</p>
+                    <select name="select" class="ta">
+                        <option value="value1">Value 1</option>
+                        <option value="value2" selected>Value 2</option>
+                        <option value="value3">Value 3</option>
+                    </select>
                 </div>
                 <div class="div3"> 
                     <p class="ta sub"><b>Equipo</b></p>
-                    <p class="ta">ASD</p>
+                    <p class="ta">${varEquipo}</p>
                 </div>
                 <div class="div4"> 
                     <p class="ta sub"><b>Costo</b></p>
