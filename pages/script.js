@@ -232,6 +232,25 @@ function crearCamp() {
     window.location.href = "Vista_campeonatos.html";
 }
 
+function recuperar() {
+    let correo = document.getElementById("1").value;
+    if (correo == "") {
+        alert("Debe escribir un correo electrónico en el campo correo")
+    } else {
+        firebase.auth().sendPasswordResetEmail(correo).then(() => {
+                alert('Se ha enviado un correo a su cuenta.Por favor sigue los pasos indicados.');
+            })
+            .catch(function(error) {
+
+                let errorCode = error.code;
+                console.log(errorCode);
+                let errorMessage = msg(errorCode);
+                console.log(errorMessage);
+                alert(msg(errorCode));
+
+            });
+    }
+}
 
 /**
  * Funcion que envia codigos de error en español(Firebase los manda en ingles)
