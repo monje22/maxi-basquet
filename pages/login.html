@@ -36,7 +36,7 @@
     <Header>
         <div class="Logo-nombre">
             <a href="/index.html">
-                <img src="../assets/img/Logo_Blanco.png" alt=""  class="logoPagina">
+                <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
             </a>
         </div>
         <!-- Menu del Header -->
@@ -46,12 +46,12 @@
                 <li><a href="campeonatosNormal.html">CAMPEONATOS</a></li>
                 <li><a href="calendario.html">PARTIDOS</a></li>
                 <!-- <li><a href="../index.html">HOME</a></li> -->
-                
-                
+
+
             </ul>
         </nav>
     </Header>
-   
+
     <div class="contenedor">
         <div class="cont-centreado">
             <div class="cont-cabecera">
@@ -60,11 +60,11 @@
 
             <div class="cont-formulario">
                 <label for="correoElectronico">Correo electrónico</label>
-                <input type="text" id="1"  required>
+                <input type="text" id="1" required>
                 <label for="contraseña">Contraseña</label>
-                <input type="password" id="2"  required autocomplete="off">
-                <a class="btn-ini3 espacio roboto" href="index.html"> Olvidaste tu contraseña?</a>
-                <a class="btn-ini espacio robotoCon" onclick="loginUser()" > INICIAR SESION</a>
+                <input type="password" id="2" required autocomplete="off">
+                <a class="btn-ini3 espacio roboto" onclick="recuperar()"> Olvidaste tu contraseña?</a>
+                <a class="btn-ini espacio robotoCon" onclick="loginUser()"> INICIAR SESION</a>
                 <a class="btn-ini1 espacio roboto" href="Registro.html"> No tienes una cuenta?</a>
             </div>
         </div>
@@ -72,10 +72,18 @@
     </div>
 
     <footer class="parent">
-        <div class="div1 item"><a class="ah" href="http://"></a> </div>
-        <div class="div2 item"><a class="ah" href="http://"></a> </div>
-        <div class="div3 item"><a class="ah" href="http://"></a> </div>
-        <div class="div4 item"><a class="ah" href="http://"></a> </div>
+        <div class="div1 item">
+            <a class="ah" href="http://"></a>
+        </div>
+        <div class="div2 item">
+            <a class="ah" href="http://"></a>
+        </div>
+        <div class="div3 item">
+            <a class="ah" href="http://"></a>
+        </div>
+        <div class="div4 item">
+            <a class="ah" href="http://"></a>
+        </div>
         <div class="div5 item"> </div>
         <div class="div6 item"> </div>
     </footer>
@@ -112,6 +120,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 <script src="script.js"></script>
 
 </html>
