@@ -1,24 +1,24 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyDTxvTiyRqLmJLZUvAqdufcM6AC_ZgSfTY",
-    authDomain: "liga-basket.firebaseapp.com",
-    projectId: "liga-basket",
-    storageBucket: "liga-basket.appspot.com",
-    messagingSenderId: "160475930465",
-    appId: "1:160475930465:web:65843fe4a932208eb5af20",
-    measurementId: "G-GVRPKCYGBB"
-};
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDTxvTiyRqLmJLZUvAqdufcM6AC_ZgSfTY",
+//     authDomain: "liga-basket.firebaseapp.com",
+//     projectId: "liga-basket",
+//     storageBucket: "liga-basket.appspot.com",
+//     messagingSenderId: "160475930465",
+//     appId: "1:160475930465:web:65843fe4a932208eb5af20",
+//     measurementId: "G-GVRPKCYGBB"
+// };
 
 
 
-/**
- * @constant app Conexion a la API de Firebase
- * @constant auth Base de datos encargada unicamente de los usuarios (correo y contraseña)
- * @let db Base de datos que almacena cualquier tipo de informacion(texto) en colecciones
- */
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-let db = firebase.firestore();
-const storageRef = firebase.storage().ref();
+// /**
+//  * @constant app Conexion a la API de Firebase
+//  * @constant auth Base de datos encargada unicamente de los usuarios (correo y contraseña)
+//  * @let db Base de datos que almacena cualquier tipo de informacion(texto) en colecciones
+//  */
+// const app = firebase.initializeApp(firebaseConfig);
+// const auth = firebase.auth();
+// let db = firebase.firestore();
+// const storageRef = firebase.storage().ref();
 const btn_añadirFecha = document.getElementById("btn_añadir")
 
 
