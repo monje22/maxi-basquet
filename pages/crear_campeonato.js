@@ -294,7 +294,7 @@ QR1.addEventListener("change",()=>{
         campos['ImagenQr1'] = true;
     }else{
         document.getElementById('error-qr1').classList.add('msg-error-activo');
-        qr1.src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png";
+        qr1.src="../assets/img/QR.png";
         campos['ImagenQr1']=false;
     }    
 });
@@ -322,7 +322,7 @@ QR2.addEventListener("change",()=>{
         campos['ImagenQr2'] = true;
     }else{
         document.getElementById('error-qr2').classList.add('msg-error-activo');
-        qr2.src="../assets/img/65828429-1454-4d14-abc8-172c34bb9420.png";
+        qr2.src="../assets/img/QR.png";
         campos['ImagenQr2']=false;
     }    
 });
