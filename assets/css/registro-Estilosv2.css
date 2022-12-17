@@ -82,7 +82,7 @@ body{
     font-size: 24px;
     font-weight: bold;
 }
-          /*----------ESTILOS DEL FORMULARIO EXPERTIENTO----------*/
+          /*----------ESTILOS DEL FORMULARIO MODAL----------*/
  
         .titulo{
             text-align: center;
@@ -90,7 +90,7 @@ body{
         .form{
             background-color: #ffff;
             border-radius: 8px;
-            padding: 4%;
+            padding: 5%;
             box-sizing: border-box;
             border: none;
             justify-content: center;
@@ -253,6 +253,12 @@ body{
             padding-top: 4px;
             padding-bottom: 4px;
         }
+        .dialog-tit{
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: right;
+        }
 /* fin del formulario____________________________*/
 
 
@@ -270,6 +276,9 @@ body{
     border: none;
     border-radius: 10px;
 }
+.aux::-webkit-scrollbar {
+    width: 0;
+  }
 #contmodal::backdrop{
     background-color: rgba(0, 0, 0, .60);
 }

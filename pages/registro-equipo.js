@@ -207,7 +207,7 @@ function subirImagen(imagenASubir,aux,aux2,aux3,aux4) {
 const abrirmodal=document.querySelector('#boton-chiquito');
 const cerrarmodal=document.querySelector('#btn-añadir');
 const modalito=document.querySelector('#contmodal');
-
+const cerrarMod=document.querySelector('#cerrarX');
 
 var contador=0;
 
@@ -220,6 +220,9 @@ abrirmodal.addEventListener('click',()=>{
 cerrarmodal.addEventListener('click',()=>{
    modalito.close();
 
+})
+cerrarMod.addEventListener('click',()=>{
+    modalito.close();
 })
 
 //CAPTURAR DATOS DE FORMULARIO------------------------------------------------------

@@ -3,7 +3,7 @@
 formulario = document.querySelectorAll('#formulario');
 inputs = document.querySelectorAll('#formulario input');
 const form=document.getElementById("formulario");
-//const Ci_img = document.getElementById("File02");
+const Ci_img = document.getElementById("File02");
 const img_perfil= document.getElementById("File01");
 
 const expresiones ={
@@ -86,7 +86,7 @@ img_perfil.addEventListener("change",()=>{
 });
 
 //VERIFICAR QUE SE AGREGO IMAGEN DE CEDULA DE IDENTIDAD
-/*Ci_img.addEventListener("change",()=>{
+Ci_img.addEventListener("change",()=>{
     if(Ci_img.files.length == 1){
         document.getElementById('error-Cedulaf').classList.remove('input-error-activo');
         document.getElementById('error-Cedulaf').classList.add('input-error');
@@ -98,7 +98,7 @@ img_perfil.addEventListener("change",()=>{
         document.getElementById('File02').classList.add('is-invalid');
         campos['Cedula']=false;
     }
-});*/
+});
 
 //BOTON SUBMIT
 form.addEventListener("submit",e=>{

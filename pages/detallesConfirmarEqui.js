@@ -126,3 +126,7 @@ async function eliminarEquipo(){
     });---------POR SI SE DESEA ALIMINAR EL EQUIPO UNA VES QUE                  */
     window.history.back();
 }
+
+function retroceder(){
+    window.history.back();
+}
