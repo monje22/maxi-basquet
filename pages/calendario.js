@@ -59,6 +59,7 @@ camp.then((querySnapshot) => {
 
 
 function prep(cmp) {
+    window.location.href += ("#" + cmp.id)
     const campref = db.collection("Campeonatos").get()
     campref.then((querySnapshot) => {
         let doc = querySnapshot.docs
@@ -113,6 +114,24 @@ function prep(cmp) {
             document.getElementById("tarj").innerHTML += `<div class="boton">
             <button type="button" class="btn" id="btn_añadir">Añadir Fecha</button>
         </div>`
+            const btn_añadirFecha = document.getElementById("btn_añadir")
+            btn_añadirFecha.addEventListener('click', () => {
+                let add = window.location.href.slice(-1)
+                console.log(add)
+                if (add == "l")
+                    alert("Debe seleccionar previamente un campeonato")
+                else
+                    window.location.href = "./crear_Partido.html#" + add
+            })
         });
+    });
+}
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
     });
 }
