@@ -68,6 +68,7 @@ header {
     position: relative;
     top: 14.25em;
     right: 30em;
+    z-index: 1;
 }
 
 .contenedor-info .slider article .sub-titulo,
@@ -100,6 +101,8 @@ header {
     display: flex;
     justify-content: space-between;
     margin-top: 3.1em;
+    z-index: 3;
+    position: relative;
 }
 
 /* Botones */

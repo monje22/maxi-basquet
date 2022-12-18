@@ -86,7 +86,7 @@ db.collection("Equipos").doc(idUrl).get().then((doc) => {
                 <div class="datos-credencial">
                     <p id="nombre-Jugador">${doc1.data().nombre}</p>
                     <p>Nacionalidad: ${doc1.data().nacionalidad}</p>
-                    <p>Edad: ${doc1.data().edad} años</p>
+                    <p>Edad: ${calcularEdad(doc1.data().edad)} años</p>
                     <p>Peso: ${doc1.data().peso}kg</p>
                     <p>Altura: ${doc1.data().altura}cm</p>
                     <p>Cedula de Identidad: ${doc1.data().cedula1}</p>
@@ -129,4 +129,28 @@ function cerarModal(){
 function redireccionar1(){
     window.history.back();
 }
+
+//-----------------METODO QUE CALCULA LA EDAD DE LOS JUGADORES-----------
+function calcularEdad (fechaNacimiento){
+    var fechaActual = new Date();
+    var anoActual = parseInt(fechaActual.getFullYear());
+    var mesActual = parseInt(fechaActual.getMonth()) + 1;
+    var diaActual = parseInt(fechaActual.getDate());
+
+    // 2016-07-11
+    var anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
+    var mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
+    var diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
+
+    let edad = anoActual - anoNacimiento;
+    if (mesActual < mesNacimiento) {
+        edad--;
+    } else if (mesActual === mesNacimiento) {
+        if (diaActual < diaNacimiento) {
+            edad--;
+        }
+    }
+    console.log("la edad de este juador es:"+edad);
+    return edad;
+};
 
