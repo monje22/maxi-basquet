@@ -68,7 +68,7 @@ db.collection("Campeonatos").get().then((querySnapshot) => {
                 </div>
            <div class="contenido">
                 <p id="titulo">${doc.data().NomCamp}</p>
-                <p id="informacion">${doc.data().Invitacion}</p>
+                
                 <p id="estado">Rama:  ${doc.data().Rama}</p>
                 <p id="estado">Categoria :  ${doc.data().Categoria}</p>
                 <p id="estado">Fecha de Inicio :  ${doc.data().FechaInicio}</p>
