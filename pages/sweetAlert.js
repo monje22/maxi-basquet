@@ -543,7 +543,7 @@ function addOptions(domElement, array) {
 }
 
 
-function se () {
+function se() {
     suCategoria = document.getElementById("x").value;
     console.log(suCategoria)
 }
@@ -696,9 +696,14 @@ function subirImagen(imagenASubir) {
                     urlimagen=downloadURL;
                     db.collection("Campeonatos").doc(idCamp).collection("EquiposInscritos").add({
                         recibo: urlimagen,
-                        idEquipo: "CA",
-                        aceptado: false
-                        
+                        idEquipo: prueba,
+                        aceptado: false,
+                        categoria: suCategoria,
+                        partidosGanados:0,
+                        partidosJugados:0,
+                        partidosPerdidos:0,
+                        puntosAfavor:0,
+                        puntosContra:0,
                     })
                     .then(() => {
                         console.log("Document successfully written!");
