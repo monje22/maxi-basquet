@@ -40,10 +40,25 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
+const paramURL = window.location.search;
+console.log(paramURL);
+
+const parametrosURL = new URLSearchParams(paramURL);
+console.log(typeof(parametrosURL));
+
+for (let valoresURL of parametrosURL){
+    console.log(valoresURL)
+}
+
+let idCamp = parametrosURL.get('id')
+console.log(idCamp)
+
+
 let susCategorias = "";
 let arrayCategorias= [];
+console.log(idCamp)
 
-db.collection("Campeonatos").doc("Campeonato test").get().then((doc) =>{
+db.collection("Campeonatos").doc(idCamp).get().then((doc) =>{
         susCategorias = doc.data().Categoria 
         console.log(doc.data().Categoria)
         // susCategorias = susCategorias.replace("+","")
@@ -159,18 +174,7 @@ function msg(errorCode) {
     return msg;
 }
 
-const paramURL = window.location.search;
-console.log(paramURL);
 
-const parametrosURL = new URLSearchParams(paramURL);
-console.log(typeof(parametrosURL));
-
-for (let valoresURL of parametrosURL){
-    console.log(valoresURL)
-}
-
-let idCamp = parametrosURL.get('id')
-console.log(idCamp)
 
 let loader = document.getElementById("preloader");
 
@@ -211,6 +215,7 @@ db.collection("Equipos").get().then((querySnapshot)=>{
         if (usuarioId == element.data().idDelegado) {
             varEquipo = element.data().nombreEquipo;
             console.log(usuarioId);
+            console.log(varEquipo)
         } 
     }
     
@@ -252,6 +257,9 @@ let suCategoria = "";
 
 docRef.get().then((doc) => {
     if (doc.exists) {
+
+
+        
 
         
         // console.log("Document data:", doc.data());
@@ -304,7 +312,7 @@ docRef.get().then((doc) => {
                         
                     </select>
                 </div>
-                <div class="div3"> 
+                <div class="div3" id="equi"> 
                     <p class="ta sub"><b>Equipo</b></p>
                     <p class="ta">${varEquipo}</p>
                 </div>
@@ -329,6 +337,23 @@ docRef.get().then((doc) => {
             <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`;
             
             addOptions(combo,arrayCategorias)
+
+            db.collection("Equipos").get().then((querySnapshot)=>{
+                querySnapshot.forEach(element => {
+                    // console.log(usuarioId)
+                    if (usuarioId == element.data().idDelegado) {
+                        varEquipo = element.data().nombreEquipo;
+                        // console.log(usuarioId);
+                        console.log(varEquipo);
+                        ponerEquipo(varEquipo);
+                    } 
+                }
+                
+                )
+            
+            
+                ;
+            })
             
             
         } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
@@ -347,7 +372,7 @@ docRef.get().then((doc) => {
                         
                     </select>
                 </div>
-                <div class="div3"> 
+                <div class="div3" id="equi"> 
                     <p class="ta sub"><b>Equipo</b></p>
                     <p class="ta">${varEquipo}</p>
                 </div>
@@ -373,19 +398,54 @@ docRef.get().then((doc) => {
             <a class="btn-ini espacio robotoCon" onclick="ventana()"> INSCRIBIRSE</a>`;
 
             addOptions(combo,arrayCategorias)
+            db.collection("Equipos").get().then((querySnapshot)=>{
+                querySnapshot.forEach(element => {
+                    // console.log(usuarioId)
+                    if (usuarioId == element.data().idDelegado) {
+                        varEquipo = element.data().nombreEquipo;
+                        console.log(usuarioId);
+                        console.log(varEquipo);
+                        
+                    } 
+                }
+                
+                )
             
+            
+                ;
+            })
             
         } else {
-            console.log("no entro en nada")
+            // console.log("no entro en nada")
             box.innerHTML= `<h1 class="th"> <b>NO ESTA HABILITADO</b></h1>`;
         }
     } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
     }
 }).catch((error) => {
     console.log("Error getting document:", error);
 });
+let prueba = "";
+function ponerEquipo(nEquipo) {
+        console.log(nEquipo)
+        let texto = document.getElementById("equi");
+        let p = document.createElement("p");
+        let t = document.createElement("p");
+        p.innerText =nEquipo+"";
+        t.innerText ="Usten no tiene un equipo";
+        console.log(p)
+        console.log(texto)
+       
+
+        if (nEquipo != "") {
+            texto.appendChild(p)
+            prueba = nEquipo;
+        } else {
+            texto.appendChild(t)
+        }
+        
+}
 
 let fechaPre = "";
 let fechaIni = "";
@@ -525,6 +585,8 @@ function ventana () {
                
                 
                 console.log(suCategoria)
+                console.log(prueba)
+                // lo de abajo de X-FORCE remplazar por "prueba"
                 db.collection("Equipos").doc("X-Force").collection("Jugadores").get().then((querySnapshot)=>{
                     querySnapshot.forEach(element => {
                         // console.log("es el each")
