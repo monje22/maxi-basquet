@@ -79,7 +79,7 @@ function loginUser() {
 
 }
 
-function crearCamp() {
+async function crearCamp() {
     let logo = document.getElementById("File_logo").files[0];
     let nomCamp = document.getElementById("Nombre").value;
     let catA = document.getElementById("inputGroupSelect01");
@@ -114,7 +114,7 @@ function crearCamp() {
         DepositoIns: ""
     };
     //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
-    db.collection('Campeonatos').doc(nomCamp).set(initialData)
+    await db.collection('Campeonatos').doc(nomCamp).set(initialData)
         .then(() => {
             console.log("Guardado Exitoso");
         })
@@ -125,7 +125,7 @@ function crearCamp() {
     let uploadTask1 = storageRef.child("Logo Equipos" + '/' + logo.name).put(logo);
     let uploadTask2 = storageRef.child("Depositos" + '/' + depoPreIns.name).put(depoPreIns);
     let uploadTask3 = storageRef.child("Depositos" + '/' + depoIns.name).put(depoIns);
-    uploadTask1.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    await uploadTask1.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         (snapshot) => {},
         (error) => {
             // A full list of error codes is available at
@@ -142,9 +142,9 @@ function crearCamp() {
                     break;
             }
         },
-        () => {
+        async() => {
             // Upload completed successfully, now we can get the download URL
-            uploadTask1.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            await uploadTask1.snapshot.ref.getDownloadURL().then((downloadURL) => {
                 console.log('File available at', downloadURL);
                 db.collection('Campeonatos').doc(nomCamp).update({
                         Logo: downloadURL
@@ -159,7 +159,7 @@ function crearCamp() {
             });
         }
     );
-    uploadTask2.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    await uploadTask2.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         (snapshot) => {},
         (error) => {
             // A full list of error codes is available at
@@ -176,9 +176,9 @@ function crearCamp() {
                     break;
             }
         },
-        () => {
+        async() => {
             // Upload completed successfully, now we can get the download URL
-            uploadTask2.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            await uploadTask2.snapshot.ref.getDownloadURL().then((downloadURL) => {
                 console.log('File available at', downloadURL);
                 db.collection('Campeonatos').doc(nomCamp).update({
                         DepositoPre: downloadURL
@@ -195,7 +195,7 @@ function crearCamp() {
 
     );
 
-    uploadTask3.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    await uploadTask3.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         (snapshot) => {},
         (error) => {
             // A full list of error codes is available at
@@ -212,15 +212,16 @@ function crearCamp() {
                     break;
             }
         },
-        () => {
+        async() => {
             // Upload completed successfully, now we can get the download URL
-            uploadTask3.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            await uploadTask3.snapshot.ref.getDownloadURL().then((downloadURL) => {
                 console.log('File available at', downloadURL);
                 db.collection('Campeonatos').doc(nomCamp).update({
                         DepositoIns: downloadURL
                     })
                     .then(() => {
                         console.log("Document successfully updated!");
+                        window.location.href = "Vista_campeonatos.html";
                     })
                     .catch((error) => {
                         // The document probably doesn't exist.
@@ -229,7 +230,6 @@ function crearCamp() {
             });
         }
     );
-    window.location.href = "Vista_campeonatos.html";
 }
 
 function recuperar() {
