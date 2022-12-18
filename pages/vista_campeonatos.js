@@ -3,7 +3,8 @@ camp.then((querySnapshot) => {
     let doc = querySnapshot.docs
     let lim = querySnapshot.size;
     const ht = document.getElementById("tarjeta")
-    for (let i = 0; i < lim; i++) {
+    let i;
+    for (i = 0; i < lim; i++) {
         ht.innerHTML += `<div id="tarjeta0${i}" class="row align-item-center">
         <div class="col-3">
             <img class="logo_evento" src="${doc[i].data().Logo}">
@@ -29,12 +30,17 @@ camp.then((querySnapshot) => {
         </div>
 
     </div>
-    <hr>`
-        const btn_editar = document.getElementById('editar' + i);
-        btn_editar.addEventListener("click", () => {
-            window.location.href = ("editar_campeonato.html" + "#" + i)
-        })
+    <hr>`;
     }
+
+    for (let j = 0; j < i; j++) {
+        const btn_editar = document.getElementById('editar' + j);
+        btn_editar.addEventListener("click", () => {
+            window.location.href = ("editar_campeonato.html" + "#" + j)
+        })
+
+    }
+
     let btn_crear = document.getElementById('crear_camp');
     const seeker = document.getElementById('search');
     const tarjetas = document.getElementById('tarjetas');
