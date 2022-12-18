@@ -40,6 +40,23 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
+let susCategorias = "";
+let arrayCategorias= [];
+
+db.collection("Campeonatos").doc("Campeonato test").get().then((doc) =>{
+        susCategorias = doc.data().Categoria 
+        console.log(doc.data().Categoria)
+        // susCategorias = susCategorias.replace("+","")
+        while (susCategorias.indexOf("+") != -1) {
+            susCategorias = susCategorias.replace("+","")
+            susCategorias = susCategorias.replace(" ","")
+        }
+        console.log(susCategorias)
+        console.log(susCategorias.split(","))
+        arrayCategorias=susCategorias.split(",");
+        console.log(arrayCategorias);
+});
+
 
 /**
  * Funcion que realiza el registro de los usuarios en la BD
@@ -231,6 +248,7 @@ combo="combo"
 let docRef = db.collection("Campeonatos").doc(idCamp);
 const box = document.getElementById("bs");
 
+let suCategoria = "";
 
 docRef.get().then((doc) => {
     if (doc.exists) {
@@ -282,7 +300,7 @@ docRef.get().then((doc) => {
                 <div class="div2"> 
                     <p class="ta sub"><b>Categoria</b></p>
                     
-                    <select name="combo" >
+                    <select id="x" name="combo" onchange="se();" >
                         
                     </select>
                 </div>
@@ -310,7 +328,9 @@ docRef.get().then((doc) => {
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`;
             
-            addOptions(combo,fecha)
+            addOptions(combo,arrayCategorias)
+            
+            
         } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
             console.log("entro en ins")
             box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
@@ -352,7 +372,9 @@ docRef.get().then((doc) => {
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()"> INSCRIBIRSE</a>`;
 
-            addOptions(combo,fecha)
+            addOptions(combo,arrayCategorias)
+            
+            
         } else {
             console.log("no entro en nada")
             box.innerHTML= `<h1 class="th"> <b>NO ESTA HABILITADO</b></h1>`;
@@ -449,6 +471,7 @@ function calcularEdad (fechaNacimiento){
 };
 
 
+
 function addOptions(domElement, array) {
     var select = document.getElementsByName(domElement)[0];
    
@@ -458,6 +481,21 @@ function addOptions(domElement, array) {
      select.add(option);
     }
 }
+
+
+function se () {
+    suCategoria = document.getElementById("x").value;
+    console.log(suCategoria)
+}
+
+
+
+
+
+
+
+   
+
 
 
 function ventana () {
@@ -479,38 +517,84 @@ function ventana () {
                     'error'
                   )      
             } else {
+
+
+
                 let pasa = true;
+                
+               
+                
+                console.log(suCategoria)
                 db.collection("Equipos").doc("X-Force").collection("Jugadores").get().then((querySnapshot)=>{
                     querySnapshot.forEach(element => {
-                        
+                        // console.log("es el each")
                         let edadJugador = calcularEdad(element.data().edad);
-                        console.log(edadJugador)
-                        // if (edadJugador >= suCategoria && edadJugador < categSig) {
+                        // console.log(edadJugador)
+                        // console.log(arrayCategorias)
+                        for (let index = 0; index < arrayCategorias.length; index++) {
+                            // console.log("estoy donde el ultimo")
+                            if (arrayCategorias[arrayCategorias.length-1] == suCategoria) {
+                                if (arrayCategorias[index] == Math.floor(suCategoria) ) {
+                                    // console.log("aqui es igual su categoria")
+                                    // console.log(edadJugador)
+                                    // console.log(Math.floor(suCategoria))
+                                    if (edadJugador >= Math.floor(suCategoria)){
+                                        console.log("su edad es mauot")
+                                    } else{
+                                        pasa = false
+                                        // console.log("su pasa es fasle")
+                                    }     
+                                }
+                            } else{
+                                // console.log("estoy en el else")
+                                if (arrayCategorias[index] == suCategoria) {
+                                    if (edadJugador >= suCategoria && edadJugador < arrayCategorias[index+1]){
+                                        
+                                    } else{
+                                        pasa = false
+                                    }     
+                                }
 
-                        // } else {
-                        //     pasa = false;
-                        // }
+                            }
+                            
+                                
+                            
+                            
+                        }
+
+                        console.log(pasa)
+                        pasa = pasa;
+                        console.log(pasa)
+
+
+                        console.log("aqui deberia estat pasa false"+pasa)
+                setTimeout(tarde,500,pasa)
+                function tarde(pasa) {
+                    if (pasa==true) {
+                        console.log(pasa)
+                        Swal.fire(
+                            'Gracias por su inscripcion',
+                            'Se le mandara un mensaje cuando un administrador revise que su pago este realizado y que su equipo cumple con las normas del campeonato',
+                            'success'
+                          )
+                          console.log("se confirmo")
+                          let ft = document.getElementById("btn-file").files[0];
+                          console.log(ft)
+                          // subirImagen(ft)
+                          // window.location.href="./campeonatosDelegado.html";    
+                    } else if (pasa == false) {
+                        Swal.fire(
+                            'Oh',
+                            'Parece que a ocurrido un problema, Tal parece que la edad de sus jugadores no coinciden con la SUB seleccionada',
+                            'error'
+                          )
+                    }
+                }
+                        
                     }
                     )
                     });
-                if (pasa) {
-                    Swal.fire(
-                        'Gracias por su inscripcion',
-                        'Se le mandara un mensaje cuando un administrador revise que su pago este realizado y que su equipo cumple con las normas del campeonato',
-                        'success'
-                      )
-                      console.log("se confirmo")
-                      let ft = document.getElementById("btn-file").files[0];
-                      console.log(ft)
-                      // subirImagen(ft)
-                      // window.location.href="./campeonatosDelegado.html";    
-                } else {
-                    Swal.fire(
-                        'Oh',
-                        'Parece que a ocurrido un problema, Tal parece que la edad de sus jugadores no coinciden con la SUB seleccionada',
-                        'error'
-                      )
-                }
+                
                 
             }
         }
