@@ -25,16 +25,20 @@ camp.then((querySnapshot) => {
 
         <div class="btn-editar">
             <br>
-            <button class="btn btn-edit" id="editar" type="button">Editar</button>
+            <button class="btn btn-edit" id="editar${i}" type="button">Editar</button>
         </div>
 
     </div>
     <hr>`
+        const btn_editar = document.getElementById('editar' + i);
+        btn_editar.addEventListener("click", () => {
+            window.location.href = ("editar_campeonato.html" + "#" + i)
+        })
     }
     let btn_crear = document.getElementById('crear_camp');
     const seeker = document.getElementById('search');
     const tarjetas = document.getElementById('tarjetas');
-    const btn_editar = document.getElementById('editar');
+
     btn_crear.addEventListener("click", () => {
         /*if(contador<5){
             descripcion="o((>ω< ))o Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -44,14 +48,9 @@ camp.then((querySnapshot) => {
 
     })
 
-
-    btn_editar.addEventListener("click", () => {
-        window.location.href = "www.google.com"
-    })
-
-    //-----------------FUNCION DEL BOTON CREAR CAMPEONATO QUE TE ENVIA A LA PAGINA CREARCAMPEONATO.HTML-------------
-    btn_editar.addEventListener("click", () => {
-        window.location.href = "www.google.com"
-    })
+    // //-----------------FUNCION DEL BOTON CREAR CAMPEONATO QUE TE ENVIA A LA PAGINA CREARCAMPEONATO.HTML-------------
+    // btn_editar.addEventListener("click", () => {
+    //     window.location.href = "www.google.com"
+    // })
 
 });
