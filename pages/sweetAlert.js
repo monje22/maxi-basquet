@@ -160,7 +160,7 @@ let loader = document.getElementById("preloader");
 // setTimeout(() => {loader.style.display = "none"}, 2000);
 
 let usuarioId="";
-
+console.log(usuarioId)
 auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
@@ -178,20 +178,59 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
+
+
 let varEquipo="";
+
+// 
+
+
+
+
 
 db.collection("Equipos").get().then((querySnapshot)=>{
     querySnapshot.forEach(element => {
+        // console.log(usuarioId)
         if (usuarioId == element.data().idDelegado) {
             varEquipo = element.data().nombreEquipo;
-        }
-    });
+            console.log(usuarioId);
+        } 
+    }
+    
+    )
+
+    console.log(varEquipo)
+    if (varEquipo == "") {
+        Swal.fire({
+            title: 'Oh parece que ah ocurrido un problema.',
+            text: "Tal parece que usted no cuenta con un equipo asi que puede crear uno antes de continuar",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#FE0032',
+            cancelButtonColor: '#2B2B2B',
+            confirmButtonText: 'Crear Equipo',
+            cancelButtonText:'Volver',
+          }).then((result) => {
+            if (result.isConfirmed) {
+                
+            } else {
+
+            }
+          })
+    } else {
+        
+    }
+
+    ;
 })
   
+fecha = [10,20,30,40];
 
+combo="combo"
 
 let docRef = db.collection("Campeonatos").doc(idCamp);
 const box = document.getElementById("bs");
+
 
 docRef.get().then((doc) => {
     if (doc.exists) {
@@ -203,7 +242,8 @@ docRef.get().then((doc) => {
         let a = new Date();
         let año = a.getFullYear();
         let mes = a.getMonth()+1;
-        let dia = "";
+        console.log(a.getDate())
+        let dia = a.getDate();
         if (a.getDate() < 10) {
             dia = "0"+a.getDate();
         }
@@ -241,7 +281,10 @@ docRef.get().then((doc) => {
                 </div>
                 <div class="div2"> 
                     <p class="ta sub"><b>Categoria</b></p>
-                    <p class="ta">${cp.Categoria}</p>
+                    
+                    <select name="combo" >
+                        
+                    </select>
                 </div>
                 <div class="div3"> 
                     <p class="ta sub"><b>Equipo</b></p>
@@ -265,7 +308,9 @@ docRef.get().then((doc) => {
 
         </div>
             
-            <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`; 
+            <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`;
+            
+            addOptions(combo,fecha)
         } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
             console.log("entro en ins")
             box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
@@ -278,10 +323,8 @@ docRef.get().then((doc) => {
                 </div>
                 <div class="div2"> 
                     <p class="ta sub"><b>Categoria</b></p>
-                    <select name="select" class="ta">
-                        <option value="value1">Value 1</option>
-                        <option value="value2" selected>Value 2</option>
-                        <option value="value3">Value 3</option>
+                    <select name="combo" >
+                        
                     </select>
                 </div>
                 <div class="div3"> 
@@ -308,6 +351,8 @@ docRef.get().then((doc) => {
 
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()"> INSCRIBIRSE</a>`;
+
+            addOptions(combo,fecha)
         } else {
             console.log("no entro en nada")
             box.innerHTML= `<h1 class="th"> <b>NO ESTA HABILITADO</b></h1>`;
@@ -380,8 +425,39 @@ let reversa = (texto) =>{
 }
 
 
+function calcularEdad (fechaNacimiento){
+    var fechaActual = new Date();
+    var anoActual = parseInt(fechaActual.getFullYear());
+    var mesActual = parseInt(fechaActual.getMonth()) + 1;
+    var diaActual = parseInt(fechaActual.getDate());
+
+    // 2016-07-11
+    var anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
+    var mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
+    var diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
+
+    let edad = anoActual - anoNacimiento;
+    if (mesActual < mesNacimiento) {
+        edad--;
+    } else if (mesActual === mesNacimiento) {
+        if (diaActual < diaNacimiento) {
+            edad--;
+        }
+    }
+    console.log("la edad de este juador es:"+edad);
+    return edad;
+};
 
 
+function addOptions(domElement, array) {
+    var select = document.getElementsByName(domElement)[0];
+   
+    for (value in array) {
+     var option = document.createElement("option");
+     option.text = array[value];
+     select.add(option);
+    }
+}
 
 
 function ventana () {
@@ -396,16 +472,47 @@ function ventana () {
         cancelButtonText:'No',
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Gracias por su inscripcion',
-            'Se le mandara un mensaje cuando un administrador revise que su pago este realizado y que su equipo cumple con las normas del campeonato',
-            'success'
-          )
-          console.log("se confirmo")
-          let ft = document.getElementById("btn-file").files[0];
-          console.log(ft)
-          subirImagen(ft)
-          window.location.href="./campeonatosDelegado.html";
+            if (document.getElementById("btn-file").files[0] === undefined ) {
+                Swal.fire(
+                    'Vaya parece que ah ocurrido un error',
+                    'Tal parece que no ha subido su comprobante, Para continuar suba su comprobante',
+                    'error'
+                  )      
+            } else {
+                let pasa = true;
+                db.collection("Equipos").doc("X-Force").collection("Jugadores").get().then((querySnapshot)=>{
+                    querySnapshot.forEach(element => {
+                        
+                        let edadJugador = calcularEdad(element.data().edad);
+                        console.log(edadJugador)
+                        // if (edadJugador >= suCategoria && edadJugador < categSig) {
+
+                        // } else {
+                        //     pasa = false;
+                        // }
+                    }
+                    )
+                    });
+                if (pasa) {
+                    Swal.fire(
+                        'Gracias por su inscripcion',
+                        'Se le mandara un mensaje cuando un administrador revise que su pago este realizado y que su equipo cumple con las normas del campeonato',
+                        'success'
+                      )
+                      console.log("se confirmo")
+                      let ft = document.getElementById("btn-file").files[0];
+                      console.log(ft)
+                      // subirImagen(ft)
+                      // window.location.href="./campeonatosDelegado.html";    
+                } else {
+                    Swal.fire(
+                        'Oh',
+                        'Parece que a ocurrido un problema, Tal parece que la edad de sus jugadores no coinciden con la SUB seleccionada',
+                        'error'
+                      )
+                }
+                
+            }
         }
       })
 }
