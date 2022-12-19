@@ -329,17 +329,17 @@ QR2.addEventListener("change",()=>{
 });
 //DROPDOWNS
 //categoria
-dropdown1.addEventListener('change',()=>{
-    if(dropdown1.value !=0){
-        document.getElementById("inputGroupSelect01").classList.add('is-valid');
-    }else{
-        document.getElementById("inputGroupSelect01").classList.add('is-invalid');
-    }
-});
-dropdown2.addEventListener('change',()=>{
-    if(dropdown2.value !=0){
-        document.getElementById("inputGroupSelect02").classList.add('is-valid');
-    }else{
-        document.getElementById("inputGroupSelect02").classList.add('is-invalid');
-    }
-});
+// dropdown1.addEventListener('change',()=>{
+//     if(dropdown1.value !=0){
+//         document.getElementById("inputGroupSelect01").classList.add('is-valid');
+//     }else{
+//         document.getElementById("inputGroupSelect01").classList.add('is-invalid');
+//     }
+// });
+// dropdown2.addEventListener('change',()=>{
+//     if(dropdown2.value !=0){
+//         document.getElementById("inputGroupSelect02").classList.add('is-valid');
+//     }else{
+//         document.getElementById("inputGroupSelect02").classList.add('is-invalid');
+//     }
+// });

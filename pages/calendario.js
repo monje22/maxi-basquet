@@ -92,6 +92,12 @@ function prep(cmp) {
             let lim = querySnapshot.size;
             document.getElementById("tarj").innerHTML = ``
             for (let i = 0; i < lim; i++) {
+                // let url="";
+                // db.collection("Equipos").doc(doc[i].data().Equipo1).get().then((aux3)=>{
+                //   url=aux3.data().logo;
+                // });
+                // console.log(url);
+                // let url2=db.collection("Equipos").doc(doc[i].data().Equipo2).get();
                 document.getElementById("tarj").innerHTML += `
         <div class="dates">
                     <div class="row ">

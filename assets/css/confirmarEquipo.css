@@ -69,7 +69,7 @@
     
     padding: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     background-color: #fff;
     /*min-height: 300px;*/
     flex-direction: row;
@@ -102,6 +102,9 @@
    justify-content: right;
    padding-left: 50px;
    align-items: center;
+}
+.contenido{
+    width: 60%;
 }
 .cont-formulario button{
    justify-content: center;

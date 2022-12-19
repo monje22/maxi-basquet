@@ -72,9 +72,9 @@ db.collection("Equipos").doc(urlPagina).collection("Jugadores").get().then((quer
                 <p>Edad: ${doc1.data().edad} años</p>
                 <p>Peso: ${doc1.data().peso}kg</p>
                 <p>Altura: ${doc1.data().altura}cm</p>
-                <p>Cedula de Identidad: ${doc1.data().cedula1}</p>
+                
             </div>
-                <img src="${doc1.data().qr}" alt="" id="img-qr">
+                <img src="${doc1.data().carnet}" alt="" id="img-qr">
         </div>
         `
     });

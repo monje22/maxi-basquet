@@ -177,6 +177,7 @@
 }
 .datos-credencial{
     margin-right: 35px;
+    width: 30%;
 }
 .datos-credencial p{
     margin-bottom: 5px;
@@ -187,7 +188,7 @@
 }
 #img-qr{
     height: max-content;
-    width: 15%;
+    width: 30%;
 }
 .botones-if{
     display: flex;

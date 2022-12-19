@@ -102,8 +102,8 @@ async function verfNom() {
 async function crearCamp() {
     let logo = document.getElementById("File_logo").files[0];
     let nomCamp = document.getElementById("Nombre").value;
-    let catA = document.getElementById("inputGroupSelect01");
-    let catB = catA.options[catA.selectedIndex].text;
+    // let catA = document.getElementById("inputGroupSelect01");
+    let catB = document.getElementById('llenar').textContent;
     let ramaA = document.getElementById("inputGroupSelect02");
     let ramaB = ramaA.options[ramaA.selectedIndex].text;
     let invt = document.getElementById("Invitacion").value;
@@ -305,4 +305,16 @@ function msg(errorCode) {
             msg = "Error: Algunos de los datos son inválidos, por favor verifica los datos";
     }
     return msg;
+}
+
+function prueba(){
+    var aux=document.getElementById('Cajita').value;
+
+    llenar.innerText+=aux+", ";
+    document.getElementById('Cajita').value="";
+
+    console.log(document.getElementById('llenar').textContent);
+}
+function vaciar(){
+    document.getElementById('llenar').textContent="";
 }

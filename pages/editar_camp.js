@@ -47,12 +47,12 @@ camp.then((querySnapshot) => {
     const logo = document.getElementById("logo");
     logo.src = doc[idc].data().Logo;
     document.getElementById("Nombre").value = doc[idc].data().NomCamp;
-    let cat = document.getElementById("inputGroupSelect01")
-    for (let i = 0; i < cat.length; i++) {
-        if (cat[i].text == (doc[idc].data().Categoria)) {
-            document.getElementById("inputGroupSelect01").value = i;
-        }
-    }
+    document.getElementById("llenar").textContent=doc[idc].data().Categoria;
+    // for (let i = 0; i < cat.length; i++) {
+    //     if (cat[i].text == (doc[idc].data().Categoria)) {
+    //         document.getElementById("inputGroupSelect01").value = i;
+    //     }
+    // }
     let rama = document.getElementById("inputGroupSelect02")
     for (let i = 0; i < rama.length; i++) {
         if (rama[i].text == doc[idc].data().Rama) {

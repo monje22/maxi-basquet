@@ -320,7 +320,9 @@ header{
     line-height: 28px;
     letter-spacing: 0.085em;
 }
-
+.sq img {
+  width: 40%;
+}
 .t{
     text-align: start;
     width: 50vw;

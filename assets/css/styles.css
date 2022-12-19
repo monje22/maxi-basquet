@@ -112,7 +112,14 @@ body{
     border: solid 1px white;
     background-color: transparent;
 }
-
+.mb-31{
+    display: flex;
+    flex-direction: column;
+}
+.aux{
+    display: flex;
+    flex-direction: row;
+}
 
 /* comienzo del footer____________________________*/
 footer{
