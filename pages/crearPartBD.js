@@ -20,6 +20,25 @@ const auth = firebase.auth();
 let db = firebase.firestore();
 const storageRef = firebase.storage().ref();
 
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        let correo = user.email;
+        console.log("si esta logueado")
+        let bandera = correo.search(/@one.com/i);
+        if (bandera < 0) {
+            window.location.href = "HomeDelegado.html"
+        }
+        //console.log(user)
+        // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("no esta logueado")
+        window.location.href = "login.html"
+    }
+});
 const camp = db.collection("Campeonatos").get()
 
 const idc = window.location.href.slice(-1)
@@ -36,8 +55,8 @@ camp.then((querySnapshot) => {
         document.getElementById("equipo1").innerHTML = `<option selected value="0">Elegir Equipo...</option>`
         document.getElementById("equipo2").innerHTML = `<option selected value="0">Elegir Equipo...</option>`
         for (i = 0; i < limi; i++) {
-            document.getElementById("equipo1").innerHTML += `<option value="${i+1}">${docu[i].data().idEquipo}</option>`
-            document.getElementById("equipo2").innerHTML += `<option value="${i+1}">${docu[i].data().idEquipo}</option>`
+            document.getElementById("equipo1").innerHTML += `<option value="${i + 1}">${docu[i].data().idEquipo}</option>`
+            document.getElementById("equipo2").innerHTML += `<option value="${i + 1}">${docu[i].data().idEquipo}</option>`
         }
 
         /*get().then((docu) => {
@@ -77,5 +96,14 @@ function agregarPart() {
             .catch((error) => {
                 console.error("Error : ", error);
             });
+    });
+}
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
     });
 }

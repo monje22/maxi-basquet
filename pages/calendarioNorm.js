@@ -19,7 +19,26 @@ const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 let db = firebase.firestore();
 const storageRef = firebase.storage().ref();
-const btn_añadirFecha = document.getElementById("btn_añadir")
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        let correo = user.email;
+        console.log("si esta logueado")
+        let bandera = correo.search(/@one.com/i);
+        if (bandera < 0) {} else {
+            window.location.href = "HomeAdministrador.html"
+        }
+        //console.log(user)
+        // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("no esta logueado")
+        window.location.href = "login.html"
+    }
+});
 
 const camp = db.collection("Campeonatos").get()
 camp.then((querySnapshot) => {

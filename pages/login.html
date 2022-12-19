@@ -100,7 +100,8 @@
             <p>© 2022 NBA Media Ventures, LLC. All rights reserved.</p>
             <p>Privacy Policy l Terms of Use l Accessibility and Closed Captions l Do Not Sell My Personal Information l Customer Support l Manage Cookies
             </p>
-            <p>If you are having difficulty accessing any content on this website, please visit our Accessibility page.</p>
+            <p>If you are having difficulty accessing any content on this website, please visit our Accessibility page.
+            </p>
             <p>NBA.com is part of Warner Media, LLC’s Turner Sports & Entertainment Digital Network
             </p>
         </div>
@@ -122,5 +123,25 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 <script src="script.js"></script>
+<script>
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            let correo = user.email;
+            console.log("si esta logueado")
+            let bandera = correo.search(/@one.com/i);
+            if (bandera < 0) {
+                window.location.href = "HomeDelegado.html"
+            } else {
+                window.location.href = "HomeAdministrador.html"
+            }
+        } else {
+            // User is signed out
+            // ...
+            console.log("no esta logueado")
+        }
+    });
+</script>
 
 </html>

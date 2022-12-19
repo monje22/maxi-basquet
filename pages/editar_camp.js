@@ -20,6 +20,26 @@
 // let db = firebase.firestore();
 // const storageRef = firebase.storage().ref();
 
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        let correo = user.email;
+        console.log("si esta logueado")
+        let bandera = correo.search(/@one.com/i);
+        if (bandera < 0) {
+            window.location.href = "HomeDelegado.html"
+        }
+        //console.log(user)
+        // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("no esta logueado")
+        window.location.href = "login.html"
+    }
+});
+
 const camp = db.collection("Campeonatos").get()
 const idc = window.location.href.slice(-1)
 camp.then((querySnapshot) => {
