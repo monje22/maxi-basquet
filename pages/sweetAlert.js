@@ -55,7 +55,7 @@ console.log(paramURL);
 const parametrosURL = new URLSearchParams(paramURL);
 console.log(typeof(parametrosURL));
 
-for (let valoresURL of parametrosURL){
+for (let valoresURL of parametrosURL) {
     console.log(valoresURL)
 }
 
@@ -64,21 +64,21 @@ console.log(idCamp)
 
 
 let susCategorias = "";
-let arrayCategorias= [];
+let arrayCategorias = [];
 console.log(idCamp)
 
-db.collection("Campeonatos").doc(idCamp).get().then((doc) =>{
-        susCategorias = doc.data().Categoria 
-        console.log(doc.data().Categoria)
+db.collection("Campeonatos").doc(idCamp).get().then((doc) => {
+    susCategorias = doc.data().Categoria
+    console.log(doc.data().Categoria)
         // susCategorias = susCategorias.replace("+","")
-        while (susCategorias.indexOf("+") != -1) {
-            susCategorias = susCategorias.replace("+","")
-            susCategorias = susCategorias.replace(" ","")
-        }
-        console.log(susCategorias)
-        console.log(susCategorias.split(","))
-        arrayCategorias=susCategorias.split(",");
-        console.log(arrayCategorias);
+    while (susCategorias.indexOf("+") != -1) {
+        susCategorias = susCategorias.replace("+", "")
+        susCategorias = susCategorias.replace(" ", "")
+    }
+    console.log(susCategorias)
+    console.log(susCategorias.split(","))
+    arrayCategorias = susCategorias.split(",");
+    console.log(arrayCategorias);
 });
 
 
@@ -189,7 +189,7 @@ let loader = document.getElementById("preloader");
 
 // setTimeout(() => {loader.style.display = "none"}, 2000);
 
-let usuarioId="";
+let usuarioId = "";
 console.log(usuarioId)
 auth.onAuthStateChanged((user) => {
     if (user) {
@@ -199,18 +199,18 @@ auth.onAuthStateChanged((user) => {
         console.log("si esta logueado")
         console.log(user)
         console.log(usuarioId);
-            // ...
+        // ...
     } else {
         // User is signed out
         // ...
-        window.location.href="../index.html";
+        window.location.href = "../index.html";
         console.log("no esta logueado")
     }
 });
 
 
 
-let varEquipo="";
+let varEquipo = "";
 
 // 
 
@@ -218,16 +218,16 @@ let varEquipo="";
 
 
 
-db.collection("Equipos").get().then((querySnapshot)=>{
+db.collection("Equipos").get().then((querySnapshot) => {
     querySnapshot.forEach(element => {
-        // console.log(usuarioId)
-        if (usuarioId == element.data().idDelegado) {
-            varEquipo = element.data().nombreEquipo;
-            console.log(usuarioId);
-            console.log(varEquipo)
-        } 
-    }
-    
+            // console.log(usuarioId)
+            if (usuarioId == element.data().idDelegado) {
+                varEquipo = element.data().nombreEquipo;
+                console.log(usuarioId);
+                console.log(varEquipo)
+            }
+        }
+
     )
 
     console.log(varEquipo)
@@ -240,24 +240,24 @@ db.collection("Equipos").get().then((querySnapshot)=>{
             confirmButtonColor: '#FE0032',
             cancelButtonColor: '#2B2B2B',
             confirmButtonText: 'Crear Equipo',
-            cancelButtonText:'Volver',
-          }).then((result) => {
+            cancelButtonText: 'Volver',
+        }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href="registro-equipo.html";
+                window.location.href = "registro-equipo.html";
             } else {
                 window.history.back();
             }
-          })
+        })
     } else {
-        
+
     }
 
     ;
 })
-  
-fecha = [10,20,30,40];
 
-combo="combo"
+fecha = [10, 20, 30, 40];
+
+combo = "combo"
 
 let docRef = db.collection("Campeonatos").doc(idCamp);
 const box = document.getElementById("bs");
@@ -268,48 +268,48 @@ docRef.get().then((doc) => {
     if (doc.exists) {
 
 
-        
 
-        
+
+
         // console.log("Document data:", doc.data());
         console.log(doc.data())
-        let cp=doc.data();
+        let cp = doc.data();
         let a = new Date();
         let año = a.getFullYear();
-        let mes = a.getMonth()+1;
+        let mes = a.getMonth() + 1;
         console.log(a.getDate())
         let dia = a.getDate();
         if (a.getDate() < 10) {
-            dia = "0"+a.getDate();
+            dia = "0" + a.getDate();
         }
-        if (a.getMonth()+1 < 10) {
-            mes = "0"+a.getMonth();
+        if (a.getMonth() + 1 < 10) {
+            mes = "0" + a.getMonth();
         }
         console.log(a)
         console.log(dia)
         console.log(mes)
         console.log(año)
 
-        let fechaHoy = ""+año+mes+dia;
+        let fechaHoy = "" + año + mes + dia;
         // console.log(fechaHoy)
         // console.log(cp.FechaInicio)
         quitarCaracter(cp.FechaPreInsc)
         quitarCaracter2(cp.FechaIniInsc)
         quitarCaracter4(cp.FechaLimIns)
-        console.log(" es la fecha pre "+fechaPre)
+        console.log(" es la fecha pre " + fechaPre)
         console.log(" es la fecha incio " + fechaIni)
-        console.log("es la fecha hoy "+ fechaHoy)
-        console.log("es la fecha limite de inscriocion "+ fechalim)
+        console.log("es la fecha hoy " + fechaHoy)
+        console.log("es la fecha limite de inscriocion " + fechalim)
         console.log(Math.floor(fechaHoy))
         console.log(Math.floor(fechaPre))
         console.log(Math.floor(fechaIni))
         console.log(cp.FechaInicio)
         console.log("hsata qui todo bien")
-        // fecha de hoy tiene que ser mayor a la fecha preins y la fecha de hoy tiene que ser mayor iniIns
-        if (Math.floor(fechaHoy)>=Math.floor(fechaPre) && Math.floor(fechaHoy)<=Math.floor(fechaIni) ) {
+            // fecha de hoy tiene que ser mayor a la fecha preins y la fecha de hoy tiene que ser mayor iniIns
+        if (Math.floor(fechaHoy) >= Math.floor(fechaPre) && Math.floor(fechaHoy) <= Math.floor(fechaIni)) {
             //Pre inscripcion
             console.log("entro en pre")
-            box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
+            box.innerHTML = `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
             <p class="ta">${cp.Invitacion}</p>
             <div class="sq2">
@@ -347,30 +347,30 @@ docRef.get().then((doc) => {
         </div>
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()" > INSCRIBIRSE</a>`;
-            
-            addOptions(combo,arrayCategorias)
 
-            db.collection("Equipos").get().then((querySnapshot)=>{
+            addOptions(combo, arrayCategorias)
+
+            db.collection("Equipos").get().then((querySnapshot) => {
                 querySnapshot.forEach(element => {
-                    // console.log(usuarioId)
-                    if (usuarioId == element.data().idDelegado) {
-                        varEquipo = element.data().nombreEquipo;
-                        // console.log(usuarioId);
-                        console.log(varEquipo);
-                        ponerEquipo(varEquipo);
-                    } 
-                }
-                
+                        // console.log(usuarioId)
+                        if (usuarioId == element.data().idDelegado) {
+                            varEquipo = element.data().nombreEquipo;
+                            // console.log(usuarioId);
+                            console.log(varEquipo);
+                            ponerEquipo(varEquipo);
+                        }
+                    }
+
                 )
-            
-            
+
+
                 ;
             })
-            
-            
-        } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)&&Math.floor(fechaHoy)<=Math.floor(fechalim)) {
+
+
+        } else if (Math.floor(fechaHoy) > Math.floor(fechaIni) && Math.floor(fechaHoy) <= Math.floor(fechalim)) {
             console.log("entro en ins")
-            box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
+            box.innerHTML = `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
             <p class="ta">${cp.Invitacion}</p>
             <div class="sq2">
@@ -409,27 +409,27 @@ docRef.get().then((doc) => {
             
             <a class="btn-ini espacio robotoCon" onclick="ventana()"> INSCRIBIRSE</a>`;
 
-            addOptions(combo,arrayCategorias)
-            db.collection("Equipos").get().then((querySnapshot)=>{
+            addOptions(combo, arrayCategorias)
+            db.collection("Equipos").get().then((querySnapshot) => {
                 querySnapshot.forEach(element => {
-                    // console.log(usuarioId)
-                    if (usuarioId == element.data().idDelegado) {
-                        varEquipo = element.data().nombreEquipo;
-                        console.log(usuarioId);
-                        console.log(varEquipo);
-                        
-                    } 
-                }
-                
+                        // console.log(usuarioId)
+                        if (usuarioId == element.data().idDelegado) {
+                            varEquipo = element.data().nombreEquipo;
+                            console.log(usuarioId);
+                            console.log(varEquipo);
+
+                        }
+                    }
+
                 )
-            
-            
+
+
                 ;
             })
-            
+
         } else {
             // console.log("no entro en nada")
-            box.innerHTML= `<h1 class="th"> <b>NO ESTA HABILITADO</b></h1>`;
+            box.innerHTML = `<h1 class="th"> <b>NO ESTA HABILITADO</b></h1>`;
         }
     } else {
         // doc.data() will be undefined in this case
@@ -439,24 +439,25 @@ docRef.get().then((doc) => {
     console.log("Error getting document:", error);
 });
 let prueba = "";
-function ponerEquipo(nEquipo) {
-        console.log(nEquipo)
-        let texto = document.getElementById("equi");
-        let p = document.createElement("p");
-        let t = document.createElement("p");
-        p.innerText =nEquipo+"";
-        t.innerText ="Usten no tiene un equipo";
-        console.log(p)
-        console.log(texto)
-       
 
-        if (nEquipo != "") {
-            texto.appendChild(p)
-            prueba = nEquipo;
-        } else {
-            texto.appendChild(t)
-        }
-        
+function ponerEquipo(nEquipo) {
+    console.log(nEquipo)
+    let texto = document.getElementById("equi");
+    let p = document.createElement("p");
+    let t = document.createElement("p");
+    p.innerText = nEquipo + "";
+    t.innerText = "Usten no tiene un equipo";
+    console.log(p)
+    console.log(texto)
+
+
+    if (nEquipo != "") {
+        texto.appendChild(p)
+        prueba = nEquipo;
+    } else {
+        texto.appendChild(t)
+    }
+
 }
 
 let fechaPre = "";
@@ -464,80 +465,80 @@ let fechaIni = "";
 let fechalim = "";
 let quitarCaracter = (fecha) => {
     let i = 0;
-    let sw=0;
+    let sw = 0;
     let e = "-"
-    fechaPre="";
+    fechaPre = "";
     while (i < fecha.length) {
-        if(fecha[i] == e && sw ==0){
-            sw=1;
+        if (fecha[i] == e && sw == 0) {
+            sw = 1;
         } else {
             fechaPre = fechaPre + fecha[i];
             sw = 0;
         }
-        i=i+1;
+        i = i + 1;
     }
 }
 
 let quitarCaracter3 = (fecha) => {
     let i = 0;
-    let sw=0;
+    let sw = 0;
     let e = "-"
-    fechaPre="";
+    fechaPre = "";
     while (i < fecha.length) {
-        if(fecha[i] == e && sw ==0){
-            sw=1;
+        if (fecha[i] == e && sw == 0) {
+            sw = 1;
         } else {
             fechaPre = fechaPre + fecha[i];
             sw = 0;
         }
-        i=i+1;
+        i = i + 1;
     }
 }
 
 
 let quitarCaracter2 = (fecha) => {
     let i = 0;
-    let sw=0;
+    let sw = 0;
     let e = "-"
-    fechaIni="";
+    fechaIni = "";
     while (i < fecha.length) {
-        if(fecha[i] == e && sw ==0){
-            sw=1;
+        if (fecha[i] == e && sw == 0) {
+            sw = 1;
         } else {
             fechaIni = fechaIni + fecha[i];
             sw = 0;
         }
-        i=i+1;
+        i = i + 1;
     }
 }
 
 let quitarCaracter4 = (fecha) => {
     let i = 0;
-    let sw=0;
-    let e = "'"
-    fechalim="";
+    let sw = 0;
+    let e = "-"
+    fechalim = "";
     while (i < fecha.length) {
-        if(fecha[i] == e && sw ==0){
-            sw=1;
+        if (fecha[i] == e && sw == 0) {
+            sw = 1;
         } else {
-            fechalim= fechalim + fecha[i];
+            fechalim = fechalim + fecha[i];
             sw = 0;
         }
-        i=i+1;
+        i = i + 1;
     }
 }
 
-let reversa = (texto) =>{
+let reversa = (texto) => {
     let reversedStr = '';
 
     for (let i = texto.length - 1; i >= 0; i--) {
-  reversedStr += texto[i];
-}
+        reversedStr += texto[i];
+    }
     aux = reversedStr;
 }
 
 
-function calcularEdad (fechaNacimiento){
+function calcularEdad(fechaNacimiento) {
     var fechaActual = new Date();
     var anoActual = parseInt(fechaActual.getFullYear());
     var mesActual = parseInt(fechaActual.getMonth()) + 1;
@@ -556,7 +557,7 @@ function calcularEdad (fechaNacimiento){
             edad--;
         }
     }
-    console.log("la edad de este juador es:"+edad);
+    console.log("la edad de este juador es:" + edad);
     return edad;
 };
 
@@ -564,11 +565,11 @@ function calcularEdad (fechaNacimiento){
 
 function addOptions(domElement, array) {
     var select = document.getElementsByName(domElement)[0];
-   
+
     for (value in array) {
-     var option = document.createElement("option");
-     option.text = array[value];
-     select.add(option);
+        var option = document.createElement("option");
+        option.text = array[value];
+        select.add(option);
     }
 }
 
@@ -584,11 +585,11 @@ function se() {
 
 
 
-   
 
 
 
-function ventana () {
+
+function ventana() {
     Swal.fire({
         title: 'Esta seguro que desea inscribir a su equipo a este campeonato?.',
         text: "Si su equipo no pertenece a las categorias o rama establecida por el campeonato.Se le cancelara la inscripcion al campeonato",
@@ -597,27 +598,27 @@ function ventana () {
         confirmButtonColor: '#FE0032',
         cancelButtonColor: '#2B2B2B',
         confirmButtonText: 'Si',
-        cancelButtonText:'No',
-      }).then((result) => {
+        cancelButtonText: 'No',
+    }).then((result) => {
         if (result.isConfirmed) {
-            if (document.getElementById("btn-file").files[0] === undefined ) {
+            if (document.getElementById("btn-file").files[0] === undefined) {
                 Swal.fire(
                     'Vaya parece que ah ocurrido un error',
                     'Tal parece que no ha subido su comprobante, Para continuar suba su comprobante',
                     'error'
-                  )      
+                )
             } else {
 
 
 
                 let pasa = true;
-                
-               
-                
+
+
+
                 console.log(suCategoria)
                 console.log(prueba)
-                // lo de abajo de X-FORCE remplazar por "prueba"
-                db.collection("Equipos").doc("X-Force").collection("Jugadores").get().then((querySnapshot)=>{
+                    // lo de abajo de X-FORCE remplazar por "prueba"
+                db.collection("Equipos").doc(prueba).collection("Jugadores").get().then((querySnapshot) => {
                     querySnapshot.forEach(element => {
                         // console.log("es el each")
                         let edadJugador = calcularEdad(element.data().edad);
@@ -625,33 +626,33 @@ function ventana () {
                         // console.log(arrayCategorias)
                         for (let index = 0; index < arrayCategorias.length; index++) {
                             // console.log("estoy donde el ultimo")
-                            if (arrayCategorias[arrayCategorias.length-1] == suCategoria) {
-                                if (arrayCategorias[index] == Math.floor(suCategoria) ) {
+                            if (arrayCategorias[arrayCategorias.length - 1] == suCategoria) {
+                                if (arrayCategorias[index] == Math.floor(suCategoria)) {
                                     // console.log("aqui es igual su categoria")
                                     // console.log(edadJugador)
                                     // console.log(Math.floor(suCategoria))
-                                    if (edadJugador >= Math.floor(suCategoria)){
+                                    if (edadJugador >= Math.floor(suCategoria)) {
                                         console.log("su edad es mauot")
-                                    } else{
+                                    } else {
                                         pasa = false
-                                        // console.log("su pasa es fasle")
-                                    }     
+                                            // console.log("su pasa es fasle")
+                                    }
                                 }
-                            } else{
+                            } else {
                                 // console.log("estoy en el else")
                                 if (arrayCategorias[index] == suCategoria) {
-                                    if (edadJugador >= suCategoria && edadJugador < arrayCategorias[index+1]){
-                                        
-                                    } else{
+                                    if (edadJugador >= suCategoria && edadJugador < arrayCategorias[index + 1]) {
+
+                                    } else {
                                         pasa = false
-                                    }     
+                                    }
                                 }
 
                             }
-                            
-                                
-                            
-                            
+
+
+
+
                         }
 
                         console.log(pasa)
@@ -659,47 +660,52 @@ function ventana () {
                         console.log(pasa)
 
 
-                        console.log("aqui deberia estat pasa false"+pasa)
-                setTimeout(tarde,500,pasa)
-                function tarde(pasa) {
-                    if (pasa==true) {
-                        console.log(pasa)
-                        Swal.fire(
-                            'Gracias por su inscripcion',
-                            'Se le mandara un mensaje cuando un administrador revise que su pago este realizado y que su equipo cumple con las normas del campeonato',
-                            'success'
-                          )
-                          console.log("se confirmo")
-                          let ft = document.getElementById("btn-file").files[0];
-                          console.log(ft)
-                          // subirImagen(ft)
-                          // window.location.href="./campeonatosDelegado.html";    
-                    } else if (pasa == false) {
-                        Swal.fire(
-                            'Oh',
-                            'Parece que a ocurrido un problema, Tal parece que la edad de sus jugadores no coinciden con la SUB seleccionada',
-                            'error'
-                          )
-                    }
-                }
-                        
-                    }
-                    )
-                    });
-                
-                
+                        console.log("aqui deberia estat pasa false" + pasa)
+                        setTimeout(tarde, 500, pasa)
+
+                        function tarde(pasa) {
+                            if (pasa == true) {
+                                console.log(pasa)
+                                Swal.fire(
+                                    'Gracias por su inscripcion',
+                                    'Se le mandara un mensaje cuando un administrador revise que su pago este realizado y que su equipo cumple con las normas del campeonato',
+                                    'success'
+                                )
+                                console.log("se confirmo")
+                                let ft = document.getElementById("btn-file").files[0];
+                                console.log(ft)
+                                subirImagen(ft)
+                                setTimeout(y, 2000)
+
+                                function y() {
+                                    window.location.href = "./campeonatosDelegado.html";
+                                }
+
+                            } else if (pasa == false) {
+                                Swal.fire(
+                                    'Oh',
+                                    'Parece que a ocurrido un problema, Tal parece que la edad de sus jugadores no coinciden con la SUB seleccionada',
+                                    'error'
+                                )
+                            }
+                        }
+
+                    })
+                });
+
+
             }
         }
-      })
+    })
 }
 
 
 function subirImagen(imagenASubir) {
-    var nombreima=new Date()+'-'+imagenASubir.name;
-    var carpeta="Depositos/";
-    var uploadTask = storageRef.child(carpeta+nombreima).put(imagenASubir);
+    var nombreima = new Date() + '-' + imagenASubir.name;
+    var carpeta = "Depositos/";
+    var uploadTask = storageRef.child(carpeta + nombreima).put(imagenASubir);
 
-   // Listen for state changes, errors, and completion of the upload.
+    // Listen for state changes, errors, and completion of the upload.
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         (snapshot) => {
             console.log("cargando")
@@ -722,9 +728,9 @@ function subirImagen(imagenASubir) {
         },
         () => {
             // Upload completed successfully, now we can get the download URL
-            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {               
-                    urlimagen=downloadURL;
-                    db.collection("Campeonatos").doc(idCamp).collection("EquiposInscritos").add({
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                urlimagen = downloadURL;
+                db.collection("Campeonatos").doc(idCamp).collection("EquiposInscritos").add({
                         recibo: urlimagen,
                         idEquipo: prueba,
                         aceptado: false,
@@ -734,7 +740,6 @@ function subirImagen(imagenASubir) {
                         partidosPerdidos:0,
                         puntosAfavor:0,
                         puntosContra:0,
-                        puntos:0
                     })
                     .then(() => {
                         console.log("Document successfully written!");
@@ -742,12 +747,12 @@ function subirImagen(imagenASubir) {
                     .catch((error) => {
                         console.error("Error writing document: ", error);
                     });
-                    
-                console.log('whacho si se logro'+urlimagen);
+
+                console.log('whacho si se logro' + urlimagen);
             });
 
-            
+
         }
 
     );
-  }
+}
