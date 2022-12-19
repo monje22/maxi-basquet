@@ -79,6 +79,25 @@ function loginUser() {
 
 }
 
+async function verfNom() {
+    const camp = db.collection("Campeonatos").get()
+    camp.then((querySnapshot) => {
+        let doc = querySnapshot.docs;
+        let lim = querySnapshot.size;
+        let nomCamp = document.getElementById("Nombre").value;
+        let fl = false
+        for (let i = 0; i < lim && !fl; i++) {
+            if (nomCamp == doc[i].data().NomCamp) {
+                alert("El nombre del campeonato ya existe, escriba otro")
+                fl = true
+            }
+        }
+        if (!fl) {
+            crearCamp();
+        }
+    })
+}
+
 async function crearCamp() {
     let logo = document.getElementById("File_logo").files[0];
     let nomCamp = document.getElementById("Nombre").value;
@@ -240,7 +259,8 @@ function recuperar() {
         alert("Debe escribir un correo electrónico en el campo correo")
     } else {
         firebase.auth().sendPasswordResetEmail(correo).then(() => {
-                alert('Se ha enviado un correo a su cuenta.Por favor sigue los pasos indicados.');
+                alert('Se ha enviado un correo a su cuenta. Por favor sigue los pasos indicados.');
+                alert('Si su correo es un correo de administrador, comuniquese con soporte, la funcion es solo para delegados')
             })
             .catch(function(error) {
 
