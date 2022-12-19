@@ -10,11 +10,43 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
+
 //-----------------RECUPERAR ID DEL CAMPEONATO SELECCIONADO----------------
 var idEquipos="BwIx0ILfC0AL2KVQdpcX";
 var urlPagina=window.location.search.substring(1).slice(6,-3);
 urlPagina=urlPagina.replace("%20"," ");
 console.log(urlPagina);
+
+
+//-----------------RECUOERAR ID USUARIO--------------   
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        console.log("si esta logueado")
+        console.log(user)
+            // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("no esta logueado")
+        window.location.href="../index.html";
+        
+    }
+});
+
+//-----------------CERRAR SESION-----------------
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
 
 //-----------------LLENAR LOS CAMPOS CON LA INFROMACION PREVIA DE LOS EQUIPOS---------------
 
