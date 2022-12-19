@@ -86,3 +86,6 @@ footer{
 .msg-error-activo{
     display: block;
 }
+.titulo{
+    font-weight: bold;
+}

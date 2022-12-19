@@ -52,9 +52,9 @@
                     <!-- <i class="material-icons">expand_more </i>  -->
                     <div class="options">
 
-                        <a href="listaCampeonatos.html">Confirmar Inscripcion</a>
+                        <a href="listaCampeonatos.html">Confirmar Inscripción</a>
                         <a href="comfirmarEquipo.html">Confirmar Equipos</a>
-                        <a href="#" id="logout" onclick="logout()">Cerrar Sesion</a>
+                        <a href="#" id="logout" onclick="logout()">Cerrar Sesión</a>
                     </div>
                 </div>
             </ul>
@@ -135,74 +135,84 @@
                 </div>
                 <br>
                 <div class="container">
+                    <h3 class="titulo">Inscripciones:</h3>
+                    <br>
+                    <div class="row align-item-start">
+                        <div class="col">
+                            <h4>Fecha Inicio Preinscripcion:</h4>
+                            <br>
+                            <input class="date" type="date" id="Fecha_inicio_Preinscripcion">
+                            <br>
+                            <span class="msg-error" id="error-fechaInicioPreinsc">Ingrese Fecha Valida</span>
+                            <br>
+                        </div>
+                        <div class="col">
+                            <h4>Fecha inscripcion normal:</h4>
+                            <br>
+                            <input class="date" type="date" id="Fecha_inscription_normal" disabled>
+                            <br>
+                            <span class="msg-error" id="error-fechaInscripcion">Ingrese Fecha Valida</span>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row ">
+                        <div class="col">
+                            <h4>Fecha Limite inscripcion:</h4>
+                            <br>
+                            <input class="date" type="date" id="Fecha_limite_incription" disabled>
+                            <br>
+                            <span class="msg-error" id="error-fechaLimiteInsc">Ingrese Fecha Valida</span>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="container">
+                        <div class="row align-item-start">
+                            <div class="col">
+                                <h4>Costo Preinscripcion</h4>
+                                <div class="input-group costo">
+                                    <input type="number" step="0.01" class="form-control" id="CostoPre">
+                                    <label class="input-group-text">$</label>
+                                </div>
+                                <span class="msg-error" id="error-CostoPre">Ingrese Precio valido</span>
+                            </div>
+                            <div class="col">
+                                <h4>Costo inscripcion</h4>
+                                <div class="input-group costo">
+                                    <input type="number" step="0.01" class="form-control" id="Costo">
+                                    <label class="input-group-text">$</label>
+                                </div>
+                                <span class="msg-error" id="error-Costo">Ingrese Precio valido</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <h4 class="titulo">Fecha campeonato:</h4>
+                    <br>
                     <div class="row align-item-start">
                         <div class="col">
                             <h4>Fecha Inicio:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_ini" min="2022-11-05">
+                            <input class="date" type="date" id="Fecha_ini" min="2022-11-05" disabled>
                             <br>
                             <span class="msg-error " id="error-FechaInicio">Ingrese Fecha Valida</span>
                         </div>
                         <div class="col">
                             <h4>Fecha Fin:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_fin">
+                            <input class="date" type="date" id="Fecha_fin" disabled>
                             <br>
                             <span class="msg-error" id="error-FechaFin">Ingrese Fecha Valida</span>
                             <br>
                         </div>
                     </div>
-                    <br>
-                    <div class="row align-item-start">
-                        <div class="col">
-                            <h4>Fecha Inicio inscripcion:</h4>
-                            <br>
-                            <input class="date" type="date" id="Fecha_Inicio_inscription">
-                            <br>
-                            <span class="msg-error" id="error-fechaInscripcion">Ingrese Fecha Valida</span>
-                        </div>
-                        <div class="col">
-                            <h4>Fecha Limite inscripcion:</h4>
-                            <br>
-                            <input class="date" type="date" id="Fecha_limite_incription">
-                            <br>
-                            <span class="msg-error" id="error-fechaLimiteInsc">Ingrese Fecha Valida</span>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col">
-                            <h4>Fecha Limite Preinscripcion:</h4>
-                            <br>
-                            <input class="date" type="date" id="Fecha_limite_Preinscripcion">
-                            <br>
-                            <span class="msg-error" id="error-fechaLimitePreinsc">Ingrese Fecha Valida</span>
-                        </div>
-                    </div>
+
 
                 </div>
                 <br>
-                <div class="container">
-                    <div class="row align-item-start">
-                        <div class="col">
-                            <h4>Costo Preinscripcion</h4>
-                            <div class="input-group costo">
-                                <input type="number" step="0.01" class="form-control" id="CostoPre">
-                                <label class="input-group-text">$</label>
-                            </div>
-                            <span class="msg-error" id="error-CostoPre">Ingrese Precio valido</span>
-                        </div>
-                        <div class="col">
-                            <h4>Costo inscripcion</h4>
-                            <div class="input-group costo">
-                                <input type="number" step="0.01" class="form-control" id="Costo">
-                                <label class="input-group-text">$</label>
-                            </div>
-                            <span class="msg-error" id="error-Costo">Ingrese Precio valido</span>
-                        </div>
-                    </div>
 
-                </div>
                 <br>
                 <div>
                     <h4>Imagen QR para deposito:</h4>
@@ -316,6 +326,27 @@
     <script src="crear_campeonato.js"></script>
     <script src="script.js"></script>
     <script src="editar_camp.js"></script>
+    <script>
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                let correo = user.email;
+                console.log("si esta logueado")
+                let bandera = correo.search(/@one.com/i);
+                if (bandera < 0) {
+                    window.location.href = "HomeDelegado.html"
+                }
+                //console.log(user)
+                // ...
+            } else {
+                // User is signed out
+                // ...
+                console.log("no esta logueado")
+                window.location.href = "login.html"
+            }
+        });
+    </script>
 </body>
 
 </html>
