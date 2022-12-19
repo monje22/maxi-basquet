@@ -45,7 +45,7 @@ function logout() {
 
 //----------------METODO QUE RELLENA LA TABLA DE LAS POSICIONES--------------
 
-db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").where("categoria","==","20").get().then((querySnapshot)=>{
+db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").where("categoria","==","20").where("puntos",">=",0).orderBy("puntos", "desc").get().then((querySnapshot)=>{
     var contador=1;
     nombreCampeonato.innerText="Campeonato UwU";
     categoria.innerText="sub "+"35";
@@ -63,7 +63,7 @@ db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos"
                       <td>${doc.data().puntosAfavor}</td>
                       <td>${doc.data().puntosContra}</td>
                       <td>${doc.data().puntosAfavor-doc.data().puntosContra}</td>
-                      <td>31</td>
+                      <td>${doc.data().puntos}</td>
                 </tr>          
             `   
             contador++; 
@@ -72,3 +72,51 @@ db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos"
     })
 
 });
+
+
+db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").where("categoria","==","20").get().then((querySnapshot)=>{
+    var ideMayor="";
+    var idePunt="";
+    var fata=0;
+    var punt=0;
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id);
+        db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").doc(doc.id).collection("puntosJugadores").get().then((docs4)=>{
+            docs4.forEach((auxi)=>{
+                if(auxi.data().faltas>fata){
+                    fata=auxi.data().faltas;
+                    ideMayor=auxi.id;
+                    salvame2(ideMayor,doc.data().idEquipo,fata)
+                 }
+                if(auxi.data().puntos>punt){
+                    punt=auxi.data().puntos;
+                    idePunt=auxi.id;
+                    salvame(idePunt,doc.data().idEquipo,punt);
+                }
+                
+            });
+            
+            
+        });
+        console.log("diositoayudame"+fata+" puntos"+punt);
+    });
+    
+});
+
+function salvame(idUs,idEq,pu){
+    db.collection("Equipos").doc(idEq).collection("Jugadores").doc(idUs).get().then((doc)=>{
+        fotoMejor.src=doc.data().fotoperfil;
+        nombreJugador.innerText=doc.data().nombre;
+        edadJugador.innerText="Fecha Nacimiento: "+doc.data().edad;
+        anotaciones.innerText="Anotaciones: "+pu;
+    });
+}
+
+function salvame2(idUs,idEq,pu){
+    db.collection("Equipos").doc(idEq).collection("Jugadores").doc(idUs).get().then((doc)=>{
+        fotoPeor.src=doc.data().fotoperfil;
+        nombreJugador1.innerText=doc.data().nombre;
+        edadJugador2.innerText="Fecha Nacimiento: "+doc.data().edad;
+        anotaciones3.innerText="Faltas: "+pu;
+    });
+}

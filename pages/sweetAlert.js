@@ -243,9 +243,9 @@ db.collection("Equipos").get().then((querySnapshot)=>{
             cancelButtonText:'Volver',
           }).then((result) => {
             if (result.isConfirmed) {
-                
+                window.location.href="registro-equipo.html";
             } else {
-
+                window.history.back();
             }
           })
     } else {
@@ -294,15 +294,18 @@ docRef.get().then((doc) => {
         // console.log(fechaHoy)
         // console.log(cp.FechaInicio)
         quitarCaracter(cp.FechaPreInsc)
-        quitarCaracter2(cp.FechaLimIns)
+        quitarCaracter2(cp.FechaIniInsc)
+        quitarCaracter4(cp.FechaLimIns)
         console.log(" es la fecha pre "+fechaPre)
         console.log(" es la fecha incio " + fechaIni)
         console.log("es la fecha hoy "+ fechaHoy)
+        console.log("es la fecha limite de inscriocion "+ fechalim)
         console.log(Math.floor(fechaHoy))
         console.log(Math.floor(fechaPre))
         console.log(Math.floor(fechaIni))
         console.log(cp.FechaInicio)
         console.log("hsata qui todo bien")
+        // fecha de hoy tiene que ser mayor a la fecha preins y la fecha de hoy tiene que ser mayor iniIns
         if (Math.floor(fechaHoy)>=Math.floor(fechaPre) && Math.floor(fechaHoy)<=Math.floor(fechaIni) ) {
             //Pre inscripcion
             console.log("entro en pre")
@@ -365,7 +368,7 @@ docRef.get().then((doc) => {
             })
             
             
-        } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)) {
+        } else if (Math.floor(fechaHoy)>Math.floor(fechaIni)&&Math.floor(fechaHoy)<=Math.floor(fechalim)) {
             console.log("entro en ins")
             box.innerHTML= `<h1 class="th"> <b>${cp.NomCamp}</b></h1>
             <p class="t ta sub"><b>Invitacion</b> </p>
@@ -458,6 +461,7 @@ function ponerEquipo(nEquipo) {
 
 let fechaPre = "";
 let fechaIni = "";
+let fechalim = "";
 let quitarCaracter = (fecha) => {
     let i = 0;
     let sw=0;
@@ -473,6 +477,23 @@ let quitarCaracter = (fecha) => {
         i=i+1;
     }
 }
+
+let quitarCaracter3 = (fecha) => {
+    let i = 0;
+    let sw=0;
+    let e = "-"
+    fechaPre="";
+    while (i < fecha.length) {
+        if(fecha[i] == e && sw ==0){
+            sw=1;
+        } else {
+            fechaPre = fechaPre + fecha[i];
+            sw = 0;
+        }
+        i=i+1;
+    }
+}
+
 
 let quitarCaracter2 = (fecha) => {
     let i = 0;
@@ -490,16 +511,16 @@ let quitarCaracter2 = (fecha) => {
     }
 }
 
-let quitarCaracter3 = (fecha) => {
+let quitarCaracter4 = (fecha) => {
     let i = 0;
     let sw=0;
     let e = "'"
-    nomCamp="";
+    fechalim="";
     while (i < fecha.length) {
         if(fecha[i] == e && sw ==0){
             sw=1;
         } else {
-            nomCamp = nomCamp + fecha[i];
+            fechalim= fechalim + fecha[i];
             sw = 0;
         }
         i=i+1;

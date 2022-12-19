@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 let urlimagen="";
 let urlimagen2="";
 //-----------------AQUI SE SUBE LOS DATOS SOLO DEL EQUIPO NO DE LOS JUGADORES------------------------
-function subirDatosEquipo(){
+async function subirDatosEquipo(){
     var nombreEqui=document.getElementById('Nombre').value;
     nombreEqui=nombreEqui.replace("  "," ");
     var numeroCel=document.getElementById('Celular').value;
@@ -96,7 +96,7 @@ function subirDatosEquipo(){
       
     if(tieneEquipo==false){
 
-        db.collection("Equipos").doc(nombreEqui).set({
+        await db.collection("Equipos").doc(nombreEqui).set({
             categoria:categoriaE,
             celularDele:numeroCel,
             fotoCarnet:"",
@@ -107,12 +107,17 @@ function subirDatosEquipo(){
             verificado:false
           });
         
-          subirImagen(carnet,2,nombreEqui,"fotoCarnet","");
-          subirImagen(logo,1,nombreEqui,"logo","");
+         await subirImagen(carnet,2,nombreEqui,"fotoCarnet","");
+         await subirImagen(logo,1,nombreEqui,"logo","");
           console.log("Comprobante imagen :"+urlimagen+'Otra imagen '+urlimagen2);
     
-       llenarDatosJugadores(basedatos,nombreEqui);
-       window.location.href="HomeDelegado.html";
+       await llenarDatosJugadores(basedatos,nombreEqui);
+       
+       setTimeout(x,4000);
+       function x(){
+        window.location.href="HomeDelegado.html";
+       };
+       
 
     }else{
         window.alert("Ya tienes un equipo creado");
@@ -123,7 +128,7 @@ function subirDatosEquipo(){
 
 //------------------FUNCION QUE SUBE UNA IMAGE A LA BASE DE DATOS----------------- 
 
-function subirImagen(imagenASubir,aux,aux2,aux3,aux4) {
+async function subirImagen(imagenASubir,aux,aux2,aux3,aux4) {
     var nombreima=new Date()+'-'+imagenASubir.name;
     var carpeta;
     if(aux==1){
@@ -140,7 +145,7 @@ function subirImagen(imagenASubir,aux,aux2,aux3,aux4) {
         }
         
     }
-   var uploadTask = storageRef.child(carpeta+nombreima).put(imagenASubir);
+   var uploadTask =storageRef.child(carpeta+nombreima).put(imagenASubir);
   
    // Listen for state changes, errors, and completion of the upload.
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
@@ -163,27 +168,27 @@ function subirImagen(imagenASubir,aux,aux2,aux3,aux4) {
                     break;
             }
         },
-        () => {
+        async () => {
             // Upload completed successfully, now we can get the download URL
-            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            await uploadTask.snapshot.ref.getDownloadURL().then(async (downloadURL) => {
                 //console.log('File available at', downloadURL);
 
                 if(aux3=="logo"){
-                    db.collection("Equipos").doc(aux2).update({
+                     await db.collection("Equipos").doc(aux2).update({
                         logo:downloadURL
                 });
                 }else{
                     if(aux3=="fotoCarnet"){
-                        db.collection("Equipos").doc(aux2).update({
+                       await db.collection("Equipos").doc(aux2).update({
                         fotoCarnet:downloadURL
                         });
                     }else{
                         if(aux3=="fotoperfil"){
-                            db.collection("Equipos").doc(aux2).collection("Jugadores").doc(aux4).update({
+                            await db.collection("Equipos").doc(aux2).collection("Jugadores").doc(aux4).update({
                                 fotoperfil:downloadURL
                             });
                         }else{
-                            db.collection("Equipos").doc(aux2).collection("Jugadores").doc(aux4).update({
+                           await db.collection("Equipos").doc(aux2).collection("Jugadores").doc(aux4).update({
                                 carnet:downloadURL
                             });
                         }
@@ -289,11 +294,11 @@ function llenarTabla(listaDatos){
 }
 //---------------SUBIR DATOS DE JUGADORES A LA BASE DE DATOS--------------
 
-function llenarDatosJugadores(basedatos,nomEquipo){
+async function llenarDatosJugadores(basedatos,nomEquipo){
     var contjugador=0;
     var id="E9ffEllSbiYcnFqSEPxi";
     for(i=0;i<basedatos.length;i++){
-    db.collection("Equipos").doc(nomEquipo).collection("Jugadores").doc(basedatos[contjugador].nombre).set({
+    await db.collection("Equipos").doc(nomEquipo).collection("Jugadores").doc(basedatos[contjugador].nombre).set({
         altura:basedatos[contjugador].altura,
         carnet:"",
         edad:basedatos[contjugador].edad,
@@ -305,8 +310,8 @@ function llenarDatosJugadores(basedatos,nomEquipo){
         qr:""
 
     });
-    subirImagen(basedatos[contjugador].carnet,3,nomEquipo,"carnet",basedatos[contjugador].nombre);
-    subirImagen(basedatos[contjugador].foto,4,nomEquipo,"fotoperfil",basedatos[contjugador].nombre);
+    await subirImagen(basedatos[contjugador].carnet,3,nomEquipo,"carnet",basedatos[contjugador].nombre);
+    await subirImagen(basedatos[contjugador].foto,4,nomEquipo,"fotoperfil",basedatos[contjugador].nombre);
     contjugador=contjugador+1;
     }
 }
