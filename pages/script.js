@@ -259,7 +259,8 @@ function recuperar() {
         alert("Debe escribir un correo electrónico en el campo correo")
     } else {
         firebase.auth().sendPasswordResetEmail(correo).then(() => {
-                alert('Se ha enviado un correo a su cuenta.Por favor sigue los pasos indicados.');
+                alert('Se ha enviado un correo a su cuenta. Por favor sigue los pasos indicados.');
+                alert('Si su correo es un correo de administrador, comuniquese con soporte, la funcion es solo para delegados')
             })
             .catch(function(error) {
 
