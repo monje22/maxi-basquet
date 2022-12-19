@@ -35,7 +35,8 @@ btn_añadirFecha.addEventListener('click', () => {
 btn_tablaP.addEventListener('click', () => {
     let add = window.location.href.slice(-1)
     if (add)
-        alert("Debe seleccionar previamente un campeonato")
+        // alert("Debe seleccionar previamente un campeonato")
+        window.location.href = "./tabla_posicionesT.html";
     else {
         let catA = document.getElementById("categoria")
         let catB = catA.options[catA.selectedIndex].text;

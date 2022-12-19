@@ -740,6 +740,7 @@ function subirImagen(imagenASubir) {
                         partidosPerdidos:0,
                         puntosAfavor:0,
                         puntosContra:0,
+                        puntos:0
                     })
                     .then(() => {
                         console.log("Document successfully written!");
