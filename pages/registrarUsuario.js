@@ -19,7 +19,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 var db = firebase.firestore();
 
-auth.onAuthStateChanged((user) =>   {
+auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -27,7 +27,7 @@ auth.onAuthStateChanged((user) =>   {
         console.log("si esta logueado")
         console.log(user)
             // ...
-            
+
     } else {
         // User is signed out
         // ...
@@ -35,23 +35,33 @@ auth.onAuthStateChanged((user) =>   {
     }
 });
 
+async function verfNom() {
+    let correo = document.getElementById("1").value;;
+    let bandera = correo.search(/@gmail.com/i);
+    if (bandera < 0) {
+        alert("Su correo no cumple con las condiciones de la pagina, asegurese que sea un correo gmail.")
+    } else {
+        registrarUser()
+    }
+}
+
 
 /**
  * Funcion que realiza el registro de los usuarios en la BD
  */
- async function registrarUser() {
+async function registrarUser() {
     let correo = document.getElementById("1").value;;
     let contraseña = document.getElementById("2").value;;
     let nombre = document.getElementById("3").value;
     let apellido = document.getElementById("4").value;;
     let fechaN = document.querySelector('input[type="date"]');
     let nomcomp = nombre + " " + apellido;
-    let cedula=document.getElementById('6').value;
+    let cedula = document.getElementById('6').value;
     /*Funcion propia de Firebase que realiza el registro de usuarios
     Esta funcion unicamente acepta 2 parametros: correo y contraseña
     */
     await auth.createUserWithEmailAndPassword(correo, contraseña)
-        .then(async (userCredential) => {
+        .then(async(userCredential) => {
             // Inicio de sesion automatico
             const user = userCredential.user;
             let uid = user.uid;
@@ -59,7 +69,7 @@ auth.onAuthStateChanged((user) =>   {
             await user.updateProfile({
                 displayName: nomcomp,
                 photoURL: null
-            }).then(async () => {
+            }).then(async() => {
                 // Actualizacion exitosa
                 console.log(user.displayName)
                     // Creacion de una constante que almacenara el nombre y la fecha de nacimiento
@@ -69,11 +79,11 @@ auth.onAuthStateChanged((user) =>   {
                     ci: cedula
                 };
                 //(Firestore) Funcion que añade una nueva coleccion de datos a la BD
-               await db.collection('userData').doc('user').collection(uid).doc('datos iniciales').set(initialData);
+                await db.collection('userData').doc('user').collection(uid).doc('datos iniciales').set(initialData);
                 // db.collection('userData').doc('user').collection(uid).doc('datos iniciales').get().then();
-                
+
                 console.log("putochino");
-            
+
             }).catch((error) => {
                 // Ocurrio un error al registrar los datos del usuario
                 var errorCode = error.code;
@@ -81,7 +91,7 @@ auth.onAuthStateChanged((user) =>   {
                 alert(msg(errorCode))
 
             });
-            window.location.href="./HomeDelegado.html"
+            window.location.href = "./HomeDelegado.html"
         })
         .catch((error) => {
             // Ocurrio un error al registrar al usuario
@@ -89,7 +99,7 @@ auth.onAuthStateChanged((user) =>   {
             var errorMessage = error.message;
             alert(msg(errorCode))
         });
-        
+
 }
 
 
@@ -98,7 +108,7 @@ auth.onAuthStateChanged((user) =>   {
  * @param {String} errorCode Codigo de error personalizado o enviado por Firebase
  * @returns Codigo de error en español o personalizado
  */
- function msg(errorCode) {
+function msg(errorCode) {
     let msg;
     switch (errorCode) {
         case "auth/invalid-email":
@@ -121,4 +131,3 @@ auth.onAuthStateChanged((user) =>   {
     }
     return msg;
 }
-
