@@ -19,38 +19,6 @@ const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 let db = firebase.firestore();
 const storageRef = firebase.storage().ref();
-const btn_añadirFecha = document.getElementById("btn_añadir")
-
-
-btn_añadirFecha.addEventListener('click', () => {
-    let add = window.location.href.slice(-1)
-    console.log(add)
-    if (add == "l")
-        alert("Debe seleccionar previamente un campeonato")
-    else
-        window.location.href = "./crear_Partido.html#" + add
-})
-
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        let correo = user.email;
-        console.log("si esta logueado")
-        let bandera = correo.search(/@one.com/i);
-        if (bandera < 0) {
-            window.location.href = "HomeDelegado.html"
-        }
-        //console.log(user)
-        // ...
-    } else {
-        // User is signed out
-        // ...
-        console.log("no esta logueado")
-        window.location.href = "login.html"
-    }
-});
-
 
 const camp = db.collection("Campeonatos").get()
 camp.then((querySnapshot) => {
@@ -77,10 +45,7 @@ camp.then((querySnapshot) => {
     }
 });
 
-
-
 function prep(cmp) {
-    window.location.href += ("#" + cmp.id)
     const campref = db.collection("Campeonatos").get()
     campref.then((querySnapshot) => {
         let doc = querySnapshot.docs
@@ -132,27 +97,6 @@ function prep(cmp) {
     
     </div>`
             }
-            document.getElementById("tarj").innerHTML += `<div class="boton">
-            <button type="button" class="btn" id="btn_añadir">Añadir Fecha</button>
-        </div>`
-            const btn_añadirFecha = document.getElementById("btn_añadir")
-            btn_añadirFecha.addEventListener('click', () => {
-                let add = window.location.href.slice(-1)
-                console.log(add)
-                if (add == "l")
-                    alert("Debe seleccionar previamente un campeonato")
-                else
-                    window.location.href = "./crear_Partido.html#" + add
-            })
         });
-    });
-}
-
-function logout() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        window.location.href = "../index.html"
-    }).catch((error) => {
-        // An error happened.
     });
 }

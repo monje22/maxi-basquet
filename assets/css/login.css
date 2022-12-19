@@ -119,6 +119,7 @@
 
 .btn-ini {
     display: flex;
+    cursor: pointer;
     justify-content: center;
     background-color: #2B2B2B;
     border-radius: 10px;

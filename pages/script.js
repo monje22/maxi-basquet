@@ -74,6 +74,7 @@ function loginUser() {
             // Ocurrio un error al inicar sesion
             var errorCode = error.code;
             var errorMessage = error.message;
+            console.log(errorCode)
             alert(msg(errorCode))
         });
 
@@ -296,6 +297,9 @@ function msg(errorCode) {
             break;
         case "auth/internal-error":
             msg = "Error: Hay un problema con el servidor, por favor intente más tarde";
+            break;
+        case "auth/wrong-password":
+            msg = "Contraseña incorrecta"
             break;
         default:
             msg = "Error: Algunos de los datos son inválidos, por favor verifica los datos";
