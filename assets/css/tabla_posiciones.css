@@ -61,3 +61,48 @@ a{
     height: 30px;
     margin-right: 15px;
 }
+/* Se agrega un margin a la clase container */
+.container{
+    margin-top: 80px;
+  }
+
+
+/*-------------ESTILOS DE LAS TARJETAS DE LOS JUGADORES------------*/
+.tarjetasTitulo{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.tarjetasTitulo p{
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 0;
+}
+.tarjetas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 70px;
+    padding-top: 40px;
+}
+
+.jugador{
+    padding: 20px;
+    display: flex;
+    background-color: #ffff;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    box-sizing: border-box;
+    border-radius: 10px
+    
+}
+.jugador p{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.tarjetas img{
+    width: 100%;
+    margin-bottom: 10px;
+}
