@@ -40,6 +40,15 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
+
 const paramURL = window.location.search;
 console.log(paramURL);
 

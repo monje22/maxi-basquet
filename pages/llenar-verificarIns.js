@@ -131,7 +131,12 @@ function cerarModal(){
     modalito2.close();
     
 }
-function redireccionar1(){
+async function redireccionar1(){
+    await db.collection("Campeonatos").doc(idCampe).collection("EquiposInscritos").doc(idVerdadero).delete().then(() => {
+        console.log("Se a eliminado el documento correctamente");
+    }).catch((error) => {
+        console.error("Error al eliminar el documento: ", error);
+    }); 
     window.history.back();
 }
 
