@@ -54,7 +54,7 @@ function logout() {
 
 const idEquiposcade=[];
 const idVerdadero=[];
-db.collection("Campeonatos").doc(urlPagina).collection("EquiposInscritos").get().then((querySnapshot) => {
+db.collection("Campeonatos").doc(urlPagina).collection("EquiposInscritos").where("aceptado","==",false).get().then((querySnapshot) => {
 var contador=0;
 
     querySnapshot.forEach((doc) => {
@@ -85,10 +85,10 @@ var contador=0;
                         
                    </div> 
             `
+            contador=contador+1;
         });
-
+        
     });
-    contador=contador+1;
    console.log(idEquiposcade);
 }); 
 

@@ -101,16 +101,21 @@ db.collection("Equipos").doc(idUrl).get().then((doc) => {
 }); 
 
 //-------------METODO QUE RECHAZA AL EQUIPO INSCRITO------------
-function leerDatos(){
-    db.collection("Campeonatos").doc(idCampe).collection("EquiposInscritos").doc(idVerdadero).update({
+
+var modalito=document.querySelector('#contmodal');
+var modalito2=document.querySelector('#contmodal2')
+
+async function leerDatos(){
+    console.log("ide del campeonato:"+idCampe+"ideverdadero"+idVerdadero);
+    await db.collection("Campeonatos").doc(idCampe).collection("EquiposInscritos").doc(idVerdadero).update({
         aceptado:true
     });
-    cerarModal();
+    modalito.close();
+    window.history.back();
 }
 
 //----------------METODO QUE HABRE LOS MODALS---------------
-var modalito=document.querySelector('#contmodal');
-var modalito2=document.querySelector('#contmodal2')
+
 
 function abrirModal2(){
     modalito2.showModal();
