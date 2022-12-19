@@ -135,11 +135,67 @@
                 </div>
                 <br>
                 <div class="container">
+                    <h3 class="titulo">Inscripciones:</h3>
+                    <br>
+                    <div class="row align-item-start">
+                        <div class="col">
+                            <h4>Fecha Inicio Preinscripcion:</h4>
+                            <br>
+                            <input class="date" type="date" id="Fecha_inicio_Preinscripcion" >
+                            <br>
+                            <span class="msg-error" id="error-fechaInicioPreinsc">Ingrese Fecha Valida</span>
+                            <br>
+                        </div>
+                        <div class="col">
+                            <h4>Fecha inscripcion normal:</h4>
+                            <br>
+                            <input class="date" type="date" id="Fecha_inscription_normal" disabled>
+                            <br>
+                            <span class="msg-error" id="error-fechaInscripcion">Ingrese Fecha Valida</span>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <div class="row ">
+                        <div class="col">
+                            <h4>Fecha Limite inscripcion:</h4>
+                            <br>
+                            <input class="date" type="date" id="Fecha_limite_incription" disabled>
+                            <br>
+                            <span class="msg-error" id="error-fechaLimiteInsc">Ingrese Fecha Valida</span>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="container">
+                        <div class="row align-item-start">
+                            <div class="col">
+                                <h4>Costo Preinscripcion</h4>
+                                <div class="input-group costo">
+                                    <input type="number" step="0.01" class="form-control" id="CostoPre">
+                                    <label class="input-group-text">$</label>
+                                </div>
+                                <span class="msg-error" id="error-CostoPre">Ingrese Precio valido</span>
+                            </div>
+                            <div class="col">
+                                <h4>Costo inscripcion</h4>
+                                <div class="input-group costo">
+                                    <input type="number" step="0.01" class="form-control" id="Costo">
+                                    <label class="input-group-text">$</label>
+                                </div>
+                                <span class="msg-error" id="error-Costo">Ingrese Precio valido</span>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <br>
+                    <h4 class="titulo">Fecha campeonato:</h4>
+                    <br>
                     <div class="row align-item-start">
                         <div class="col">
                             <h4>Fecha Inicio:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_ini" min="2022-11-05">
+                            <input class="date" type="date" id="Fecha_ini" min="2022-11-05" disabled>
                             <br>
                             <span class="msg-error " id="error-FechaInicio">Ingrese Fecha Valida</span>
                         </div>
@@ -152,57 +208,11 @@
                             <br>
                         </div>
                     </div>
-                    <br>
-                    <div class="row align-item-start">
-                        <div class="col">
-                            <h4>Fecha Inicio inscripcion:</h4>
-                            <br>
-                            <input class="date" type="date" id="Fecha_Inicio_inscription" disabled>
-                            <br>
-                            <span class="msg-error" id="error-fechaInscripcion">Ingrese Fecha Valida</span>
-                        </div>
-                        <div class="col">
-                            <h4>Fecha Limite inscripcion:</h4>
-                            <br>
-                            <input class="date" type="date" id="Fecha_limite_incription" disabled>
-                            <br>
-                            <span class="msg-error" id="error-fechaLimiteInsc">Ingrese Fecha Valida</span>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col">
-                            <h4>Fecha Limite Preinscripcion:</h4>
-                            <br>
-                            <input class="date" type="date" id="Fecha_limite_Preinscripcion" disabled>
-                            <br>
-                            <span class="msg-error" id="error-fechaLimitePreinsc">Ingrese Fecha Valida</span>
-                        </div>
-                    </div>
-
+                    
+                    
                 </div>
                 <br>
-                <div class="container">
-                    <div class="row align-item-start">
-                        <div class="col">
-                            <h4>Costo Preinscripcion</h4>
-                            <div class="input-group costo">
-                                <input type="number" step="0.01" class="form-control" id="CostoPre">
-                                <label class="input-group-text">$</label>
-                            </div>
-                            <span class="msg-error" id="error-CostoPre">Ingrese Precio valido</span>
-                        </div>
-                        <div class="col">
-                            <h4>Costo inscripcion</h4>
-                            <div class="input-group costo">
-                                <input type="number" step="0.01" class="form-control" id="Costo">
-                                <label class="input-group-text">$</label>
-                            </div>
-                            <span class="msg-error" id="error-Costo">Ingrese Precio valido</span>
-                        </div>
-                    </div>
-
-                </div>
+                
                 <br>
                 <div>
                     <h4>Imagen QR para deposito:</h4>

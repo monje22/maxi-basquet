@@ -110,9 +110,9 @@ async function crearCamp() {
     let nomOrg = document.getElementById("NombreO").value;
     let fechaIni = document.getElementById("Fecha_ini").value;
     let fechaFin = document.getElementById("Fecha_fin").value;
-    let fechaIniIns = document.getElementById("Fecha_Inicio_inscription").value;
+    let fechaIniIns = document.getElementById("Fecha_inscription_normal").value;
     let fechaLimIns = document.getElementById("Fecha_limite_incription").value;
-    let fechaLimPreIns = document.getElementById("Fecha_limite_Preinscripcion").value;
+    let fechaIniPreIns = document.getElementById("Fecha_inicio_Preinscripcion").value;
     let costoPre = document.getElementById("CostoPre").value;
     let costoIns = document.getElementById("Costo").value;
     let depoPreIns = document.getElementById("QR-file1").files[0];
@@ -129,7 +129,7 @@ async function crearCamp() {
         FechaFinal: fechaFin,
         FechaIniInsc: fechaIniIns,
         FechaLimIns: fechaLimIns,
-        FechaPreInsc: fechaLimPreIns,
+        FechaPreInsc: fechaIniPreIns,
         CostoPreIns: costoPre,
         CostoIns: costoIns,
         DepositoPre: "",

@@ -10,9 +10,9 @@ let dropdown2=document.getElementById("inputGroupSelect02")
 //INPUTS_DATES
 const fechaInicio = document.getElementById("Fecha_ini");
 const fechaFin = document.getElementById("Fecha_fin");
-const fechaInscripcion = document.getElementById("Fecha_Inicio_inscription");
+const fechaInscripcion = document.getElementById("Fecha_inscription_normal");
 const fechaLimiteInsc = document.getElementById("Fecha_limite_incription");
-const fechaLimitePreinsc=document.getElementById("Fecha_limite_Preinscripcion");
+const fechaInicioPreinsc=document.getElementById("Fecha_inicio_Preinscripcion");
 
 const campos={
     Nombre : false ,
@@ -125,19 +125,17 @@ fechaInscripcion.addEventListener("change", ()=>{
 fechaLimiteInsc.addEventListener("change", ()=>{
     errorDesactivo('fechaLimiteInsc');
 });
-fechaLimitePreinsc.addEventListener("change", ()=>{
-    errorDesactivo('fechaLimitePreinsc');
+fechaInicioPreinsc.addEventListener("change", ()=>{
+    errorDesactivo('fechaInicioPreinsc');
 });
 form.addEventListener("submit",e=>{
     e.preventDefault();
     //verificacion dates vacios
 //fecha inicio
     if(fechaInicio.value.length > 0){
-        console.log("hay valor");
+        
     }else{
         errorActivo('FechaInicio');
-        console.log(fechaInicio.value + "hola 1");
-        console.log("no hay valoh");
     }
 //fecha fin
     if(fechaFin.value.length > 0){
@@ -158,10 +156,10 @@ form.addEventListener("submit",e=>{
         errorActivo('fechaLimiteInsc');
     }
 //fecha limite preinscripcion
-    if(fechaLimitePreinsc.value.length > 0){
+    if(fechaInicioPreinsc.value.length > 0){
                 
     }else{
-        errorActivo('fechaLimitePreinsc');
+        errorActivo('fechaInicioPreinsc');
     }
 
     if(campos.Categoria && campos.Costo && campos.CostoPre && campos.FechaFin && campos.FechaInicio && campos.FechaInscripcion && campos.FechaLimiteInsc && campos.FechaLimitePreinsc && campos.ImagenQr && campos.Invitacion && campos.Nombre && campos.NombreO){
@@ -171,28 +169,18 @@ form.addEventListener("submit",e=>{
 
 //activar fechas
 
-fechaInicio.addEventListener('change',()=>{
-    if(fechaInicio.value ==''){
-        fechaFin.setAttribute('disabled','')
+fechaInicioPreinsc.addEventListener('change',()=>{
+    if(fechaInicioPreinsc.value !=''){
+        fechaInscripcion.removeAttribute('disabled')
+        
     }else{
-        fechaFin.removeAttribute('disabled')
-    }
-    
-})
-fechaFin.addEventListener('change',()=>{
-    if(fechaInicio.value >= fechaFin.value){
-        errorActivo('FechaFin');
         fechaInscripcion.setAttribute('disabled','')
-    }else{
-        if(fechaInicio.value ==''){
-            fechaInscripcion.setAttribute('disabled','')
-        }else{
-            fechaInscripcion.removeAttribute('disabled')
-        }
+        errorActivo('fechaInicioPreinsc')
     }
 })
+
 fechaInscripcion.addEventListener('change',()=>{
-    if(fechaInscripcion.value >= fechaInicio.value && fechaInscripcion.value <= fechaFin.value){
+    if(fechaInscripcion.value > fechaInicioPreinsc.value){
         if(fechaInscripcion.value ==''){
             fechaLimiteInsc.setAttribute('disabled','')
         }else{
@@ -202,27 +190,40 @@ fechaInscripcion.addEventListener('change',()=>{
         errorActivo('fechaInscripcion');
         fechaLimiteInsc.setAttribute('disabled','')
     }
-    
-        
 })
+
 fechaLimiteInsc.addEventListener('change',()=>{
-    if(fechaLimiteInsc.value >= fechaInicio.value && fechaLimiteInsc.value < fechaFin.value){
+    if(fechaLimiteInsc.value > fechaInscripcion.value){
         if(fechaInscripcion.value ==''){
-            fechaLimitePreinsc.setAttribute('disabled','')
+            fechaInicio.setAttribute('disabled','')
         }else{
-            fechaLimitePreinsc.removeAttribute('disabled')
+            fechaInicio.removeAttribute('disabled')
         }
     }else{
         errorActivo('fechaLimiteInsc');
-        fechaLimitePreinsc.setAttribute('disabled','')
     }
 })
-fechaLimitePreinsc.addEventListener('change',()=>{
-    if(fechaLimitePreinsc.value >= fechaInicio.value && fechaLimitePreinsc.value < fechaFin.value && fechaLimitePreinsc.value < fechaLimiteInsc.value && fechaLimitePreinsc.value !=''){
-
+fechaInicio.addEventListener('change',()=>{
+    if(fechaInicio.value > fechaLimiteInsc.value){
+        if(fechaInicio.value ==''){
+                fechaFin.setAttribute('disabled','')
+            }else{
+                fechaFin.removeAttribute('disabled')
+            }
     }else{
-        errorActivo('fechaLimitePreinsc')
-    }
+        errorActivo('FechaInicio');
+   }  
+})
+fechaFin.addEventListener('change',()=>{
+    if(fechaFin.value > fechaInicio.value){
+        if(fechaInicio.value ==''){
+            fechaInscripcion.setAttribute('disabled','')
+        }else{
+            fechaInscripcion.removeAttribute('disabled')
+        }
+    }else{
+         errorActivo('FechaFin');
+    }  
 })
 
 
@@ -234,13 +235,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("Fecha_fin").setAttribute('min',Fecha()) ;
 });
 document.addEventListener("DOMContentLoaded",()=>{
-    document.getElementById("Fecha_Inicio_inscription").setAttribute('min',Fecha()) ;
+    document.getElementById("Fecha_inscription_normal").setAttribute('min',Fecha()) ;
 });
 document.addEventListener("DOMContentLoaded",()=>{
     document.getElementById("Fecha_limite_incription").setAttribute('min',Fecha()) ;
 });
 document.addEventListener("DOMContentLoaded",()=>{
-    document.getElementById("Fecha_limite_Preinscripcion").setAttribute('min',Fecha()) ;
+    document.getElementById("Fecha_inicio_Preinscripcion").setAttribute('min',Fecha()) ;
 });
 //previsualizaciones de imagenes
 //Logo
@@ -329,14 +330,14 @@ QR2.addEventListener("change",()=>{
 //DROPDOWNS
 //categoria
 dropdown1.addEventListener('change',()=>{
-    if(dropdown1.value ==1){
+    if(dropdown1.value !=0){
         document.getElementById("inputGroupSelect01").classList.add('is-valid');
     }else{
         document.getElementById("inputGroupSelect01").classList.add('is-invalid');
     }
 });
 dropdown2.addEventListener('change',()=>{
-    if(dropdown2.value ==1){
+    if(dropdown2.value !=0){
         document.getElementById("inputGroupSelect02").classList.add('is-valid');
     }else{
         document.getElementById("inputGroupSelect02").classList.add('is-invalid');
