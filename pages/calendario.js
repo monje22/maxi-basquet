@@ -20,6 +20,7 @@ const auth = firebase.auth();
 let db = firebase.firestore();
 const storageRef = firebase.storage().ref();
 const btn_añadirFecha = document.getElementById("btn_añadir")
+const btn_tablaP = document.getElementById("btn_tab")
 
 
 btn_añadirFecha.addEventListener('click', () => {
@@ -29,6 +30,18 @@ btn_añadirFecha.addEventListener('click', () => {
         alert("Debe seleccionar previamente un campeonato")
     else
         window.location.href = "./crear_Partido.html#" + add
+})
+
+btn_tablaP.addEventListener('click', () => {
+    let add = window.location.href.slice(-1)
+    if (add)
+        alert("Debe seleccionar previamente un campeonato")
+    else {
+        let catA = document.getElementById("categoria")
+        let catB = catA.options[catA.selectedIndex].text;
+        window.location.href = "./tabla_posicionesT.html" + "?id=Campeonato UwU" + "&categoria=" + catB
+    }
+
 })
 
 auth.onAuthStateChanged((user) => {
@@ -71,9 +84,9 @@ camp.then((querySnapshot) => {
             <h4 class="tituloCampeonato" id="ti${i}">${doc[i].data().NomCamp}</h4>
         </div>
     </div>
-</div>
-
-<hr>`
+    </div>
+    
+    <hr>`
     }
 });
 
@@ -145,8 +158,46 @@ function prep(cmp) {
                     window.location.href = "./crear_Partido.html#" + add
             })
         });
+        let arrayCategorias = [];
+        db.collection("Campeonatos").doc(campe).get().then((docu) => {
+            susCategorias = docu.data().Categoria
+            console.log(docu.data().Categoria)
+                // susCategorias = susCategorias.replace("+","")
+            while (susCategorias.indexOf("+") != -1) {
+                susCategorias = susCategorias.replace("+", "")
+                susCategorias = susCategorias.replace(" ", "")
+            }
+            console.log(susCategorias)
+            console.log(susCategorias.split(","))
+            arrayCategorias = susCategorias.split(",");
+            console.log(arrayCategorias);
+            addOptions("cats", arrayCategorias)
+        });
     });
 }
+
+
+
+function addOptions(domElement, array) {
+    var select = document.getElementsByName(domElement)[0];
+    let sel = document.getElementById("categorias")
+    const lel = sel.options.length
+    console.log(lel)
+    for (let i = lel; i >= 0; i--) {
+        console.log("......")
+        console.log()
+        sel.remove(i);
+    }
+
+
+    for (value in array) {
+        var option = document.createElement("option");
+        option.text = array[value];
+        select.add(option);
+    }
+
+}
+
 
 function logout() {
     firebase.auth().signOut().then(() => {
