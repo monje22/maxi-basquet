@@ -112,10 +112,10 @@
                             <div class="aux">
                                 <input type="text" id="Cajita" class="form-control" placeholder="Categorias" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                  <button class="btn btn-outline-secondary" type="button" onclick="prueba()">Añadir</button>
+                                  <button class="btn btn-outline-secondary btnAñadir" type="button" onclick="prueba()">Añadir</button>
                                 </div>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" onclick="vaciar()">Reiniciar</button>
+                                    <button class="btn btn-outline-secondary btnVaciar" type="button" onclick="vaciar()">Vaciar</button>
                                   </div>
                             </div>
                            
@@ -162,7 +162,7 @@
                         <div class="col">
                             <h4>Fecha inscripcion normal:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_inscription_normal" disabled>
+                            <input class="date" type="date" id="Fecha_inscription_normal" >
                             <br>
                             <span class="msg-error" id="error-fechaInscripcion">Ingrese Fecha Valida</span>
                         </div>
@@ -173,7 +173,7 @@
                         <div class="col">
                             <h4>Fecha Limite inscripcion:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_limite_incription" disabled>
+                            <input class="date" type="date" id="Fecha_limite_incription" >
                             <br>
                             <span class="msg-error" id="error-fechaLimiteInsc">Ingrese Fecha Valida</span>
                             <br>
@@ -208,14 +208,14 @@
                         <div class="col">
                             <h4>Fecha Inicio:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_ini" min="2022-11-05" disabled>
+                            <input class="date" type="date" id="Fecha_ini" min="2022-11-05" >
                             <br>
                             <span class="msg-error " id="error-FechaInicio">Ingrese Fecha Valida</span>
                         </div>
                         <div class="col">
                             <h4>Fecha Fin:</h4>
                             <br>
-                            <input class="date" type="date" id="Fecha_fin" disabled>
+                            <input class="date" type="date" id="Fecha_fin" >
                             <br>
                             <span class="msg-error" id="error-FechaFin">Ingrese Fecha Valida</span>
                             <br>
@@ -278,7 +278,7 @@
                 </div>
                 <br>
                 <div class="centrar">
-                    <button class="btn-crear" onclick="crearCamp()">Crear Campeonato</button>
+                    <button type="submit" class="btn-crear" id="subir" onclick="crearCamp()">Crear Campeonato</button>
                 </div>
 
 
@@ -336,7 +336,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-    <script src="crear_campeonato.js"></script>
+    <!-- <script src="crear_campeonato.js"></script> -->
+    <script src="editar_campeonato.js"></script>
     <script src="script.js"></script>
     <script src="editar_camp.js"></script>
     <script>

@@ -1,0 +1,33 @@
+.contenedor{
+    margin-top: 8%;
+    margin-bottom: 5%;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #fff;
+    padding-bottom: 30px;
+}
+.imagen{
+    /* display: flex; */
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 50%; 
+    margin: 4%;
+}
+hr{
+    /* width: 10px; */
+    height: 40px;
+    /* color: black; */
+}
+.seccion{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: start;
+}
+.nombre{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+}
