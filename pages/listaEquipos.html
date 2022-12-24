@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/listaEquipos.css">
+    <link rel="stylesheet" href="../assets/css/headersinDelegado.css">
+    <!-- links del fabricho -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+    <title>One Registro</title>
+    <!-- Nombre de la pagina y su logo -->
+    <link rel="icon" href="../assets/img/Logo_minimalista.png">
+</head>
+
+<body>
+    <!-- comienzo header -->
+    <Header>
+        <div class="Logo-nombre">
+            <a href="/pages/HomeDelegado.html">
+                <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
+            </a>
+        </div>
+        <!-- Menu del Header -->
+        <nav class="Menu-header">
+            <ul class="Menu">
+                <!-- Modificar links!!! -->
+                <li><a href="./campeonatosDelegado.html">CAMPEONATOS</a></li>
+                <li><a href="./calendario.html">PARTIDOS</a></li>
+                <!-- <li><a href="HomeAdministrador.html">HOME</a></li> -->
+
+                <div class="desplegable">
+                    <button class="desplebutton"> 
+                      <a href="#l" id="prueba" 
+                      class="get-started-btn"> Delegado
+                      
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </a> 
+                  </button>
+
+                    <!-- <i class="material-icons">expand_more </i>  -->
+                    <div class="options">
+
+                        <a href="listaCampeonatos.html">Crear Equipo</a>
+                        <a href="#" id="logout" onclick="logout()">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </Header>
+
+    <!-- comienzo Formulario de registro -->
+    <div class="contenedor">
+        <div class="cont-centreado">
+            <div class="cont-cabecera">
+                <p>LISTA DE EQUIPOS</p>
+            </div>
+            <div class="cont-texto">
+                <p>Estos son los equipos que participaran en el campeonato seleccionado</p>
+                <!-- cambiar el link a la pagina de login 
+                <a href="Partidos.html">¿Ya tienes una cuenta? Accede</a> -->
+            </div>
+            <div class="pb" id="aux1">
+                <!-- <div class="cont-formulario" id="formu1">
+
+                    <div class="imagenLogo">
+                        <img src="/assets/img/perfil_placeholder.jpg" alt="" id="logocampeonato">
+                    </div>
+                    <div class="contenido">
+                        <p id="titulo">Equipos Salchipapa</p>
+                        <div class="rama">
+                            <div class="texto-info">
+                                <p id="informacion">Rama: Femenino</p>
+                                <p id="informacion">Categoria: Pre-Maxi(35-45)</p>
+                            </div>
+
+                            <div class="boton">
+                                <button title="Ingresar" onclick="acceso(this)" name="detalles equipo" id="detalles1">DETALLES</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <!-- Menu del footer que le acceso a otras paginas o informacion de la pagina -->
+        <div class="menu-footer">
+            <div class="div1 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div2 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div3 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div4 item">
+                <a class="ah" href="Partidos.html"></a>
+            </div>
+            <div class="div5 item"> </div>
+            <div class="div6 item"> </div>
+        </div>
+        <!-- el texto de y los logos de las redes sociales -->
+        <div class="texto-footer">
+            <p>
+                © 2022 Doc Duck SRL todos los derechos reservados. <br/> Política de privacidad l Condiciones de uso l Accesibilidad y subtítulos<br/> No vender mi información personal Atención al cliente Administrar cookies.<br/> Si tiene dificultades
+                para acceder a cualquier contenido de este sitio web, envie un correo a DockDuck@gmail.com
+            </p>
+            <!-- Rellenar links de las redes sociales de la pagina -->
+            <span>
+                
+                <a href="https://www.facebook.com/DocDuckSRL/"><img src="../assets/img/VectorLogo-facebook.png" alt=""></a>
+                <a href=""><img src="../assets/img/logo-twitter.png" alt=""> </a>
+                <a href=""><img src="../assets/img/logo-intagram.png" alt=""> </a>
+            </span>
+
+        </div>
+        <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer">
+    </footer>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="confirmarEquipo.js"></script>
+
+</html>
