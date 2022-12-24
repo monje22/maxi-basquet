@@ -74,8 +74,9 @@ db.collection("Campeonatos").get().then((querySnapshot) => {
                 <p id="estado">Fecha de Inicio :  ${doc.data().FechaInicio}</p>
                 <p id="estado">Fecha de Finalizacion :  ${doc.data().FechaFinal}</p>
               <div class="boton">
+                    <button title="VerEquipos" onclick="acceso(this)" name="Inscribirse" id="${contador}">VER EQUIPOS</button>
                     <button title="Ingresar" onclick="acceso(this)" name="Inscribirse" id="${contador}">INSCRIBIRSE</button>
-              </div>
+                </div>
            </div>
         </div>
         `
