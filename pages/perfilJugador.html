@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +23,7 @@
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
     <title>Perfil</title>
 </head>
+
 <body>
     <Header>
         <div class="Logo-nombre">
@@ -44,7 +46,7 @@
     <div class="contenedor">
         <div class="row align-item-start">
             <img src="../assets/img/perfil_placeholder.jpg" class="imagen col" id="img-perfil">
-            <h3 class="col nombre" id="Nombre" >Nombre jugador</h3>
+            <h3 class="col nombre" id="Nombre">Nombre jugador</h3>
         </div>
         <hr class="hr">
         <div class="row align-item-start">
@@ -55,7 +57,7 @@
             <div class="col seccion">
                 <h4>Fecha Nacimiento:</h4>
                 <label id="fecha-nac">lore 2</label>
-            </div>            
+            </div>
         </div>
         <br>
         <div class="row align-item-start">
@@ -67,7 +69,7 @@
                 <h4>Altura:</h4>
                 <label id="altura">lore 2</label>
                 <span>cm.</span>
-            </div>            
+            </div>
         </div>
         <br>
         <div class="row align-item-start">
@@ -123,6 +125,12 @@
         </div>
         <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer">
     </footer>
-
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="perfilJugador.js"></script>
+
 </html>

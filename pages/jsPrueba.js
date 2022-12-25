@@ -36,8 +36,8 @@ auth.onAuthStateChanged((user) => {
         // User is signed out
         // ...
         console.log("no esta logueado")
-        window.location.href="../index.html";
-        
+        window.location.href = "../index.html";
+
     }
 });
 
@@ -54,14 +54,14 @@ function logout() {
 }
 
 
-const idCampeonatos=[];//esta variable contiene un arreglo con los ids de los campeonatos mostrados en la pagina
+const idCampeonatos = []; //esta variable contiene un arreglo con los ids de los campeonatos mostrados en la pagina
 
 
 db.collection("Campeonatos").get().then((querySnapshot) => {
-    var contador=0;
-    aux1.innerHTML+=``;
+    var contador = 0;
+    aux1.innerHTML += ``;
     querySnapshot.forEach((doc) => {
-        aux1.innerHTML+=`
+        aux1.innerHTML += `
         <div class="cont-formulario" id="formu1">
                 <div class="imagenLogo">
                      <img src="${doc.data().Logo}" alt="" id="logocampeonato">
@@ -74,18 +74,18 @@ db.collection("Campeonatos").get().then((querySnapshot) => {
                 <p id="estado">Fecha de Inicio :  ${doc.data().FechaInicio}</p>
                 <p id="estado">Fecha de Finalizacion :  ${doc.data().FechaFinal}</p>
               <div class="boton">
-                    <button title="VerEquipos" onclick="acceso(this)" name="Inscribirse" id="${contador}">VER EQUIPOS</button>
+                    <button title="VerEquipos" onclick="listaEq(this)" name="Inscribirse" id="${contador}">VER EQUIPOS</button>
                     <button title="Ingresar" onclick="acceso(this)" name="Inscribirse" id="${contador}">INSCRIBIRSE</button>
                 </div>
            </div>
         </div>
         `
-    console.log(querySnapshot.docs[contador].id);
-    idCampeonatos.push(querySnapshot.docs[contador].id);
-    contador++;
+        console.log(querySnapshot.docs[contador].id);
+        idCampeonatos.push(querySnapshot.docs[contador].id);
+        contador++;
     });
-}); 
- 
+});
+
 /*Probando cosas no jusgues----------------------------------------------------------------------------
 const categRef = db.collection("Partidos");
 
@@ -111,7 +111,11 @@ const categRef = db.collection("Partidos");
         */
 
 //---------------------------METODO QUE ENVIA DATOS EN LA URL A OTRA PAGINA-------------------------
-function acceso(auxId){
+function acceso(auxId) {
     //aqui tiene que ir la pagina del fabricho no te olvides cambiarlo
-     location.href=`campeonatos.html?id=${idCampeonatos[auxId.id]}`;
+    location.href = `campeonatos.html?id=${idCampeonatos[auxId.id]}`;
+}
+
+function listaEq(auxId) {
+    location.href = `listaEquipos.html?id=${idCampeonatos[auxId.id]}`
 }
