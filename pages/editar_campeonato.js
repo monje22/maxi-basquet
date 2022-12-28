@@ -35,9 +35,9 @@ const campos={
     FechaLimitePreinsc:false,
     CostoPre:false,
     Costo:false,
-    ImagenQr1:false,
-    ImagenQr2:false,
-    Logo:false
+    ImagenQr1:true,
+    ImagenQr2:true,
+    Logo:true
 };
 
 const validarFormulario = (e) => {

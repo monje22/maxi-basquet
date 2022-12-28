@@ -28,11 +28,35 @@ let idEquipo = parametrosURL.get('team')
 console.log(idJug)
 console.log(idEquipo)
 
+function calcularEdad (fechaNacimiento){
+    var fechaActual = new Date();
+    var anoActual = parseInt(fechaActual.getFullYear());
+    var mesActual = parseInt(fechaActual.getMonth()) + 1;
+    var diaActual = parseInt(fechaActual.getDate());
+
+    // 2016-07-11
+    var anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
+    var mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
+    var diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
+
+    let edad = anoActual - anoNacimiento;
+    if (mesActual < mesNacimiento) {
+        edad--;
+    } else if (mesActual === mesNacimiento) {
+        if (diaActual < diaNacimiento) {
+            edad--;
+        }
+    }
+    console.log("la edad de este juador es:"+edad);
+    return edad;
+};
+
 db.collection("Equipos").doc(idEquipo).collection("Jugadores").doc(idJug).get().then((doc) => {
     let img = document.getElementById("img-perfil")
     img.src = doc.data().fotoperfil
     Nombre.innerText = doc.data().nombre
-    Edad.innerText = doc.data().edad
+
+    Edad.innerText = calcularEdad(doc.data().edad)
     let fechaN = document.getElementById("fecha-nac")
     fechaN.innerText = doc.data().edad
     nacionalidad.innerText = doc.data().nacionalidad
