@@ -26,20 +26,21 @@ for (let valoresURL of parametrosURL) {
 let idCamp = parametrosURL.get('id')
 console.log(idCamp)
 
-db.collection("Campeonatos").doc(idCamp).collection("EquiposInscritos").get().then((doc) => {
+db.collection("Campeonatos").doc(idCamp).collection("EquiposInscritos").get().then(async(doc) => {
     let docs = doc.docs
     let lim = doc.size;
-    console.log(docs[0].data().idEquipo)
+    console.log("....")
+        //console.log(docs[1].data().idEquipo)
+    console.log("....")
     for (let i = 0; i < lim; i++) {
         equipo = docs[i].data().idEquipo
-        db.collection("Equipos").get().then((querySnapshot) => {
+        await db.collection("Equipos").get().then((querySnapshot) => {
             let eq = querySnapshot.docs
             let limi = querySnapshot.size
             for (let j = 0; j < limi; j++) {
                 if (equipo == eq[j].data().nombreEquipo) {
                     aux1.innerHTML += `
                     <div class="cont-formulario" id="formu1">
-        
                                 <div class="imagenLogo">
                                        <img src="${eq[j].data().logo}" alt="" id="logocampeonato">
                                 </div>
