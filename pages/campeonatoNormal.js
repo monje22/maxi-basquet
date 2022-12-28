@@ -36,7 +36,7 @@ auth.onAuthStateChanged((user) => {
         // User is signed out
         // ...
         console.log("no esta logueado")
-        window.location.href = "../index.html";
+        //window.location.href = "../index.html";
 
     }
 });
