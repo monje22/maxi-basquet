@@ -77,3 +77,12 @@ function acceso(datosBoton) {
     console.log(datosBoton.id)
     location.href = `equipoPerfil.html?id=${datosBoton.id}`;
 }
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}

@@ -28,7 +28,7 @@ let idEquipo = parametrosURL.get('team')
 console.log(idJug)
 console.log(idEquipo)
 
-function calcularEdad (fechaNacimiento){
+function calcularEdad(fechaNacimiento) {
     var fechaActual = new Date();
     var anoActual = parseInt(fechaActual.getFullYear());
     var mesActual = parseInt(fechaActual.getMonth()) + 1;
@@ -47,7 +47,7 @@ function calcularEdad (fechaNacimiento){
             edad--;
         }
     }
-    console.log("la edad de este juador es:"+edad);
+    console.log("la edad de este juador es:" + edad);
     return edad;
 };
 
@@ -65,3 +65,12 @@ db.collection("Equipos").doc(idEquipo).collection("Jugadores").doc(idJug).get().
     equipo.innerText = idEquipo
 
 })
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}

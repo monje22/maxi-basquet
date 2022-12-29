@@ -60,3 +60,12 @@ db.collection("Equipos").doc(idEquipo).collection("Jugadores").get().then((query
 function verPerfil(nomJug) {
     location.href = `perfilJugador.html?id=${nomJug.id}&team=${nomJug.name}`;
 }
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
+}
