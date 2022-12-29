@@ -116,7 +116,7 @@ comboBoxE1.addEventListener("change",()=>{
          
          jugadoresA.innerHTML+=`
                         <div class="jugador" id="jugadorA">
-                            <p id="juga1">${doc.data().nombre}</p>
+                            <p id="A${contador}">${doc.data().nombre}</p>
                             <div class="puntFal">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput${contador}">
@@ -146,7 +146,7 @@ comboBoxE2.addEventListener("change",()=>{
          
          jugadoresB.innerHTML+=`
                         <div class="jugador" id="jugadorA">
-                            <p id="juga1">${doc.data().nombre}</p>
+                            <p id="B${cont}">${doc.data().nombre}</p>
                             <div class="puntFal">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floating${cont}">
@@ -192,7 +192,7 @@ function subirtodo(){
     var aux1=document.getElementById("selectCate").value;
     var aux2=document.getElementById("E1").value;
     var aux3=document.getElementById("E2").value;
-    var fechaPart=document.getElementById("floatingInput1").value;
+    var fechaPart=document.getElementById("floatingInputm").value;
     var hora1=document.getElementById("horaIni").value;
     var hora2=document.getElementById("horaFin").value
     var ApuntFavor=document.getElementById("puntsAF").value;
@@ -201,7 +201,8 @@ function subirtodo(){
     var BpuntCont=document.getElementById("BpuntsCO").value;
     var radios = document.getElementsByName('flexRadioDefault');
     var opcionR="";
-    
+
+
     for (var radio of radios)
     {
         if (radio.checked){
@@ -241,6 +242,17 @@ function subirtodo(){
                     puntosAfavor:d,
                     puntosContra:f
                 });
+                var m=1;
+                for(i=0;i<5;i++){
+                    var t=document.getElementById("A"+(i*2)).textContent;
+                    var f=parseInt(document.getElementById("floatingInput"+(m)).value);
+                    var punti=parseInt(document.getElementById("floatingInput"+(i*2)).value);
+                    db.collection("Campeonatos").doc(aux).collection("EquiposInscritos").doc(doc.docs[contado].id).collection("puntosJugadores").doc(t).set({
+                        faltas:f,
+                        puntos:punti
+                    });
+                    m=m+2;
+                }
             }
         contado++;
         });
@@ -280,12 +292,24 @@ function subirtodo(){
                     puntosAfavor:d,
                     puntosContra:f
                 });
+                var m=1;
+                for(i=0;i<5;i++){
+                    var t=document.getElementById("B"+(i*2)).textContent;
+                    var f=parseInt(document.getElementById("floating"+(m)).value);
+                    var punti=parseInt(document.getElementById("floating"+(i*2)).value);
+                    db.collection("Campeonatos").doc(aux).collection("EquiposInscritos").doc(doc.docs[contado].id).collection("puntosJugadores").doc(t).set({
+                        faltas:f,
+                        puntos:punti
+                    });
+                    m=m+2;
+                }
+               
             }
         contado++;
         });
     });
     
 
-
+    
     console.log(aux+", "+aux1+", "+aux2+", "+aux3+", "+fechaPart+", "+hora1+", "+hora2+", "+ApuntFavor+", "+ApuntCont+", "+BpuntCont+", "+BpuntFavor+", "+opcionR);
 }
