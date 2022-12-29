@@ -95,7 +95,7 @@ async function subirDatosEquipo() {
     //---------Aqui se llama a la funcion subur imagen para obtener el URL de la imagen-------
 
     let add = window.location.href.slice(-1)
-    if (tieneEquipo != 0) {
+    if (add != 0) {
 
         await db.collection("Equipos").doc(nombreEqui).set({
             categoria: categoriaE,
