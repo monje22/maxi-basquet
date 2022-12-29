@@ -40,7 +40,8 @@ btn_tablaP.addEventListener('click', () => {
     else {
         let catA = document.getElementById("categorias")
         let catB = catA.options[catA.selectedIndex].value;
-        window.location.href = "./tabla_posicionesT.html" + "?id=Campeonato UwU" + "&categoria=" + catB
+        let id = document.getElementById("ti" + add).innerText
+        window.location.href = "./tabla_posicionesT.html" + "?id=" + id + "&categoria=" + catB
     }
 
 })
