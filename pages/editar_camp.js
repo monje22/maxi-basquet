@@ -141,6 +141,18 @@ async function crearCamp() {
             console.error("Error : ", error);
         });
     if (logo == undefined) {
+        const logo = document.getElementById("logo").src;
+        db.collection('Campeonatos').doc(nomCamp).update({
+                Logo: logo
+            })
+            .then(() => {
+                console.log("Document successfully updated!");
+            })
+            .catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating document: ", error);
+            });
+    } else {
         let uploadTask1 = storageRef.child("Logo Equipos" + '/' + logo.name).put(logo);
         await uploadTask1.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
             (snapshot) => {},
@@ -176,10 +188,11 @@ async function crearCamp() {
                 });
             }
         );
-    } else {
-        const logo = document.getElementById("logo").src;
+    }
+    if (depoPreIns == undefined) {
+        const qr1 = document.getElementById("qr1").src;
         db.collection('Campeonatos').doc(nomCamp).update({
-                Logo: logo
+                DepositoPre: qr1
             })
             .then(() => {
                 console.log("Document successfully updated!");
@@ -188,8 +201,7 @@ async function crearCamp() {
                 // The document probably doesn't exist.
                 console.error("Error updating document: ", error);
             });
-    }
-    if (depoPreIns == undefined) {
+    } else {
         let uploadTask2 = storageRef.child("Depositos" + '/' + depoPreIns.name).put(depoPreIns);
         await uploadTask2.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
             (snapshot) => {},
@@ -226,10 +238,11 @@ async function crearCamp() {
             }
 
         );
-    } else {
-        const qr1 = document.getElementById("qr1").src;
+    }
+    if (depoIns == undefined) {
+        const qr2 = document.getElementById("qr2").src;
         db.collection('Campeonatos').doc(nomCamp).update({
-                DepositoPre: qr1
+                DepositoIns: qr2
             })
             .then(() => {
                 console.log("Document successfully updated!");
@@ -238,8 +251,7 @@ async function crearCamp() {
                 // The document probably doesn't exist.
                 console.error("Error updating document: ", error);
             });
-    }
-    if (depoIns == undefined) {
+    } else {
         let uploadTask3 = storageRef.child("Depositos" + '/' + depoIns.name).put(depoIns);
         await uploadTask3.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
             (snapshot) => {},
@@ -276,19 +288,6 @@ async function crearCamp() {
                 });
             }
         );
-    } else {
-
-        const qr2 = document.getElementById("qr2").src;
-        db.collection('Campeonatos').doc(nomCamp).update({
-                DepositoIns: qr2
-            })
-            .then(() => {
-                console.log("Document successfully updated!");
-            })
-            .catch((error) => {
-                // The document probably doesn't exist.
-                console.error("Error updating document: ", error);
-            });
     }
 
 }
