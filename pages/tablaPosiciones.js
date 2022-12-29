@@ -57,7 +57,7 @@ function logout() {
 
 //----------------METODO QUE RELLENA LA TABLA DE LAS POSICIONES--------------
 
-db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").where("categoria","==","20").where("puntos",">=",0).orderBy("puntos", "desc").get().then((querySnapshot)=>{
+db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").where("categoria","==",parametrosURL.get('categoria')).where("puntos",">=",0).orderBy("puntos", "desc").get().then((querySnapshot)=>{
     var contador=1;
     nombreCampeonato.innerText=parametrosURL.get('id');
     categoria.innerText="sub "+parametrosURL.get('categoria');
@@ -86,7 +86,7 @@ db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposIns
 });
 
 
-db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").where("categoria","==","20").get().then((querySnapshot)=>{
+db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").where("categoria","==",parametrosURL.get('categoria')).get().then((querySnapshot)=>{
     var ideMayor="";
     var idePunt="";
     var fata=0;
