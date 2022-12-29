@@ -619,6 +619,7 @@ function ventana() {
                 console.log(prueba)
                     // lo de abajo de X-FORCE remplazar por "prueba"
                 db.collection("Equipos").doc(prueba).collection("Jugadores").get().then((querySnapshot) => {
+                    var semaforo=false;
                     querySnapshot.forEach(element => {
                         // console.log("es el each")
                         let edadJugador = calcularEdad(element.data().edad);
@@ -674,7 +675,11 @@ function ventana() {
                                 console.log("se confirmo")
                                 let ft = document.getElementById("btn-file").files[0];
                                 console.log(ft)
-                                subirImagen(ft)
+                                if(semaforo==false){
+                                    subirImagen(ft)
+                                    semaforo=true;
+                                }
+                                
                                 setTimeout(y, 2000)
 
                                 function y() {

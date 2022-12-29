@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+ 
+ }
+ body{
+     height: 100%;
+     width: 100%;
+     background-color: #252525;
+ }
+  /* comienzo del header*/
+ 
+ /* fin del header_____________________________________*/
+
+ 
+ /* comienzo del formulario____________________________*/
+ .contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    /*min-width: 100vw;
+    min-height: 100vh;--------Esta parte del codigo no funciona pero dejalo asi :) */
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+.cont-centreado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*max-width: 900px;*/
+    width: 60vw;
+    
+}
+.cont-cabecera{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    min-height:60px ;
+    padding-bottom: 15px;
+}
+.cont-cabecera p{
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cont-texto{
+    justify-content: left;
+    width: 100%;
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+.cont-texto p{
+    color: #fff;
+    padding-bottom: 10px;
+    
+}
+.cont-texto a{
+    text-decoration: none;
+    color: #fff;
+}
+.cont-formulario{
+    
+    padding: 40px;
+    /*display: flex;*/
+    justify-content: center;
+    background-color: #fff;
+    /*min-height: 300px;*/
+    /*flex-direction: row;*/
+    /*max-width: 900px;*/
+    width: 60vw;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.cont-formulario #titulo{
+   font-size: 26px;
+   font-weight: bold;
+   letter-spacing: 0.025em;
+   padding-bottom: 5px;
+
+}
+.cont-formulario #informacion{
+   padding-bottom: 10px;
+}
+.cont-formulario #estado{
+   padding-bottom: 5px;
+}
+/* 
+.cont-formulario #estado{
+   background-color: #FE0032;   ----por si el fabricho dice que hay que cambiar el estado
+}
+*/
+.boton{
+   display: flex;
+   justify-content: right;
+   padding-left: 50px;
+   align-items: center;
+}
+.cont-formulario button{
+   justify-content: center;
+   background-color: black;
+   color: #fff;
+   height: 40px;
+   min-width: 150px;
+   width: 200px;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 18px;
+   font-weight: 650;
+}
+.campeonatoSelect{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-select{
+    margin-right: 10px;
+    margin-bottom: 16px;
+}
+.vsEquipo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.vsEquipo p{
+    margin-bottom: 0px;
+}
+.tarjetas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.jugador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.jugador p{
+    margin-right: 20px;
+}
+
+/* comienzo del footer____________________________*/
+footer{
+    background-color: #FE0032;
+
+}
+.menu-footer{
+    display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(0.5, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	padding: 0px 50px;
+	background-color: #FE0032;
+	color: #fff;
+	padding-top: 40px;
+	padding-bottom: 0px;
+}
+.menu-footer a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.menu-footer div{
+    border-bottom: #fff 2px solid ;
+    padding-bottom: 20px;
+}
+
+.botones-if{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+#boton-rojo{
+    background-color: #FE0032;
+    border: 0px;
+}
+
+.puntosEquipoA{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.datos{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.mb-3{
+    padding-right: 20px;
+    margin-bottom: 0 !important;
+}
+.form-check{
+    padding-right: 10px;
+}
+/* este css es del texto y los logos de las redes sociales de la pagina____________________________*/
+.texto-footer{
+    display: flex;
+    padding-left:50px;
+    padding-right: 50px;
+    padding-top: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.texto-footer p{
+    color: #fff;
+    font-size: 15px;
+    text-align: left;
+    padding-right: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: 0;
+}
+.texto-footer img{
+    flex-direction: row;
+    height: 30px;
+    padding-left: 15px;
+    
+}
+/* este css es del logo que se muestra al final del footer____________________________*/
+.logo-footer{
+    padding-left: 50px;
+    height: 30px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+}
