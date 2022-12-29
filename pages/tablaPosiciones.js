@@ -12,6 +12,18 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
 
+const paramURL = window.location.search;
+// console.log(paramURL);
+
+const parametrosURL = new URLSearchParams(paramURL);
+// console.log(parametrosURL);
+
+for (let valoresURL of parametrosURL) {
+    // console.log(valoresURL)
+}
+
+console.log(parametrosURL.get('categoria'))
+console.log(parametrosURL.get('id'))
 
 //-----------------RECUOERAR ID USUARIO--------------   
 
@@ -19,8 +31,8 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
-        console.log("si esta logueado")
-        console.log(user)
+        // console.log("si esta logueado")
+        // console.log(user)
             // ...
     } else {
         // User is signed out
@@ -45,12 +57,12 @@ function logout() {
 
 //----------------METODO QUE RELLENA LA TABLA DE LAS POSICIONES--------------
 
-db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").where("categoria","==","20").where("puntos",">=",0).orderBy("puntos", "desc").get().then((querySnapshot)=>{
+db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").where("categoria","==",parametrosURL.get('categoria')).where("puntos",">=",0).orderBy("puntos", "desc").get().then((querySnapshot)=>{
     var contador=1;
-    nombreCampeonato.innerText="Campeonato UwU";
-    categoria.innerText="sub "+"35";
+    nombreCampeonato.innerText=parametrosURL.get('id');
+    categoria.innerText="sub "+parametrosURL.get('categoria');
     querySnapshot.forEach((doc) => {
-        console.log("Contador inicio: "+contador);
+        // console.log("Contador inicio: "+contador);
         db.collection("Equipos").doc(doc.data().idEquipo).get().then((docs2)=>{
           
             datosTabla.innerHTML+=`
@@ -68,20 +80,20 @@ db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos"
             `   
             contador++; 
         });
-         console.log("fin: "+contador);
+        //  console.log("fin: "+contador);
     })
 
 });
 
 
-db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").where("categoria","==","20").get().then((querySnapshot)=>{
+db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").where("categoria","==",parametrosURL.get('categoria')).get().then((querySnapshot)=>{
     var ideMayor="";
     var idePunt="";
     var fata=0;
     var punt=0;
     querySnapshot.forEach((doc) => {
-        console.log(doc.id);
-        db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos").doc(doc.id).collection("puntosJugadores").get().then((docs4)=>{
+        // console.log(doc.id);
+        db.collection("Campeonatos").doc(parametrosURL.get('id')).collection("EquiposInscritos").doc(doc.id).collection("puntosJugadores").get().then((docs4)=>{
             docs4.forEach((auxi)=>{
                 if(auxi.data().faltas>fata){
                     fata=auxi.data().faltas;
@@ -98,7 +110,7 @@ db.collection("Campeonatos").doc("Campeonato UwU").collection("EquiposInscritos"
             
             
         });
-        console.log("diositoayudame"+fata+" puntos"+punt);
+        // console.log("diositoayudame"+fata+" puntos"+punt);
     });
     
 });

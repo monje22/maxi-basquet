@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +23,11 @@
     <link rel="icon" href="../assets/img/Logo_minimalista.png">
     <title>Perfil</title>
 </head>
+
 <body>
     <Header>
         <div class="Logo-nombre">
-            <a href="/pages/HomeDelegado.html">
+            <a href="../index.html">
                 <img src="../assets/img/Logo_Blanco.png" alt="" class="logoPagina">
             </a>
         </div>
@@ -33,25 +35,8 @@
         <nav class="Menu-header">
             <ul class="Menu">
                 <!-- Modificar links!!! -->
-                <li><a href="campeonatosDelegado.html">CAMPEONATOS</a></li>
-                <li><a href="calendario.html">PARTIDOS</a></li>
-                <!-- <li><a href="HomeDelegado.html">HOME</a></li> -->
-
-                <div class="desplegable">
-                    <button class="desplebutton">
-                        <a href="#l" id="prueba" class="get-started-btn"> Delegado
-
-                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                        </a>
-                    </button>
-
-                    <!-- <i class="material-icons">expand_more </i>  -->
-                    <div class="options">
-
-                        <a href="./registro-equipo.html" id="logout">Crear Equipo</a>
-                        <a href="#" id="logout" onclick="logout()">Cerrar Sesión</a>
-                    </div>
-                </div>
+                <li><a href="login.html">INICIAR SESIÓN</a></li>
+                <li><a href="./Registro.html">REGISTRARSE</a></li>
             </ul>
         </nav>
     </Header>
@@ -61,18 +46,19 @@
     <div class="contenedor">
         <div class="row align-item-start">
             <img src="../assets/img/perfil_placeholder.jpg" class="imagen col" id="img-perfil">
-            <h3 class="col nombre" id="Nombre" >Nombre jugador</h3>
+            <h3 class="col nombre" id="Nombre">Nombre jugador</h3>
         </div>
         <hr class="hr">
         <div class="row align-item-start">
             <div class="col seccion">
                 <h4>Edad:</h4>
                 <Label id="Edad">lore ipsum</Label>
+                <span>Años</span>
             </div>
             <div class="col seccion">
                 <h4>Fecha Nacimiento:</h4>
                 <label id="fecha-nac">lore 2</label>
-            </div>            
+            </div>
         </div>
         <br>
         <div class="row align-item-start">
@@ -84,7 +70,7 @@
                 <h4>Altura:</h4>
                 <label id="altura">lore 2</label>
                 <span>cm.</span>
-            </div>            
+            </div>
         </div>
         <br>
         <div class="row align-item-start">
@@ -100,6 +86,7 @@
         </div>
         <br>
     </div>
+
 
 
 
@@ -139,6 +126,12 @@
         </div>
         <img src="../assets/img/Logo_Blanco.png" alt="Logo de la pagina en el footer" class="logo-footer">
     </footer>
-
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="perfilJugador.js"></script>
+
 </html>

@@ -36,7 +36,7 @@ auth.onAuthStateChanged((user) => {
         // User is signed out
         // ...
         console.log("no esta logueado")
-        window.location.href = "../index.html";
+        //window.location.href = "../index.html";
 
     }
 });
@@ -75,7 +75,6 @@ db.collection("Campeonatos").get().then((querySnapshot) => {
                 <p id="estado">Fecha de Finalizacion :  ${doc.data().FechaFinal}</p>
               <div class="boton">
                     <button title="VerEquipos" onclick="listaEq(this)" name="Inscribirse" id="${contador}">VER EQUIPOS</button>
-                    <button title="Ingresar" onclick="acceso(this)" name="Inscribirse" id="${contador}">INSCRIBIRSE</button>
                 </div>
            </div>
         </div>
@@ -117,5 +116,5 @@ function acceso(auxId) {
 }
 
 function listaEq(auxId) {
-    location.href = `listaEquipos.html?id=${idCampeonatos[auxId.id]}`
+    location.href = `listaEquiposNormal.html?id=${idCampeonatos[auxId.id]}`
 }
