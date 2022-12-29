@@ -34,12 +34,12 @@ btn_añadirFecha.addEventListener('click', () => {
 
 btn_tablaP.addEventListener('click', () => {
     let add = window.location.href.slice(-1)
-    if (add)
-        // alert("Debe seleccionar previamente un campeonato")
+    if (add == "l")
+    // alert("Debe seleccionar previamente un campeonato")
         window.location.href = "./tabla_posicionesT.html";
     else {
-        let catA = document.getElementById("categoria")
-        let catB = catA.options[catA.selectedIndex].text;
+        let catA = document.getElementById("categorias")
+        let catB = catA.options[catA.selectedIndex].value;
         window.location.href = "./tabla_posicionesT.html" + "?id=Campeonato UwU" + "&categoria=" + catB
     }
 
