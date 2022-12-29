@@ -246,6 +246,7 @@ async function crearCamp() {
             })
             .then(() => {
                 console.log("Document successfully updated!");
+                window.location.href = "Vista_campeonatos.html";
             })
             .catch((error) => {
                 // The document probably doesn't exist.
