@@ -261,8 +261,11 @@ function capturar() {
     var edadCalcu = calcularEdad(fechaNacimiento);
     var cate = document.getElementById('cajaCategoria').value;
     cate = cate.replace(/[^0-9]+/g, "");
-    console.log("fffff" + cate);
-    if (edadCalcu >= cate) {
+    console.log(cate);
+    console.log(edadCalcu);
+    console.log(cate+10)
+    console.log()
+    if (edadCalcu >= Number(cate) && edadCalcu < Number(cate)+10) {
         var jugador = new Jugadores(nombrecap, nacionalidadcap, edadcap, pesocap, alturacap, fotocap, carnetcap);
         console.log(jugador.foto);
         console.log(fotocap);
