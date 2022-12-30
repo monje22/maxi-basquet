@@ -32,7 +32,7 @@ auth.onAuthStateChanged((user) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         var uid = user.uid;
-        console.log(user)
+        // console.log(user)
             // ...
     } else {
         // User is signed out
@@ -50,33 +50,35 @@ function logout() {
 }
 
 const paramURL = window.location.search;
-console.log(paramURL);
+// console.log(paramURL);
 
 const parametrosURL = new URLSearchParams(paramURL);
-console.log(typeof(parametrosURL));
+// console.log(typeof(parametrosURL));
 
 for (let valoresURL of parametrosURL) {
-    console.log(valoresURL)
+    // console.log(valoresURL)
 }
 
 let idCamp = parametrosURL.get('id')
-console.log(idCamp)
+// console.log(idCamp)
 
 
 let susCategorias = "";
 let arrayCategorias = [];
-console.log(idCamp)
+// console.log(idCamp)
 
 db.collection("Campeonatos").doc(idCamp).get().then((doc) => {
     susCategorias = doc.data().Categoria
-    console.log(doc.data().Categoria)
+    // console.log(doc.data().Categoria)
         // susCategorias = susCategorias.replace("+","")
     while (susCategorias.indexOf("+") != -1) {
         susCategorias = susCategorias.replace("+", "")
         susCategorias = susCategorias.replace(" ", "")
     }
     console.log(susCategorias)
-    console.log(susCategorias.split(","))
+    console.log(susCategorias.slice(0,-2))
+    susCategorias = susCategorias.slice(0,-2);
+    // console.log(susCategorias.split(","))
     arrayCategorias = susCategorias.split(",");
     console.log(arrayCategorias);
 });
@@ -190,21 +192,21 @@ let loader = document.getElementById("preloader");
 // setTimeout(() => {loader.style.display = "none"}, 2000);
 
 let usuarioId = "";
-console.log(usuarioId)
+// console.log(usuarioId)
 auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         usuarioId = user.uid;
-        console.log("si esta logueado")
-        console.log(user)
-        console.log(usuarioId);
+        // console.log("si esta logueado")
+        // console.log(user)
+        // console.log(usuarioId);
         // ...
     } else {
         // User is signed out
         // ...
         window.location.href = "../index.html";
-        console.log("no esta logueado")
+        // console.log("no esta logueado")
     }
 });
 
@@ -223,14 +225,14 @@ db.collection("Equipos").get().then((querySnapshot) => {
             // console.log(usuarioId)
             if (usuarioId == element.data().idDelegado) {
                 varEquipo = element.data().nombreEquipo;
-                console.log(usuarioId);
-                console.log(varEquipo)
+                // console.log(usuarioId);
+                // console.log(varEquipo)
             }
         }
 
     )
 
-    console.log(varEquipo)
+    // console.log(varEquipo)
     if (varEquipo == "") {
         Swal.fire({
             title: 'Oh parece que ah ocurrido un problema.',
@@ -277,7 +279,7 @@ docRef.get().then((doc) => {
         let a = new Date();
         let año = a.getFullYear();
         let mes = a.getMonth() + 1;
-        console.log(a.getDate())
+        // console.log(a.getDate())
         let dia = a.getDate();
         if (a.getDate() < 10) {
             dia = "0" + a.getDate();
@@ -285,10 +287,10 @@ docRef.get().then((doc) => {
         if (a.getMonth() + 1 < 10) {
             mes = "0" + a.getMonth();
         }
-        console.log(a)
-        console.log(dia)
-        console.log(mes)
-        console.log(año)
+        // console.log(a)
+        // console.log(dia)
+        // console.log(mes)
+        // console.log(año)
 
         let fechaHoy = "" + año + mes + dia;
         // console.log(fechaHoy)
@@ -296,15 +298,15 @@ docRef.get().then((doc) => {
         quitarCaracter(cp.FechaPreInsc)
         quitarCaracter2(cp.FechaIniInsc)
         quitarCaracter4(cp.FechaLimIns)
-        console.log(" es la fecha pre " + fechaPre)
-        console.log(" es la fecha incio " + fechaIni)
-        console.log("es la fecha hoy " + fechaHoy)
-        console.log("es la fecha limite de inscriocion " + fechalim)
-        console.log(Math.floor(fechaHoy))
-        console.log(Math.floor(fechaPre))
-        console.log(Math.floor(fechaIni))
-        console.log(cp.FechaInicio)
-        console.log("hsata qui todo bien")
+        // console.log(" es la fecha pre " + fechaPre)
+        // console.log(" es la fecha incio " + fechaIni)
+        // console.log("es la fecha hoy " + fechaHoy)
+        // console.log("es la fecha limite de inscriocion " + fechalim)
+        // console.log(Math.floor(fechaHoy))
+        // console.log(Math.floor(fechaPre))
+        // console.log(Math.floor(fechaIni))
+        // console.log(cp.FechaInicio)
+        // console.log("hsata qui todo bien")
             // fecha de hoy tiene que ser mayor a la fecha preins y la fecha de hoy tiene que ser mayor iniIns
         if (Math.floor(fechaHoy) >= Math.floor(fechaPre) && Math.floor(fechaHoy) <= Math.floor(fechaIni)) {
             //Pre inscripcion
@@ -447,8 +449,8 @@ function ponerEquipo(nEquipo) {
     let t = document.createElement("p");
     p.innerText = nEquipo + "";
     t.innerText = "Usten no tiene un equipo";
-    console.log(p)
-    console.log(texto)
+    // console.log(p)
+    // console.log(texto)
 
 
     if (nEquipo != "") {
@@ -621,12 +623,13 @@ function ventana() {
                 db.collection("Equipos").doc(prueba).collection("Jugadores").get().then((querySnapshot) => {
                     var semaforo=false;
                     querySnapshot.forEach(element => {
-                        // console.log("es el each")
+                        console.log("es el each")
                         let edadJugador = calcularEdad(element.data().edad);
-                        // console.log(edadJugador)
-                        // console.log(arrayCategorias)
+                        console.log(edadJugador)
+                        console.log(arrayCategorias)
                         for (let index = 0; index < arrayCategorias.length; index++) {
                             // console.log("estoy donde el ultimo")
+                            console.log(arrayCategorias[arrayCategorias.length - 2])
                             if (arrayCategorias[arrayCategorias.length - 1] == suCategoria) {
                                 if (arrayCategorias[index] == Math.floor(suCategoria)) {
                                     // console.log("aqui es igual su categoria")
@@ -678,6 +681,7 @@ function ventana() {
                                 if(semaforo==false){
                                     subirImagen(ft)
                                     semaforo=true;
+                                    console.log(semaforo)
                                 }
                                 
                                 setTimeout(y, 2000)
